@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import AnimatedHeading from 'components/animated-heading'
 import AnimationContainer from 'components/animation-container'
+import { secondaryMain } from '../../constants/color'
 
 class PortfolioTwo extends React.Component {
     
@@ -25,7 +26,7 @@ class PortfolioTwo extends React.Component {
             .slick-dots {
               bottom: 0;
               li button:before,.slick-dots li.slick-active button:before {
-                color: #04e5e5;
+                color: ${secondaryMain};
               }
             }
           }

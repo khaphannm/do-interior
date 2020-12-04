@@ -171,13 +171,13 @@ class HeroVideo extends React.Component {
 
         const Service = styled.div`
             min-height: 300px;
-            background-color: ${primaryMain};
+            background-color: #000;
             transition: .2s;
             display: flex;
             justify-content: center;
             flex-direction: column;
             &:hover {
-                background-color: ${primaryLight};
+                background-color: #222;
             }
         `
         const ServiceContent = styled.div`

@@ -42,7 +42,7 @@ class DesktopContent extends React.Component {
             display: flex;
             &.active {
                 animation: ${Animation} 1s forwards;
-                background-image: linear-gradient(to top, rgba(4,229,229,1), rgba(255, 255, 255, 0));
+                background-image: linear-gradient(to top, rgba(168,149,89,1) 0%, rgba(225,225,225,0));
             }
         `
 

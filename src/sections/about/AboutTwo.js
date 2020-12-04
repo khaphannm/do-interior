@@ -6,7 +6,7 @@ import RevealContent from 'components/reveal-content'
 import AnimationContainer from 'components/animation-container'
 import Particles from 'react-particles-js';
 import Counter from 'components/counter'
-import { secondaryLight, secondaryMain } from '../../constants/color'
+import { secondaryLight, secondaryMain, primaryMain } from '../../constants/color'
 
 class AboutTwo extends React.Component {
 
@@ -82,7 +82,7 @@ class AboutTwo extends React.Component {
             height: 100%;
             width: 100%;
             top: 0;
-            background-color: rgba(0,0,0,.9);
+            background-color: ${primaryMain};
         `
         const Heading = styled.h1`
             font-size: 70px;
