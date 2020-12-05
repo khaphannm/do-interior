@@ -57,6 +57,16 @@ class HeroVideo extends React.Component {
             video {
                 position: absolute;
             }
+            &:before {
+                content:"";
+                position: absolute;
+                top:0;
+                right:0;
+                left:0;
+                bottom:0;
+                z-index:1;
+                background:linear-gradient(103deg, rgba(32,44,38,0.8743872549019608) 1%, rgba(237,255,245,0.5970763305322129) 42%, rgba(45,62,53,0.700717787114846) 100%);
+            }
         `
         const Heading1 = styled.h1`
             font-size: 80px;
@@ -85,10 +95,10 @@ class HeroVideo extends React.Component {
             color: #fff;
             font-weight: 700;
             text-transform: uppercase;
-            background: -webkit-linear-gradient(right, rgba(255,247,195,1) 0%, rgba(168,149,89,1) 39%);
-            background: -o-linear-gradient(right, rgba(255,247,195,1) 0%, rgba(168,149,89,1) 39%);
-            background: -moz-linear-gradient(right, rgba(255,247,195,1) 0%, rgba(168,149,89,1) 39%);
-            background: linear-gradient(right, rgba(255,247,195,1) 0%, rgba(168,149,89,1) 39%);
+            background: -webkit-linear-gradient(180deg, rgba(168,149,89,1) 0%, rgba(255,247,195,1) 64%);
+            background: -o-linear-gradient(180deg, rgba(168,149,89,1) 0%, rgba(255,247,195,1) 64%);
+            background: -moz-linear-gradient(180deg, rgba(168,149,89,1) 0%, rgba(255,247,195,1) 64%);
+            background: linear-gradient(180deg, rgba(168,149,89,1) 0%, rgba(255,247,195,1) 64%);
            -webkit-background-clip: text;
            -webkit-text-fill-color: transparent;
            @media (max-width:767px) {
@@ -171,13 +181,13 @@ class HeroVideo extends React.Component {
 
         const Service = styled.div`
             min-height: 300px;
-            background-color: #000;
+            background-color: #202c26;
             transition: .2s;
             display: flex;
             justify-content: center;
             flex-direction: column;
             &:hover {
-                background-color: #222;
+                background-color: #40594b;
             }
         `
         const ServiceContent = styled.div`

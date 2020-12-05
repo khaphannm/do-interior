@@ -7,6 +7,7 @@ import AnimationContainer from 'components/animation-container'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { secondaryMain } from '../../constants/color'
 
 class TestimonialsTwo extends React.Component {
 
@@ -15,7 +16,7 @@ class TestimonialsTwo extends React.Component {
         const Section = styled.section`
             position: relative;
             overflow: hidden;
-            background-color: #000;
+            background-color: #32443a;
             background-size: cover;
             .heading {
                 width: 100%;
@@ -59,7 +60,7 @@ class TestimonialsTwo extends React.Component {
             }
         `
         const Color = styled.span`
-            color:  #04e5e5;
+            color: ${secondaryMain};
             font-size: 155px;
             line-height: 120px;
             font-family: Teko;
@@ -77,7 +78,8 @@ class TestimonialsTwo extends React.Component {
 
         const TestimonialBox = styled.div`
             padding: 50px;
-            background-color: #04e5e5;
+            background-color: #FFBF00;
+            background: linear-gradient(180deg, rgba(224,204,140,1) 0%, rgba(168,149,89,0.8155637254901961) 64%);
             min-height: 500px;
             display: flex;
             flex-direction: column;

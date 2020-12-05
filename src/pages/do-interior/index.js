@@ -10,6 +10,7 @@ import TestimonialsTwo from 'sections/testimonials/TestimonialsTwo.js'
 // import TeamTwo from 'sections/team/TeamTwo.js'
 // import ClientsTwo from 'sections/clients/ClientsTwo.js'
 import ContactCreative from 'sections/contact/ContactCreative.js'
+import Pricing from 'sections/pricing/Pricing.js'
 
 class Index extends React.Component {
 
@@ -24,7 +25,7 @@ class Index extends React.Component {
         </Helmet>
         <Layout
           isHome={true}
-          sections={['home', 'about', 'services', 'portfolio', 'testimonials', 'contact']}
+          sections={['home', 'about', 'services', 'portfolio', 'testimonials', 'pricing', 'contact']}
          >
           <HeroVideo />
           <AboutTwo />
@@ -33,6 +34,7 @@ class Index extends React.Component {
           <TestimonialsTwo />
           {/* <TeamTwo /> */}
           {/* <ClientsTwo /> */}
+          <Pricing />
           <ContactCreative />
         </Layout>
       </div>

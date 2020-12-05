@@ -1,6 +1,7 @@
 import React from 'react'
 import handleViewport from 'react-in-viewport'
 import styled, { keyframes } from 'styled-components'
+import { secondaryMain } from '../../constants/color'
 
 class Animated_Heading extends React.Component {
     constructor(props) {
@@ -94,7 +95,7 @@ class Animated_Heading extends React.Component {
         return this.props.text.split(" ").map((value, index) => {
             return value.split("").map((v, i) => {
                 ++time
-                return i+1 !== value.length ? <AnimatedLetter key={i} style={{animationDelay: `${time*100}ms`, color: index % 2 !== 0 || this.props.color ? "#04e5e5" : "#fff"}} className={!this.state.animation_complete ? this.state.animate ? "animate" : "" : "animation_complete"}>{v}</AnimatedLetter> : <span key={i}><AnimatedLetter style={{animationDelay: `${time*100}ms`, color: index % 2 !== 0 || this.props.color ? "#04e5e5" : "#fff"}} className={!this.state.animation_complete ? this.state.animate ? "animate" : "" : "animation_complete"}>{v}</AnimatedLetter><Space /></span>
+                return i+1 !== value.length ? <AnimatedLetter key={i} style={{animationDelay: `${time*100}ms`, color: index % 2 !== 0 || this.props.color ? secondaryMain : "#fff"}} className={!this.state.animation_complete ? this.state.animate ? "animate" : "" : "animation_complete"}>{v}</AnimatedLetter> : <span key={i}><AnimatedLetter style={{animationDelay: `${time*100}ms`, color: index % 2 !== 0 || this.props.color ? secondaryMain : "#fff"}} className={!this.state.animation_complete ? this.state.animate ? "animate" : "" : "animation_complete"}>{v}</AnimatedLetter><Space /></span>
             })
         })
     }

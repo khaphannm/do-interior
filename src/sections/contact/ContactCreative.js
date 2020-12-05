@@ -13,7 +13,7 @@ class ContactCreative extends React.Component {
         const Section = styled.section`
             position: relative;
             overflow: hidden;
-            background-color: #000;
+            background-color: #48614e;
             padding: 100px 0;
         `
 

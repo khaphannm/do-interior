@@ -3,6 +3,7 @@ import { Row, Col, Container } from 'react-bootstrap'
 import styled from 'styled-components'
 import AnimationContainer from 'components/animation-container'
 import AnimatedHeading from 'components/animated-heading'
+import { primaryContrast, secondaryLight, secondaryMain } from '../../constants/color'
 
 class ServicesTwo extends React.Component {
 
@@ -15,7 +16,7 @@ class ServicesTwo extends React.Component {
         const Section = styled.section`
             position: relative;
             overflow: hidden;
-            background-color: #111;
+            background-color: #202b26;
             padding: 100px 0 50px 0;
             .heading {
                 width: 100%;
@@ -38,7 +39,7 @@ class ServicesTwo extends React.Component {
         const ServiceSeparator = styled.div`
             height: 2px;
             width: 50px;
-            background-color: #04e5e5;
+            background-color: ${primaryContrast};
             margin-bottom: 5px;
          `
 
@@ -60,7 +61,7 @@ class ServicesTwo extends React.Component {
             position: relative;
             &:hover ${ServiceNumber} {
                 opacity: .3 !important;
-                color: #04e5e5;
+                color: ${secondaryLight};
             }
         `
 

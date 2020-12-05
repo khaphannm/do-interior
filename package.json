@@ -50,7 +50,7 @@
     "react-youtube-background": "^1.0.0",
     "scroll-to-element": "^2.0.3",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^5.1.0",
+    "styled-components": "^5.2.1",
     "typewriter-effect": "^2.13.0"
   },
   "devDependencies": {
