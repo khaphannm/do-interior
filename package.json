@@ -74,6 +74,8 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop"
+    "develop": "gatsby develop",
+    "publish-please": "publish-please",
+    "prepublishOnly": "publish-please guard"
   }
 }
