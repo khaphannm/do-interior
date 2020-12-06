@@ -1,7 +1,7 @@
 ---
 id: 2
-image: './image.jpg'
-title: "Front-end Project"
-category: "React.js"
-link: "https://github.com"
+image: './image.jpeg'
+title: "House 2"
+category: "House"
+link: "https://unsplash.com/s/photos/interior"
 ---

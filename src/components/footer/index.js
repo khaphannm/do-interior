@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { secondaryMain } from '../../constants/color'
 
 class Footer extends React.Component{
 
@@ -22,7 +23,7 @@ class Footer extends React.Component{
                 cursor: pointer;
                 transition: .5s;
                 &:hover {
-                    color: #04e5e5;
+                    color: ${secondaryMain};
                 }
             }
         `

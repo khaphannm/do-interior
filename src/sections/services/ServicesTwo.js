@@ -85,7 +85,7 @@ class ServicesTwo extends React.Component {
                                             01
                                         </ServiceNumber>
                                         <ServiceHeading>
-                                            Mobile App Development
+                                           Do Design
                                         </ServiceHeading>
                                         <ServiceSeparator/>
                                         <ServiceText>
@@ -102,7 +102,7 @@ class ServicesTwo extends React.Component {
                                         02
                                     </ServiceNumber>
                                     <ServiceHeading>
-                                        Web  Development
+                                        Do Interior
                                     </ServiceHeading>
                                     <ServiceSeparator/>
                                     <ServiceText>
@@ -119,7 +119,7 @@ class ServicesTwo extends React.Component {
                                         03
                                     </ServiceNumber>
                                     <ServiceHeading>
-                                        Email Marketing
+                                        Building House
                                     </ServiceHeading>
                                     <ServiceSeparator/>
                                     <ServiceText>
@@ -136,7 +136,7 @@ class ServicesTwo extends React.Component {
                                         04
                                     </ServiceNumber>
                                     <ServiceHeading>
-                                        Search Engine Optimization
+                                        Facilities Equipment
                                     </ServiceHeading>
                                     <ServiceSeparator/>
                                     <ServiceText>
@@ -153,7 +153,7 @@ class ServicesTwo extends React.Component {
                                         05
                                     </ServiceNumber>
                                     <ServiceHeading>
-                                        Network Management
+                                        Plants
                                     </ServiceHeading>
                                     <ServiceSeparator/>
                                     <ServiceText>
@@ -170,7 +170,7 @@ class ServicesTwo extends React.Component {
                                         06
                                     </ServiceNumber>
                                     <ServiceHeading>
-                                        UI/UX Development
+                                        Civic works
                                     </ServiceHeading>
                                     <ServiceSeparator/>
                                     <ServiceText>
@@ -187,7 +187,7 @@ class ServicesTwo extends React.Component {
                                         07
                                     </ServiceNumber>
                                     <ServiceHeading>
-                                        Database Management
+                                        Consultant
                                     </ServiceHeading>
                                     <ServiceSeparator/>
                                     <ServiceText>
@@ -204,7 +204,7 @@ class ServicesTwo extends React.Component {
                                         08
                                     </ServiceNumber>
                                     <ServiceHeading>
-                                        Machine Learning
+                                        Others
                                     </ServiceHeading>
                                     <ServiceSeparator/>
                                     <ServiceText>

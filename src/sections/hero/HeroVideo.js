@@ -65,7 +65,7 @@ class HeroVideo extends React.Component {
                 left:0;
                 bottom:0;
                 z-index:1;
-                background:linear-gradient(103deg, rgba(32,44,38,0.8743872549019608) 1%, rgba(237,255,245,0.5970763305322129) 42%, rgba(45,62,53,0.700717787114846) 100%);
+                background: linear-gradient(180deg, rgba(46,61,53,1) 0%, rgba(32,43,40,0.7175245098039216) 64%);
             }
         `
         const Heading1 = styled.h1`

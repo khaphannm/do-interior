@@ -1,7 +1,7 @@
 ---
 id: 5
-image: './image.jpg'
-title: "UI Deisgn for Company"
-category: "UI/UX Design"
-link: "https://github.com"
+image: './image.jpeg'
+title: "House 6"
+category: "House"
+link: "https://unsplash.com/s/photos/interior"
 ---

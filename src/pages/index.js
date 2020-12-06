@@ -1,22 +1,22 @@
 import React from 'react'
-import Layout from 'components/layout'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import Hero from 'sections/hero/Hero.js'
-import AboutOne from 'sections/about/AboutOne.js'
-import ServicesOne from 'sections/services/ServicesOne.js'
-import PortfolioOne from 'sections/portfolio/PortfolioOne.js'
-import TestimonialsOne from 'sections/testimonials/TestimonialsOne.js'
-import TeamOne from 'sections/team/TeamOne.js'
-import ClientsOne from 'sections/clients/ClientsOne.js'
+import Layout from 'components/layout'
+import HeroVideo from 'sections/hero/HeroVideo.js'
+import AboutTwo from 'sections/about/AboutTwo.js'
+import ServicesTwo from 'sections/services/ServicesTwo.js'
+import PortfolioTwo from 'sections/portfolio/PortfolioTwo.js'
+import TestimonialsTwo from 'sections/testimonials/TestimonialsTwo.js'
+// import TeamTwo from 'sections/team/TeamTwo.js'
+// import ClientsTwo from 'sections/clients/ClientsTwo.js'
 import ContactCreative from 'sections/contact/ContactCreative.js'
+import Pricing from 'sections/pricing/Pricing.js'
 
 class Index extends React.Component {
 
   render() {
-
     const { site } = this.props.data
-
+    
     return (
       <div>
         <Helmet>
@@ -25,15 +25,16 @@ class Index extends React.Component {
         </Helmet>
         <Layout
           isHome={true}
-          sections={['home', 'about', 'services', 'portfolio', 'testimonials', 'team', 'clients', 'contact']}
-        >
-          <Hero />
-          <AboutOne />
-          <ServicesOne />
-          <PortfolioOne />
-          <TestimonialsOne />
-          <TeamOne />
-          <ClientsOne />
+          sections={['home', 'about', 'services', 'portfolio', 'testimonials', 'pricing', 'contact']}
+         >
+          <HeroVideo />
+          <AboutTwo />
+          <ServicesTwo />
+          <PortfolioTwo />
+          <TestimonialsTwo />
+          {/* <TeamTwo /> */}
+          {/* <ClientsTwo /> */}
+          <Pricing />
           <ContactCreative />
         </Layout>
       </div>
@@ -43,7 +44,7 @@ class Index extends React.Component {
 
 export default Index
 
-export const creativeOneQuery = graphql`
+export const creativeVideoTwoQuery = graphql`
   query {
     site {
       meta: siteMetadata {

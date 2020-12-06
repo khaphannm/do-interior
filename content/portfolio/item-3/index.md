@@ -1,7 +1,7 @@
 ---
 id: 3
-image: './image.jpg'
-title: "Angular Project"
-category: "Angular.js"
-link: "https://github.com"
+image: './image.jpeg'
+title: "House 3"
+category: "House"
+link: "https://unsplash.com/s/photos/interior"
 ---

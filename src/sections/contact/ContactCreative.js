@@ -4,6 +4,7 @@ import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import AnimationContainer from 'components/animation-container'
 import ContactCreativeForm from './parts/ContactCreativeForm.js'
+import { primaryLight, primaryMain, secondaryMain } from '../../constants/color.js'
 
 class ContactCreative extends React.Component {
 
@@ -53,17 +54,17 @@ class ContactCreative extends React.Component {
             text-align: center;
             position: relative;
             bottom: 75px;
-            background-color: #04e5e5;
+            background-color: ${primaryLight};
             border-radius: 150px;
             transition: .5s;
         `
         
         const InfoPart = styled.div`
             min-height: 250px;
-            background-color: #111;
+            background-color: ${primaryMain};
             border: 2px solid #444;
             &:hover ${IconContainer} {
-              background-color: #009e9e;
+              background-color: ${primaryLight};
             }
         `
         const Icon = styled.img`
@@ -89,7 +90,7 @@ class ContactCreative extends React.Component {
         `
 
         const InfoLink = styled.a`
-            color: #04e5e5;
+            color: ${secondaryMain};
             transition: .5s;
             &:hover {
               color: #fff;
@@ -102,13 +103,14 @@ class ContactCreative extends React.Component {
                 <Container>
                   <AnimationContainer animation="fadeIn">
                     <FormRow>
-                      <ContactCol md={6}>
+                      {/* <ContactCol md={6}>
                           <ContactCreativeForm />
-                      </ContactCol>
-                      <ContactCol md={6}>
+                      </ContactCol> */}
+                      <ContactCol md={12}>
                         <Map  
                           title="map"
-                          src="https://maps.google.com/maps?width=500&amp;height=500&amp;hl=en&amp;q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"/>
+                          width="600" height="450" frameborder="0" allowfullscreen="" aria-hidden="false"
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62860.62274110656!2d105.72255087486968!3d10.034269632974542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0629f6de3edb7%3A0x527f09dbfb20b659!2zQ2FuIFRobywgTmluaCBLaeG7gXUsIEPhuqduIFRoxqEsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1607261049001!5m2!1sen!2s"/>
                       </ContactCol>
                     </FormRow>
                   </AnimationContainer>
@@ -124,8 +126,8 @@ class ContactCreative extends React.Component {
                                 Email
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink href="mailto:email@yoursite.com">
-                                  email@yoursite.com
+                                <InfoLink href="mailto:email@gmail.com">
+                                  email@gmail.com
                                 </InfoLink>
                               </InfoLinkContainer>
                             </Info>
@@ -143,8 +145,8 @@ class ContactCreative extends React.Component {
                                 Phone
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink href="tel:+(123)123-1234">
-                                  (123) 456-7890
+                                <InfoLink href="tel:+(84)938-499-460">
+                                  (84) 938-499460
                                 </InfoLink>
                               </InfoLinkContainer>
                             </Info>
@@ -162,8 +164,8 @@ class ContactCreative extends React.Component {
                                 Address
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink target="_blank" href="https://maps.google.com/maps?ll=53.343244,-6.259338&z=14&t=m&hl=en&gl=US&mapclient=embed&q=1%20Grafton%20Street%20Dublin%20Ireland">
-                                  1 Grafton Street Dublin Ireland
+                                <InfoLink target="_blank" href="https://goo.gl/maps/wuVLEBBR9gAJuKoB8">
+                                  1 Ninh Kiều, Cần Thơ
                                 </InfoLink>
                               </InfoLinkContainer>
                             </Info>

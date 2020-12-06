@@ -304,7 +304,7 @@ class AboutTwo extends React.Component {
                                 <AnimationContainer animation="fadeIn" delay={1500}>
                                     <AboutContent>
                                         <Heading>
-                                            About <Color>DO</Color> <br />Company From <Color>SaiGon</Color>
+                                            About <Color>DO</Color> <br />Company From <Color>CanTho</Color>
                                         </Heading>
                                         <Separator />
                                         <Text>
@@ -332,14 +332,14 @@ class AboutTwo extends React.Component {
                             <Col md={6}>
                                 <AnimationContainer animation="fadeIn" delay={1000}>
                                     <CounterComponent>
-                                        <Counter value={5} duration={5} delay={1000} symbol="+" text="1 Years of Experience" />
+                                        <Counter value={1} duration={5} delay={1000} symbol="+" text="1 Years of Experience" />
                                     </CounterComponent>
                                 </AnimationContainer>
                             </Col>
                             <Col md={6}>
                                 <AnimationContainer animation="fadeIn" delay={1000}>
                                     <CounterComponent>
-                                        <Counter value={100} duration={5} delay={1000} symbol="+" text="Clients Worked With" />
+                                        <Counter value={10} duration={5} delay={1000} symbol="+" text="Clients Worked With" />
                                     </CounterComponent>
                                 </AnimationContainer>
                             </Col>

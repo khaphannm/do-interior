@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { primaryMain, secondaryLight, secondaryMain } from '../../constants/color'
 var scrollToElement = require('scroll-to-element')
 
 class Navbar extends React.Component {
@@ -62,7 +63,7 @@ class Navbar extends React.Component {
             z-index: 100;
             &.sticky {
                 position: fixed;
-                background-color: rgba(0,0,0,.8);
+                background-color: ${primaryMain};
                 padding: 0 0;
                 @media (max-width: 500px) {
                     padding: 20px 0;
@@ -178,7 +179,7 @@ class Navbar extends React.Component {
             margin: 10px 5px;
             transition: .5s;
             &:hover {
-                color: #04e5e5;
+                color: ${secondaryLight};
             }
             &:focus {
                 outline: none;
