@@ -1,7 +1,8 @@
 import React from 'react'
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
-import { Col, Row, Container } from 'react-bootstrap'
+import { Col, Row, Container } from 'react-bootstrap';
+import {useStaticQuery, graphql} from 'gatsby'
 import PricingCard from 'sections/pricing/parts/PricingCard.js';
 import AnimatedHeading from 'components/animated-heading';
 import AnimationContainer from 'components/animation-container';
@@ -18,6 +19,30 @@ const Wrapper = styled.div`
 `
 
 function Pricing(props) {
+
+    const data = useStaticQuery(graphql`
+        query {
+            items: allMarkdownRemark(filter:{fileAbsolutePath:{regex:"/(pricing)/"}}, sort:{fields:[frontmatter___id]}){
+                edges {
+                content: node {
+                    frontmatter {
+                        id
+                        category
+                        mainPrice
+                        mainDesc
+                        restPrices {
+                            price
+                            desc
+                        }
+                    }
+                }
+                }
+            }
+        }
+    `);
+
+    console.log(data);
+
     return (
         <Section id="pricing">
             <Container>
@@ -25,26 +50,20 @@ function Pricing(props) {
             </Container>
             <Wrapper>
                 <Row>
-                    <Col md={3} style={{padding: 0}}>
-                        <AnimationContainer animation="fadeIn">
-                            <PricingCard index={0} />
-                        </AnimationContainer>
-                    </Col>
-                    <Col md={3} style={{padding: 0}}>
-                        <AnimationContainer animation="fadeIn">
-                            <PricingCard index={1} />
-                        </AnimationContainer>
-                    </Col>
-                    <Col md={3} style={{padding: 0}}>
-                        <AnimationContainer animation="fadeIn">
-                            <PricingCard index={2} />
-                        </AnimationContainer>
-                    </Col>
-                    <Col md={3} style={{padding: 0}}>
-                        <AnimationContainer animation="fadeIn">
-                            <PricingCard index={3} />
-                        </AnimationContainer>
-                    </Col>
+                    {data.items.edges.map((item, index) => (
+                        <Col md={3} style={{padding: 0}}>
+                            <AnimationContainer animation="fadeIn">
+                                <PricingCard 
+                                    index={index} 
+                                    id={item.content.frontmatter.id}
+                                    category={item.content.frontmatter.category}    
+                                    mainPrice={item.content.frontmatter.mainPrice}    
+                                    mainDesc={item.content.frontmatter.mainDesc}    
+                                    restPrices={item.content.frontmatter.restPrices}    
+                                />
+                            </AnimationContainer>
+                        </Col>
+                    ))}
                 </Row>
             </Wrapper>
         </Section>

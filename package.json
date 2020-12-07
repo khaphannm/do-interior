@@ -1,8 +1,8 @@
 {
-  "name": "abstract-template",
-  "description": "Abstract - React Creative Agency Personal Portfolio Template",
+  "name": "do-interior",
+  "description": "Do interior ",
   "version": "1.0.0",
-  "author": "Syed Muaz Ali",
+  "author": "Minh Kha",
   "private": true,
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
@@ -60,6 +60,7 @@
     "@fortawesome/react-fontawesome": "^0.1.9",
     "babel-eslint": "10.1.0",
     "bootstrap": "4.4.1",
+    "env-cmd": "^10.1.0",
     "font-awesome": "4.7.0",
     "modern-normalize": "0.6.0",
     "node-sass": "^4.14.0",
@@ -67,14 +68,14 @@
     "react-helmet": "5.2.1"
   },
   "keywords": [
-    "abstract",
+    "interior",
     "agency",
-    "portfolio"
+    "design"
   ],
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "env-cmd gatsby develop",
     "publish-please": "publish-please",
     "prepublishOnly": "publish-please guard"
   }

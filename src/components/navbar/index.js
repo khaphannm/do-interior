@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { primaryMain, secondaryLight, secondaryMain } from '../../constants/color'
+import { primaryMain, secondaryLight } from '../../constants/color'
 var scrollToElement = require('scroll-to-element')
 
 class Navbar extends React.Component {

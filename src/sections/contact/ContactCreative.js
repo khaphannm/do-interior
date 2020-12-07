@@ -3,7 +3,7 @@ import { Row, Col, Container } from 'react-bootstrap'
 import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import AnimationContainer from 'components/animation-container'
-import ContactCreativeForm from './parts/ContactCreativeForm.js'
+// import ContactCreativeForm from './parts/ContactCreativeForm.js'
 import { primaryLight, primaryMain, secondaryMain } from '../../constants/color.js'
 
 class ContactCreative extends React.Component {

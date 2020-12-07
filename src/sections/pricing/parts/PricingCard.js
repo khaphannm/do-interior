@@ -109,22 +109,22 @@ const PriceText = styled.p`
 `;
 
 
-const PricingCard = ({index, ...props}) => {
+const PricingCard = ({index, id, category, mainPrice, mainDesc, restPrices, ...props}) => {
     return (
         <Tilt options={{ scale: 1, max: 10 }}>
             <PricingItem className={`${index % 2 === 0 ? "move-up" : "move-down"} shadow-xl`} id={`pricing-item-${index}`}>
                 <HeadingContainer>
-                    <Heading>Trọn gói /m2</Heading>
+                    <Heading>{category}</Heading>
                 </HeadingContainer>
                 <PriceContainer>
-                    <MainPriceText>149,000</MainPriceText>
+                    <MainPriceText>{mainPrice}</MainPriceText>
                     <Currency>VND</Currency>
                 </PriceContainer>
                 <MainDescription>
-                    <Text>Công trình dân dụng. Khách sạn, resort</Text>
+                    <Text>{mainDesc}</Text>
                 </MainDescription>
                 <TextContainer>
-                    <NormalPriceContainer>
+                    {/* <NormalPriceContainer>
                         <PriceText>346,000 VND</PriceText>
                         <Text>Công trình dân dụng. Khách sạn, resort
                             Bar, cafe, nhà hàng
@@ -133,12 +133,23 @@ const PricingCard = ({index, ...props}) => {
                     <NormalPriceContainer>
                         <PriceText>499,000 VND</PriceText>
                         <Text>Phong cách cổ điển</Text>
-                    </NormalPriceContainer> 
+                    </NormalPriceContainer>
                     <NormalPriceContainer>
                         <PriceText>199,000 VND</PriceText>
                         <Text noMargin>Sân vườn, cảnh quan</Text>
                         <Text>Tư vấn thiết kế nhanh</Text>
-                    </NormalPriceContainer> 
+                    </NormalPriceContainer> */}
+                    {restPrices.map(priceEle => {
+                       return (
+                        <NormalPriceContainer>
+                            <PriceText>{priceEle.price ? `${priceEle.price} VND` : ""}</PriceText>
+                            {/* Display desc to nearly last element */}
+                            {priceEle.desc.slice(0, priceEle.desc.length).map(description => <Text noMargin>{description}</Text>)}
+                            {/* Last element with margin */}
+                            <Text>{priceEle.desc[priceEle.length - 1]}</Text>
+                        </NormalPriceContainer>
+                       )
+                    })}
                 </TextContainer>
             </PricingItem>
         </Tilt>

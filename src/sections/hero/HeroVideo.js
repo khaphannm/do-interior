@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Typewriter from 'typewriter-effect'
 import LoopVideo from './assets/loop.mp4'
-import {primaryMain, primaryLight, secondaryMain, secondaryLight} from '../../constants/color'
+import {secondaryMain, secondaryLight} from '../../constants/color'
 
 class HeroVideo extends React.Component {
 

@@ -3,7 +3,7 @@ import { Row, Col, Container } from 'react-bootstrap'
 import styled from 'styled-components'
 import AnimationContainer from 'components/animation-container'
 import AnimatedHeading from 'components/animated-heading'
-import { primaryContrast, secondaryLight, secondaryMain } from '../../constants/color'
+import { primaryContrast, secondaryLight } from '../../constants/color'
 
 class ServicesTwo extends React.Component {
 
