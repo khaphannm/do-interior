@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: 'Abstract - Creative Agency Personal Portfolio Template',
+    title: 'Do Company - Design and Interior',
     description:
-      'Abstract is a beautiful template built using React and Gatsby for creative agency or personal projects',
+      'We help people do design and interior stuff, using latest technologies',
   },
   pathPrefix: '/',
   plugins: [
