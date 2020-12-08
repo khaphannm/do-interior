@@ -108,6 +108,10 @@ class HeroVideo extends React.Component {
            @media (min-width:768px) and (max-width:1500px) {
                 font-size: 70px;
             }
+            @media (max-width:400px) {
+                font-size: 35px;
+                line-height: 35px;
+            }
         `
 
         const Type = styled.div`
