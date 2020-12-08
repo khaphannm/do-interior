@@ -14,4 +14,5 @@ restPrices: [
         price: "120,000", desc: ["Thiết kế concept"]
     },
 ]
+services: ["Bảng vẽ 3D nội thất", "M&E", "Giám sát tác giả"]
 ---

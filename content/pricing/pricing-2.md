@@ -14,4 +14,5 @@ restPrices: [
         price: "120,000", desc: ["Tư vấn thiết kế nhanh"]
     },
 ]
+services: ["Bảng vẽ Kiến trúc", "Kết cấu (none: cải tạo)", "Hồ sơ xin phép XD", "Giám sát tác giả"]
 ---

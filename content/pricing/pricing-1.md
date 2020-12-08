@@ -14,4 +14,5 @@ restPrices: [
         price: "199,000", desc: ["Sân vườn, cảnh quan", "Tư vấn thiết kế nhanh"]
     },
 ]
+services: ["Bảng vẽ KT, Nội thất", "Kết cấu, M&E", "Hồ sơ xin phép XD", "Giám sát tác giả"]
 ---

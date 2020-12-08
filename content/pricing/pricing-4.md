@@ -14,4 +14,5 @@ restPrices: [
         price: "", desc: ["Xi măng Holcim/Hà Tiên", "Thép Việt Nhật/Pomina", "Dây điện Caldivi,…"]
     },
 ]
+services: ["Hầm nhân hệ số 1.9", "Bán hầm nhân hệ số 1.7", "Mái hệ số 0.5", "*Giá chưa cọc, cừ tràm"]
 ---

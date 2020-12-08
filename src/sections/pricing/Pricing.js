@@ -34,6 +34,7 @@ function Pricing(props) {
                             price
                             desc
                         }
+                        services
                     }
                 }
                 }
@@ -59,7 +60,8 @@ function Pricing(props) {
                                     category={item.content.frontmatter.category}    
                                     mainPrice={item.content.frontmatter.mainPrice}    
                                     mainDesc={item.content.frontmatter.mainDesc}    
-                                    restPrices={item.content.frontmatter.restPrices}    
+                                    restPrices={item.content.frontmatter.restPrices} 
+                                    services={item.content.frontmatter.services} 
                                 />
                             </AnimationContainer>
                         </Col>
