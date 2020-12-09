@@ -35,6 +35,7 @@ function Pricing(props) {
                             desc
                         }
                         services
+                        highlight
                     }
                 }
                 }
@@ -47,7 +48,7 @@ function Pricing(props) {
     return (
         <Section id="pricing">
             <Container>
-                <AnimatedHeading text="Pricing of our services" />
+                <AnimatedHeading text="Bảng Giá Dịch Vụ" />
             </Container>
             <Wrapper>
                 <Row>
@@ -62,6 +63,7 @@ function Pricing(props) {
                                     mainDesc={item.content.frontmatter.mainDesc}    
                                     restPrices={item.content.frontmatter.restPrices} 
                                     services={item.content.frontmatter.services} 
+                                    isHighlight={item.content.frontmatter.highlight}
                                 />
                             </AnimationContainer>
                         </Col>

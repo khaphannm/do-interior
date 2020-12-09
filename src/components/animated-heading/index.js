@@ -68,7 +68,7 @@ class Animated_Heading extends React.Component {
             opacity: 0;
             font-size: ${this.props.fontSize ? this.props.fontSize : "100px"};
             line-height: ${this.props.lineHeight ? this.props.lineHeight : "90px"};
-            font-family: Teko;
+            font-family: Cuprum;
             text-transform: uppercase;
             @media (max-width: 767px) {
                 font-size: 40px;

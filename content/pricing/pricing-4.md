@@ -15,4 +15,5 @@ restPrices: [
     },
 ]
 services: ["Hầm nhân hệ số 1.9", "Bán hầm nhân hệ số 1.7", "Mái hệ số 0.5", "*Giá chưa cọc, cừ tràm"]
+highlight: true
 ---

@@ -14,6 +14,16 @@ const MoveDown = keyframes`
     0% { transform: translateY(0); }
     100% { transform: translateY(20px); }
     `;
+const Ping = keyframes`
+    0% {
+        transform: scale(0.8);
+        opacity: 1;
+    }
+    75%, 100% {
+        transform: scale(1.3);
+        opacity: 0.2;
+    }
+`
 
 const PricingItem = styled.div`
     background-color: #ffffff;
@@ -32,10 +42,10 @@ const PricingItem = styled.div`
     margin: 40px auto;
     border-radius: 16px;
     &.move-up {
-        animation: ${MoveUp} 5s infinite alternate;
+        animation: ${MoveUp} 3s infinite alternate;
     }
     &.move-down {
-        animation: ${MoveDown} 5s infinite alternate;
+        animation: ${MoveDown} 3s infinite alternate;
     }
 `;
 const Container = styled.div`
@@ -98,6 +108,7 @@ const HeadingContainer = styled.div`
         padding-top: .6rem;
         padding-bottom: .6rem;
     }
+
 `;
 const Heading = styled.h4`
     color: ${primaryMain};
@@ -111,7 +122,7 @@ const Heading = styled.h4`
     }
     text-transform: uppercase;
     margin-bottom: 0px;
-    font-family: sans-serif;
+    font-family: Cuprum;
 `;
 const PriceContainer = styled.div`
     width: 100%;
@@ -162,7 +173,10 @@ const MainPriceText = styled.h2`
     @media (max-width:1024px) {
         font-size: 2rem;
         margin-right: .4rem;
-    } 
+    }
+    &.ping-ping {
+        animation: ${Ping} 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
 `;
 const MainDescription = styled.div`
     text-align: center;
@@ -232,16 +246,16 @@ const IconContainer = styled.div`
 `
 
 
-const PricingCard = ({index, id, category, mainPrice, mainDesc, restPrices, services, ...props}) => {
+const PricingCard = ({index, id, category, mainPrice, mainDesc, restPrices, services, isHighlight, ...props}) => {
     return (
         <Tilt options={{ scale: 1, max: 10 }}>
-            <PricingItem className={`${index % 2 === 0 ? "move-up" : "move-down"} shadow-xl`} id={`pricing-item-${index}`}>
+            <PricingItem className={`shadow-xl ${isHighlight && "move-up"}`} id={`pricing-item-${index}`}>
                 <Container>
                     <HeadingContainer>
                         <Heading>{category}</Heading>
                     </HeadingContainer>
                     <PriceContainer>
-                        <MainPriceText>{mainPrice}</MainPriceText>
+                        <MainPriceText className={`${isHighlight ? "ping-ping" : ""}`}>{mainPrice}</MainPriceText>
                         <Currency>VND</Currency>
                     </PriceContainer>
                     <MainDescription>
