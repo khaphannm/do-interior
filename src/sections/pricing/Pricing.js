@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
-import { Col, Row, Container } from 'react-bootstrap';
+import { Col, Row, Container, Tabs as BootTabs, Tab } from 'react-bootstrap';
 import {useStaticQuery, graphql} from 'gatsby'
 import PricingCard from 'sections/pricing/parts/PricingCard.js';
 import AnimatedHeading from 'components/animated-heading';
 import AnimationContainer from 'components/animation-container';
+import ConstructionPrice from './parts/ConstructionPrice';
+import { secondaryMain } from '../../constants/color';
 
 const Section = styled.section`
     background-color: #161d18;
@@ -18,11 +20,25 @@ const Wrapper = styled.div`
     padding-right: 16px;
 `
 
-function Pricing(props) {
+const Tabs = styled(BootTabs)`
+    justify-content: center;
+    & > a {
+        color: #fff;
+    }
+    .active {
+        background-color: ${secondaryMain} !important;
+        color: #e1eae8 !important;
+    }
+    .tabItem {
+        border-radius: 16px;
+    }
+`
 
+function Pricing(props) {
+    // Fetch data
     const data = useStaticQuery(graphql`
         query {
-            items: allMarkdownRemark(filter:{fileAbsolutePath:{regex:"/(pricing)/"}}, sort:{fields:[frontmatter___id]}){
+            items: allMarkdownRemark(filter:{fileAbsolutePath:{regex:"/pricing/(design)/"}}, sort:{fields:[frontmatter___id]}){
                 edges {
                 content: node {
                     frontmatter {
@@ -43,7 +59,10 @@ function Pricing(props) {
         }
     `);
 
-    console.log(data);
+    const [key, setKey] = useState('design');
+    const handleSetKey = k => {
+        setKey(k);
+    }
 
     return (
         <Section id="pricing">
@@ -51,24 +70,46 @@ function Pricing(props) {
                 <AnimatedHeading text="Bảng Giá Dịch Vụ" />
             </Container>
             <Wrapper>
-                <Row>
-                    {data.items.edges.map((item, index) => (
-                        <Col md={3} style={{padding: 0}}>
-                            <AnimationContainer animation="fadeIn">
-                                <PricingCard 
-                                    index={index} 
-                                    id={item.content.frontmatter.id}
-                                    category={item.content.frontmatter.category}    
-                                    mainPrice={item.content.frontmatter.mainPrice}    
-                                    mainDesc={item.content.frontmatter.mainDesc}    
-                                    restPrices={item.content.frontmatter.restPrices} 
-                                    services={item.content.frontmatter.services} 
-                                    isHighlight={item.content.frontmatter.highlight}
-                                />
-                            </AnimationContainer>
-                        </Col>
-                    ))}
-                </Row>
+                    <Tabs
+                        id="tabs-control"
+                        activeKey={key}
+                        onSelect={handleSetKey}
+                        variant="pills"
+                    >
+                        <Tab tabClassName="tabItem" eventKey="design" title="Thiết kế">
+                            <Row>
+                                {data.items.edges.map((item, index) => (
+                                    <Col key={`column-pricing-card-${index}`} md={3} style={{padding: 0}}>
+                                        <AnimationContainer animation="fadeIn">
+                                            <PricingCard 
+                                                index={index} 
+                                                id={item.content.frontmatter.id}
+                                                category={item.content.frontmatter.category}    
+                                                mainPrice={item.content.frontmatter.mainPrice}    
+                                                mainDesc={item.content.frontmatter.mainDesc}    
+                                                restPrices={item.content.frontmatter.restPrices} 
+                                                services={item.content.frontmatter.services} 
+                                                isHighlight={item.content.frontmatter.highlight}
+                                            />
+                                        </AnimationContainer>
+                                    </Col>
+                                ))}
+                            </Row>
+                        </Tab>
+                        <Tab tabClassName="tabItem" eventKey="construction" title="Xây dựng">
+                            <Container>
+                                <Row>
+                                    <Col md={12} style={{padding: 0}}>
+                                        <AnimationContainer animation="fadeIn">
+                                            <ConstructionPrice />
+                                        </AnimationContainer>
+                                    </Col>
+                                </Row>
+                            </Container>
+                        </Tab>
+                    </Tabs>
+                    
+                
             </Wrapper>
         </Section>
     )

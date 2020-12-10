@@ -262,12 +262,12 @@ const PricingCard = ({index, id, category, mainPrice, mainDesc, restPrices, serv
                         <Text>{mainDesc}</Text>
                     </MainDescription>
                     <TextContainer>
-                        {restPrices.map(priceEle => {
+                        {restPrices.map((priceEle, index) => {
                         return (
-                            <NormalPriceContainer>
+                            <NormalPriceContainer key={`normal-price-${index}`}>
                                 <PriceText>{priceEle.price ? `${priceEle.price} VND` : ""}</PriceText>
                                 {/* Display desc to nearly last element */}
-                                {priceEle.desc.slice(0, priceEle.desc.length).map(description => <Text noMargin>{description}</Text>)}
+                                {priceEle.desc.slice(0, priceEle.desc.length).map((description, index) => <Text key={`price-desc-${index}`} noMargin>{description}</Text>)}
                                 {/* Last element with margin */}
                                 <Text>{priceEle.desc[priceEle.length - 1]}</Text>
                             </NormalPriceContainer>
@@ -276,7 +276,7 @@ const PricingCard = ({index, id, category, mainPrice, mainDesc, restPrices, serv
                     </TextContainer>
                 </Container>
                 <ProvideServicesContainer>
-                    {services.map(service => <IconContainer>
+                    {services.map((service, index) => <IconContainer key={`icon-cont-${index}`}>
                         <FontAwesomeIcon icon={faCheckCircle} className="icon" />
                         <Text light marginLeft>{service}</Text>
                     </IconContainer>)}
