@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import { I18nProvider } from '@lingui/react';
+import { i18n } from '@lingui/core';
 import Layout from 'components/layout'
 import HeroVideo from 'sections/hero/HeroVideo.js'
 import AboutTwo from 'sections/about/AboutTwo.js'
@@ -11,35 +13,39 @@ import TestimonialsTwo from 'sections/testimonials/TestimonialsTwo.js'
 // import ClientsTwo from 'sections/clients/ClientsTwo.js'
 import ContactCreative from 'sections/contact/ContactCreative.js'
 import Pricing from 'sections/pricing/Pricing.js'
+import { defaultLocale, dynamicActivate } from '../utils/i18n'
 
-class Index extends React.Component {
-
-  render() {
-    const { site } = this.props.data
+const Index = ({data, ...props}) => {
+    const { site } = data;
     
+    useEffect(() => {
+      dynamicActivate(defaultLocale);
+    }, [])
+
     return (
       <div>
         <Helmet>
           <title>{site.meta.title}</title>
           <meta name="description" content={site.meta.description} />
         </Helmet>
-        <Layout
-          isHome={true}
-          sections={['home', 'about', 'services', 'portfolio', 'testimonials', 'pricing', 'contact']}
-         >
-          <HeroVideo />
-          <AboutTwo />
-          <ServicesTwo />
-          <PortfolioTwo />
-          <TestimonialsTwo />
-          {/* <TeamTwo /> */}
-          {/* <ClientsTwo /> */}
-          <Pricing />
-          <ContactCreative />
-        </Layout>
+        <I18nProvider i18n={i18n}>
+          <Layout
+            isHome={true}
+            sections={['home', 'about', 'services', 'portfolio', 'testimonials', 'pricing', 'contact']}
+          >
+            <HeroVideo />
+            <AboutTwo />
+            <ServicesTwo />
+            <PortfolioTwo />
+            <TestimonialsTwo />
+            {/* <TeamTwo /> */}
+            {/* <ClientsTwo /> */}
+            <Pricing />
+            <ContactCreative />
+          </Layout>
+        </I18nProvider>
       </div>
     )
-  }
 }
 
 export default Index

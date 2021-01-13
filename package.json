@@ -7,6 +7,7 @@
   "dependencies": {
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@hot-loader/react-dom": "^16.13.0",
+    "@lingui/react": "^3.3.0",
     "@primer/octicons-react": "^9.6.0",
     "animate.css": "^3.7.2",
     "babel-plugin-styled-components": "^1.10.7",
@@ -54,11 +55,17 @@
     "typewriter-effect": "^2.13.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-brands-svg-icons": "5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
+    "@lingui/cli": "^3.3.0",
+    "@lingui/loader": "^3.3.0",
+    "@lingui/macro": "^3.3.0",
     "babel-eslint": "10.1.0",
+    "babel-plugin-macros": "^3.0.1",
     "bootstrap": "4.4.1",
     "env-cmd": "^10.1.0",
     "font-awesome": "4.7.0",
@@ -77,6 +84,8 @@
     "build": "gatsby build",
     "develop": "env-cmd gatsby develop",
     "publish-please": "publish-please",
-    "prepublishOnly": "publish-please guard"
+    "prepublishOnly": "publish-please guard",
+    "extract": "lingui extract",
+    "compile": "lingui compile"
   }
 }
