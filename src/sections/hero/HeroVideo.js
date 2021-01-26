@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Typewriter from 'typewriter-effect'
 import LoopVideo from './assets/loop.mp4'
 import {secondaryMain, secondaryLight} from '../../constants/color'
+import { Trans } from '@lingui/macro'
 
 class HeroVideo extends React.Component {
 
@@ -219,6 +220,17 @@ class HeroVideo extends React.Component {
             margin-bottom: 20px;
             img {
                 max-height: 70px;
+                max-width: 50px;
+                &:before {
+                    content:"";
+                    position: absolute;
+                    top:0;
+                    right:0;
+                    left:0;
+                    bottom:0;
+                    z-index:1;
+                    background: linear-gradient(180deg, rgba(46,61,53,1) 0%, rgba(32,43,40,0.7175245098039216) 64%);
+                }
             }
         `
 
@@ -265,9 +277,9 @@ class HeroVideo extends React.Component {
                                     <Service>
                                         <ServiceContent>
                                             <ServiceIcon>
-                                                <img src={this.props.webexpertIcon.childImageSharp.fluid.src} alt="web experts" />
+                                                <img src={this.props.designIcon.childImageSharp.fluid.src} alt="design" />
                                             </ServiceIcon>
-                                            <ServiceHeading>Design</ServiceHeading>
+                                            <ServiceHeading><Trans>Design</Trans></ServiceHeading>
                                             <ServiceSeparator/>
                                             <ServiceText>
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae ultricies lacus, vitae varius velit. 
@@ -280,9 +292,9 @@ class HeroVideo extends React.Component {
                                     <Service>
                                         <ServiceContent>
                                             <ServiceIcon>
-                                                    <img src={this.props.mobileIcon.childImageSharp.fluid.src} alt="mobile experts" />
+                                                    <img src={this.props.interiorIcon.childImageSharp.fluid.src} alt="interior" />
                                             </ServiceIcon>
-                                            <ServiceHeading>Interior</ServiceHeading>
+                                            <ServiceHeading><Trans>Interior</Trans></ServiceHeading>
                                             <ServiceSeparator/>
                                             <ServiceText>
                                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae ultricies lacus, vitae varius velit. 
@@ -325,14 +337,14 @@ export default props => (
             }
           }
         }
-        webexpertIcon: file(relativePath: {eq: "icons/web.png"}) {
+        designIcon: file(relativePath: {eq: "icons/designIcon.png"}) {
           childImageSharp {
             fluid(maxWidth: 500) {
               src
             }
           }
         }
-        mobileIcon: file(relativePath: {eq: "icons/mobile.png"}) {
+        interiorIcon: file(relativePath: {eq: "icons/interiorIcon.png"}) {
           childImageSharp {
             fluid(maxWidth: 500) {
               src
@@ -350,12 +362,12 @@ export default props => (
       `}
       render={({ 
         background, 
-        webexpertIcon, 
-        mobileIcon, 
+        designIcon, 
+        interiorIcon, 
         seoIcon}) => <HeroVideo  
         background={background} 
-        webexpertIcon={webexpertIcon} 
-        mobileIcon={mobileIcon} 
+        designIcon={designIcon} 
+        interiorIcon={interiorIcon} 
         seoIcon={seoIcon}
         {...props} />}
     />

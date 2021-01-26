@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import RevealContent from 'components/reveal-content'
 import AnimationContainer from 'components/animation-container'
 import Slider from 'react-slick'
+import { Trans } from "@lingui/macro";
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { secondaryMain } from '../../constants/color'
@@ -130,7 +131,7 @@ class TestimonialsTwo extends React.Component {
                             <Col md={6}>
                                 <RevealContent className="heading">
                                     <Heading>
-                                        <Color>Reveiews</Color> By our clients
+                                        <Color><Trans>Reveiews</Trans></Color> <Trans>By our clients</Trans>
                                     </Heading>
                                 </RevealContent>
                             </Col>

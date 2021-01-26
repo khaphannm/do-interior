@@ -40,7 +40,6 @@ function ConstructionPrice(props) {
             }
         }
     `);
-    console.log(data);
     const dataTable = useMemo(() => data.content.frontmatter.constructionPrices, [data]);
     const headerData = useMemo(() => dataTable[0], [dataTable]);
     const restData = useMemo(() => dataTable.slice(1, dataTable.length), [dataTable]);

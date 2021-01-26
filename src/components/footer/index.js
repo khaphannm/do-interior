@@ -7,6 +7,7 @@ import { secondaryMain } from '../../constants/color'
 import { dynamicActivate } from '../../utils/i18n';
 import { i18n } from '@lingui/core';
 import {t} from '@lingui/macro';
+import {Trans} from '@lingui/macro';
 
 class Footer extends React.Component{
 
@@ -70,8 +71,8 @@ class Footer extends React.Component{
                         id="dropdown-menu-align-right"
                         variant="secondary"
                     >
-                        <Dropdown.Item eventKey="vi">Việt nam</Dropdown.Item>
-                        <Dropdown.Item eventKey="en">English</Dropdown.Item>
+                        <Dropdown.Item eventKey="vi"><Trans>Việt nam</Trans></Dropdown.Item>
+                        <Dropdown.Item eventKey="en"><Trans>Tiếng anh</Trans></Dropdown.Item>
                     </DropdownButton>
                 </LanguageZone>
             </FooterMain>

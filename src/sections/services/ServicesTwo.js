@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import styled from 'styled-components'
+import {Trans} from '@lingui/macro'
 import AnimationContainer from 'components/animation-container'
 import AnimatedHeading from 'components/animated-heading'
 import { primaryContrast, secondaryLight } from '../../constants/color'
@@ -76,7 +77,7 @@ class ServicesTwo extends React.Component {
         return(
             <Section id="services">
                 <Container>
-                    <AnimatedHeading text="Our Services" />
+                    <AnimatedHeading text={`Our Services`} />
                     <ServiceRow>
                         <Col md={3}>
                             <AnimationContainer animation="fadeInDown" delay={500}>

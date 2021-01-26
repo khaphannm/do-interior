@@ -2,6 +2,7 @@ import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
 import { graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
+import { Trans } from "@lingui/macro";
 import AnimationContainer from 'components/animation-container'
 // import ContactCreativeForm from './parts/ContactCreativeForm.js'
 import { primaryLight, primaryMain, secondaryMain } from '../../constants/color.js'
@@ -142,7 +143,7 @@ class ContactCreative extends React.Component {
                             </IconContainer>
                             <Info>
                               <InfoTitle>
-                                Phone
+                                <Trans>Phone</Trans>
                               </InfoTitle>
                               <InfoLinkContainer>
                                 <InfoLink href="tel:+(84)938-499-460">
@@ -161,7 +162,7 @@ class ContactCreative extends React.Component {
                             </IconContainer>
                             <Info>
                               <InfoTitle>
-                                Address
+                                <Trans>Address</Trans>
                               </InfoTitle>
                               <InfoLinkContainer>
                                 <InfoLink target="_blank" href="https://goo.gl/maps/wuVLEBBR9gAJuKoB8">

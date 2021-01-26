@@ -7,6 +7,8 @@ import AnimationContainer from 'components/animation-container'
 import Particles from 'react-particles-js';
 import Counter from 'components/counter'
 import { secondaryLight, secondaryMain, primaryMain } from '../../constants/color'
+import { Trans } from '@lingui/macro'
+import { i18n } from "@lingui/core";
 
 class AboutTwo extends React.Component {
 
@@ -87,7 +89,7 @@ class AboutTwo extends React.Component {
         const Heading = styled.h1`
             font-size: 70px;
             line-height: 70px;
-            font-family: Teko;
+            font-family: ${i18n.locale === 'en' ? 'Teko' : 'Cuprum'};
             color: #fff;
             text-transform: uppercase;
             @media (min-width:768px) and (max-width:1600px) {
@@ -104,7 +106,7 @@ class AboutTwo extends React.Component {
             color: ${secondaryMain};
             font-size: 75px;
             line-height: 70px;
-            font-family: Teko;
+            font-family: ${i18n.locale === 'en' ? 'Teko' : 'Cuprum'};
             text-transform: uppercase;
             letter-spacing: 2px;
             @media (min-width:768px) and (max-width:1600px) {
@@ -189,7 +191,7 @@ class AboutTwo extends React.Component {
               top: -28px;
           }
     `
-
+        const {aboutMarkdown} = this.props;
         return(
             <Section id="about">
                 <Overlay />
@@ -304,14 +306,11 @@ class AboutTwo extends React.Component {
                                 <AnimationContainer animation="fadeIn" delay={1500}>
                                     <AboutContent>
                                         <Heading>
-                                            About <Color>DO</Color> <br />Company From <Color>CanTho</Color>
+                                          {aboutMarkdown.frontmatter[`about_${i18n.locale}`]} <Color>DO</Color> <br />{aboutMarkdown.frontmatter[`companyFrom_${i18n.locale}`]} <Color>{aboutMarkdown.frontmatter[`companyLocation_${i18n.locale}`]}</Color>
                                         </Heading>
                                         <Separator />
                                         <Text>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                            In rutrum quis urna a ullamcorper. Integer enim felis, pellentesque ac felis et, varius ornare nisl. 
-                                            Nunc mauris turpis, porttitor sit amet mattis ac, ultricies sit amet diam. Nunc aliquet tincidunt lobortis. Ut quis felis tincidunt, tincidunt ex quis, ultricies nisi. 
-                                            Duis in tortor porta, laoreet erat tristique, ornare augue.
+                                            {aboutMarkdown.frontmatter[`about_desc_${i18n.locale}`]}
                                         </Text>
                                     </AboutContent>
                                 </AnimationContainer>
@@ -332,14 +331,14 @@ class AboutTwo extends React.Component {
                             <Col md={6}>
                                 <AnimationContainer animation="fadeIn" delay={1000}>
                                     <CounterComponent>
-                                        <Counter value={1} duration={5} delay={1000} symbol="+" text="1 Years of Experience" />
-                                    </CounterComponent>
+                                        <Counter value={1} duration={5} delay={1000} symbol="+" text={<Trans>Years of Experience</Trans>} />
+                                  </CounterComponent>
                                 </AnimationContainer>
                             </Col>
                             <Col md={6}>
                                 <AnimationContainer animation="fadeIn" delay={1000}>
                                     <CounterComponent>
-                                        <Counter value={10} duration={5} delay={1000} symbol="+" text="Clients Worked With" />
+                                      <Counter value={10} duration={5} delay={1000} symbol="+" text={<Trans>Clients Worked With</Trans>} />
                                     </CounterComponent>
                                 </AnimationContainer>
                             </Col>
@@ -377,8 +376,21 @@ export default props => (
           }
         }
       }
+      aboutMarkdown: markdownRemark(fileAbsolutePath:{regex:"/about/"})
+      {
+        frontmatter {
+          about_vi
+          about_en
+          companyFrom_vi
+          companyFrom_en
+          companyLocation_vi
+          companyLocation_en
+          about_desc_vi
+          about_desc_en
+        }
+      }
     }
     `}
-    render={({ image, abstract }) => <AboutTwo  image={image} abstract={abstract} {...props} />}
+    render={({ image, abstract, aboutMarkdown }) => <AboutTwo  image={image} abstract={abstract} aboutMarkdown={aboutMarkdown} {...props} />}
   />
 )

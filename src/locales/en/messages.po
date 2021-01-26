@@ -13,6 +13,98 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/footer/index.js:66
+#: src/sections/about/AboutTwo.js:336
+#~ msgid "1 Years of Experience"
+#~ msgstr ""
+
+#: src/sections/about/AboutTwo.js:308
+msgid "About"
+msgstr ""
+
+#: src/sections/testimonials/TestimonialsTwo.js:134
+msgid "By our clients"
+msgstr ""
+
+#: src/sections/pricing/Pricing.js:71
+msgid "Bảng Giá Dịch Vụ"
+msgstr "Pricings"
+
+#: src/sections/about/AboutTwo.js:343
+msgid "Clients Worked With"
+msgstr ""
+
+#: src/sections/about/AboutTwo.js:308
+msgid "Company From"
+msgstr ""
+
+#: src/sections/hero/HeroVideo.js:282
+msgid "Design"
+msgstr ""
+
+#: src/sections/hero/HeroVideo.js:297
+msgid "Interior"
+msgstr ""
+
+#: src/components/footer/index.js:70
 msgid "Ngôn ngữ"
 msgstr "Language"
+
+#: src/sections/services/ServicesTwo.js:80
+msgid "Our Services"
+msgstr ""
+
+#: src/sections/portfolio/PortfolioTwo.js:76
+msgid "Recent projects"
+msgstr ""
+
+#: src/sections/testimonials/TestimonialsTwo.js:134
+msgid "Reveiews"
+msgstr ""
+
+#: src/sections/pricing/Pricing.js:80
+msgid "Thiết kế"
+msgstr "Design"
+
+#: src/components/footer/index.js:75
+msgid "Tiếng anh"
+msgstr "English"
+
+#: src/components/footer/index.js:74
+msgid "Việt nam"
+msgstr "Vietnamese"
+
+#: src/sections/pricing/Pricing.js:100
+msgid "Xây dựng"
+msgstr "Construction"
+
+#: src/sections/about/AboutTwo.js:336
+msgid "Years of Experience"
+msgstr ""
+
+#: src/pages/index.js:21
+msgid "about"
+msgstr ""
+
+#: src/pages/index.js:26
+msgid "contact"
+msgstr ""
+
+#: src/pages/index.js:20
+msgid "home"
+msgstr ""
+
+#: src/pages/index.js:23
+msgid "portfolio"
+msgstr ""
+
+#: src/pages/index.js:25
+msgid "pricing"
+msgstr ""
+
+#: src/pages/index.js:22
+msgid "services"
+msgstr ""
+
+#: src/pages/index.js:24
+msgid "testimonials"
+msgstr ""

@@ -3,6 +3,7 @@ import React, {useState} from 'react'
 import styled from 'styled-components';
 import { Col, Row, Container, Tabs as BootTabs, Tab } from 'react-bootstrap';
 import {useStaticQuery, graphql} from 'gatsby'
+import {Trans} from '@lingui/macro';
 import PricingCard from 'sections/pricing/parts/PricingCard.js';
 import AnimatedHeading from 'components/animated-heading';
 import AnimationContainer from 'components/animation-container';
@@ -67,7 +68,7 @@ function Pricing(props) {
     return (
         <Section id="pricing">
             <Container>
-                <AnimatedHeading text="Bảng Giá Dịch Vụ" />
+                <AnimatedHeading text={`Bảng Giá Dịch Vụ`} />
             </Container>
             <Wrapper>
                     <Tabs
@@ -76,7 +77,7 @@ function Pricing(props) {
                         onSelect={handleSetKey}
                         variant="pills"
                     >
-                        <Tab tabClassName="tabItem" eventKey="design" title="Thiết kế">
+                        <Tab tabClassName="tabItem" eventKey="design" title={<Trans>Thiết kế</Trans>}>
                             <Row>
                                 {data.items.edges.map((item, index) => (
                                     <Col key={`column-pricing-card-${index}`} md={3} style={{padding: 0}}>
@@ -96,7 +97,7 @@ function Pricing(props) {
                                 ))}
                             </Row>
                         </Tab>
-                        <Tab tabClassName="tabItem" eventKey="construction" title="Xây dựng">
+                        <Tab tabClassName="tabItem" eventKey="construction" title={<Trans>Xây dựng</Trans>}>
                             <Container>
                                 <Row>
                                     <Col md={12} style={{padding: 0}}>

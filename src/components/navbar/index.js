@@ -4,6 +4,7 @@ import { Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { primaryMain, secondaryLight } from '../../constants/color'
+import { i18n } from '@lingui/core'
 var scrollToElement = require('scroll-to-element')
 
 class Navbar extends React.Component {
@@ -12,7 +13,7 @@ class Navbar extends React.Component {
         this.state = {
           collapse: false,
           sticky: false,
-          sections: this.props.sections ? this.props.sections : ['home', 'about', 'services', 'portfolio', 'testimonials', 'clients', 'team', 'blog', 'contact']
+          sections: this.props.sections
         }
     }
 
@@ -138,7 +139,7 @@ class Navbar extends React.Component {
             <NavbarWrapper className={`header${this.state.sticky === true ? ' sticky' : ''}`}>
                 <NavbarContainer>
                     <LogoWrapper className="logo">
-                        <Logo src="/img/logo1.jpg" alt="logo" />
+                        <Logo src="/img/logo.png" alt="logo" />
                     </LogoWrapper>
                     <Toggler
                         onClick={() => this.collapseNav()}
@@ -178,6 +179,7 @@ class Navbar extends React.Component {
             font-weight: 500;
             margin: 10px 5px;
             transition: .5s;
+            font-family: ${i18n._locale === 'vi' ?  'Cuprum' : 'Poppins'};
             &:hover {
                 color: ${secondaryLight};
             }
@@ -190,10 +192,10 @@ class Navbar extends React.Component {
             }
         `
         
-        return this.state.sections.map((value, index) => {
+        return this.state.sections.map((item, index) => {
             return (
-                <NavItem key={index} onClick={() => this.navigate(value)}>
-                    {value}
+                <NavItem key={item.id} onClick={() => this.navigate(item.id)}>
+                    {item.display}
                 </NavItem>
             )
         })

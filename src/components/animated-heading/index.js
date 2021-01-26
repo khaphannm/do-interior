@@ -19,6 +19,7 @@ class Animated_Heading extends React.Component {
             if (!this.state.animation_complete) {
                 this.setState({inViewport: this.props.inViewport, animate: true, force: true})
                 let delay = 1
+                console.log(this.props.text)
                 this.props.text.split(" ").forEach(function(value, index) {
                     value.split("").forEach(function(v, i) {
                         ++delay

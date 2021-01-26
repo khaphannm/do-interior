@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { Col, Container } from 'react-bootstrap'
 import styled from 'styled-components'
+import {Trans} from '@lingui/macro'
 import PortfolioItem from 'sections/portfolio/parts/PortfolioItem.js'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -72,7 +73,7 @@ class PortfolioTwo extends React.Component {
             <Section id="portfolio">
                   <Col md={12} style={{padding: 0}}>
                     <Container>
-                      <AnimatedHeading text="Recent projects" />
+                      <AnimatedHeading text={`Recent projects`} />
                     </Container>
                     <PortfolioContainer>
                       <AnimationContainer animation="fadeIn">
