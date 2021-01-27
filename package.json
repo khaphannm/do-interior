@@ -9,6 +9,7 @@
     "@hot-loader/react-dom": "^16.13.0",
     "@lingui/react": "^3.3.0",
     "@primer/octicons-react": "^9.6.0",
+    "@trendmicro/react-dropdown": "^1.4.0",
     "animate.css": "^3.7.2",
     "babel-plugin-styled-components": "^1.10.7",
     "baffle-react": "0.0.2",

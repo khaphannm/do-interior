@@ -18,7 +18,7 @@ import { defaultLocale, dynamicActivate } from '../utils/i18n'
 
 const sectionData = [
   {id: 'home', display: <Trans>home</Trans>}, 
-{id: 'about', display: <Trans>about</Trans>}, 
+{id: 'about', display: <Trans>about</Trans>, isDropdown: true}, 
 {id:'services', display: <Trans>services</Trans>}, 
 {id: 'portfolio', display: <Trans>portfolio</Trans>}, 
 {id: 'testimonials', display: <Trans>testimonials</Trans>}, 

@@ -5,6 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { primaryMain, secondaryLight } from '../../constants/color'
 import { i18n } from '@lingui/core'
+import '@trendmicro/react-dropdown/dist/react-dropdown.css';
+import Dropdown, {
+    DropdownToggle,
+    DropdownMenu,
+    DropdownMenuWrapper,
+    MenuItem,
+} from '@trendmicro/react-dropdown';
 var scrollToElement = require('scroll-to-element')
 
 class Navbar extends React.Component {
@@ -170,6 +177,30 @@ class Navbar extends React.Component {
         }
     }
 
+    dropDownItem() {
+        return (
+            <Dropdown
+                autoOpen
+                pullRight
+            >
+                <DropdownToggle btnStyle="emphasis" >
+                    Toggler
+                </DropdownToggle>
+                <DropdownMenu key={1}>
+                    <MenuItem>
+                        Menu item one1
+                    </MenuItem>
+                    <MenuItem>
+                        Menu item two1
+                    </MenuItem>
+                    <MenuItem>
+                        Menu item three1
+                    </MenuItem>
+                </DropdownMenu>
+            </Dropdown>
+        )
+    }
+
     navItems() {
         const NavItem = styled.button`
             background: none;
@@ -191,8 +222,43 @@ class Navbar extends React.Component {
                 margin: 2px;
             }
         `
+        const NavDropdown = () => 
+        <Dropdown
+            autoOpen
+            pullRight
+        >
+            <DropdownToggle btnStyle="emphasis" >
+                Toggler
+            </DropdownToggle>
+            <DropdownMenuWrapper style={{ whiteSpace: 'nowrap' }}>
+                <DropdownMenu key={300}>
+                    <MenuItem>
+                        Menu item one1
+                    </MenuItem>
+                    <MenuItem>
+                        Menu item two1
+                    </MenuItem>
+                    <MenuItem>
+                        Menu item three1
+                    </MenuItem>
+                </DropdownMenu>
+                <DropdownMenu style={{borderLeft: '1px solid #ddd'}} key={301}>
+                    <MenuItem>
+                        Menu item one1
+                    </MenuItem>
+                    <MenuItem>
+                        Menu item two1
+                    </MenuItem>
+                    <MenuItem>
+                        Menu item three1
+                    </MenuItem>
+                </DropdownMenu>
+            </DropdownMenuWrapper>
+        </Dropdown>;
         
         return this.state.sections.map((item, index) => {
+            if (item.isDropdown)
+                return <NavDropdown />;
             return (
                 <NavItem key={item.id} onClick={() => this.navigate(item.id)}>
                     {item.display}
