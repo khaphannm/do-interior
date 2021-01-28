@@ -160,6 +160,7 @@ class AboutTwo extends React.Component {
           font-size: 14px;
           font-weight: 300;
           color: #c5c5c5;
+          font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
       `
 
       const CounterRow = styled(Row)`

@@ -9,6 +9,7 @@ import { Trans } from "@lingui/macro";
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { secondaryMain } from '../../constants/color'
+import {i18n} from '@lingui/core'
 
 class TestimonialsTwo extends React.Component {
 
@@ -42,9 +43,9 @@ class TestimonialsTwo extends React.Component {
         `
 
         const Heading = styled.h1`
-            font-size: 150px;
+            font-size: 130px;
             line-height: 120px;
-            font-family: Teko;
+            font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
             color: #fff;
             text-transform: uppercase;
             text-align: center;
@@ -131,7 +132,7 @@ class TestimonialsTwo extends React.Component {
                             <Col md={6}>
                                 <RevealContent className="heading">
                                     <Heading>
-                                        <Color><Trans>Reveiews</Trans></Color> <Trans>By our clients</Trans>
+                                        <Color><Trans>Đánh giá</Trans></Color> <Trans>Bởi Khách hàng</Trans>
                                     </Heading>
                                 </RevealContent>
                             </Col>
@@ -164,6 +165,7 @@ class TestimonialsTwo extends React.Component {
             font-weight: 400;
             line-height: 25px;
             text-align: center;
+            font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
         `
 
         const TestimonialClient = styled.div`
@@ -190,10 +192,12 @@ class TestimonialsTwo extends React.Component {
             margin-bottom: 0;
             font-weight: 600;
             font-size: 20px;
+            font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
         `
 
         const TestimonialClientProfession = styled.p`
             margin-bottom: 0;
+            font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
         `
         
         return this.props.testimonials.map((value, index) => {

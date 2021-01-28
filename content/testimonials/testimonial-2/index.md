@@ -2,7 +2,7 @@
 id: 2
 image: './image.jpg'
 large: './large.jpg'
-name: 'Minh Kha'
-profession: 'Software Developer'
-text: 'Sed facilisis magna turpis. Nulla id elit quis quam sodales cursus. Quisque tellus neque, consequat fringilla consequat eget, consequat eget elit.Sed hendrerit velit sed ante vestibulum consequat.'
+name: 'Hoàng Nam'
+profession: 'HR'
+text: 'Tôi có cơ hội được DO thiết kế và thi công cho ngôi nhà của gia đình. Phải nói là rất hiện đại và phù hợp với yêu cầu của tôi.'
 ---

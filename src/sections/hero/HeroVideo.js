@@ -6,6 +6,7 @@ import Typewriter from 'typewriter-effect'
 import LoopVideo from './assets/loop.mp4'
 import {secondaryMain, secondaryLight} from '../../constants/color'
 import { Trans } from '@lingui/macro'
+import {i18n} from '@lingui/core';
 
 class HeroVideo extends React.Component {
 
@@ -207,8 +208,8 @@ class HeroVideo extends React.Component {
         const ServiceHeading = styled.h4`
             font-size: 30px;
             font-weight: 400;
-            font-family: Teko;
-        `
+            font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
+            `
         const ServiceSeparator = styled.div`
             height: 5px;
             width: 50px;
@@ -238,6 +239,7 @@ class HeroVideo extends React.Component {
             font-size: 14px;
             font-weight: 300;
             color: #c5c5c5;
+            font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
         `
  
         return (

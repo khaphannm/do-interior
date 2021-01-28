@@ -77,7 +77,7 @@ class ServicesTwo extends React.Component {
         return(
             <Section id="services">
                 <Container>
-                    <AnimatedHeading text={`Our Services`} />
+                    <AnimatedHeading text={`Dịch vụ`} />
                     <ServiceRow>
                         <Col md={3}>
                             <AnimationContainer animation="fadeInDown" delay={500}>

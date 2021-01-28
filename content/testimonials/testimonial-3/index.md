@@ -2,7 +2,7 @@
 id: 3
 image: './image.jpg'
 large: './large.jpg'
-name: 'Minh Kha'
-profession: 'Engineer'
-text: 'Interdum et malesuada fames ac ante ipsum primis in faucibus. Proin mattis sit amet tortor non facilisis. Etiam imperdiet fringilla ullamcorper. Suspendisse finibus ipsum ut tellus feugiat, quis vehicula ligula lacinia.'
+name: 'Thu Thúy'
+profession: 'Sale Manager'
+text: 'Rất hài lòng về cách làm việc và những ý tưởng mà DO gợi ý cho mình, sẽ giới thiệu cho bạn bè và người thân!'
 ---
