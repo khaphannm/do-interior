@@ -45,7 +45,7 @@ const Index = ({data, ...props}) => {
           >
             <HeroVideo />
             <AboutTwo />
-            <ServicesTwo />
+            {/* <ServicesTwo /> */}
             <PortfolioTwo />
             <TestimonialsTwo />
             {/* <TeamTwo /> */}

@@ -128,8 +128,8 @@ class ContactCreative extends React.Component {
                                 Email
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink href="mailto:email@gmail.com">
-                                  email@gmail.com
+                                <InfoLink href="mailto:do.design@gmail.com">
+                                  do.design@gmail.com
                                 </InfoLink>
                               </InfoLinkContainer>
                             </Info>
@@ -147,8 +147,8 @@ class ContactCreative extends React.Component {
                                 <Trans>Điện thoại</Trans>
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink href="tel:+(84)938-499-460">
-                                  (84) 938-499460
+                                <InfoLink href="tel:+(84)945-076-768">
+                                  (84) 945076768
                                 </InfoLink>
                               </InfoLinkContainer>
                             </Info>

@@ -284,8 +284,7 @@ class HeroVideo extends React.Component {
                                             <ServiceHeading><Trans>Design</Trans></ServiceHeading>
                                             <ServiceSeparator/>
                                             <ServiceText>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae ultricies lacus, vitae varius velit. 
-                                                Pellentesque blandit libero eu turpis condimentum bibendum.
+                                                Nhà phố, biệt thự, khách sạn và các thể loại kiến trúc khác như cafe, văn phòng, bệnh viện ...
                                             </ServiceText>
                                         </ServiceContent>
                                     </Service>
@@ -299,8 +298,7 @@ class HeroVideo extends React.Component {
                                             <ServiceHeading><Trans>Interior</Trans></ServiceHeading>
                                             <ServiceSeparator/>
                                             <ServiceText>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae ultricies lacus, vitae varius velit. 
-                                                Pellentesque blandit libero eu turpis condimentum bibendum.
+                                                Phong cách hiện đại, phong cách Bắc Âu, phong cách tối giản, phong cách công nghiệp, phong cách Đông dương, phong cách bán cổ điển, phong cách cổ điển
                                             </ServiceText>
                                         </ServiceContent>
                                     </Service>
