@@ -6,6 +6,7 @@ import { Trans } from "@lingui/macro";
 import AnimationContainer from 'components/animation-container'
 // import ContactCreativeForm from './parts/ContactCreativeForm.js'
 import { primaryLight, primaryMain, secondaryMain } from '../../constants/color.js'
+import { i18n } from "@lingui/core";
 
 class ContactCreative extends React.Component {
 
@@ -77,7 +78,7 @@ class ContactCreative extends React.Component {
         const InfoTitle = styled.h4`
             font-size: 35px;
             color: #fff;
-            font-family: Teko;
+            font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};  
             text-align: center;
         `
 
@@ -127,8 +128,8 @@ class ContactCreative extends React.Component {
                                 Email
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink href="mailto:email@gmail.com">
-                                  email@gmail.com
+                                <InfoLink href="mailto:do.design@gmail.com">
+                                  do.design@gmail.com
                                 </InfoLink>
                               </InfoLinkContainer>
                             </Info>
@@ -143,11 +144,11 @@ class ContactCreative extends React.Component {
                             </IconContainer>
                             <Info>
                               <InfoTitle>
-                                <Trans>Phone</Trans>
+                                <Trans>Điện thoại</Trans>
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink href="tel:+(84)938-499-460">
-                                  (84) 938-499460
+                                <InfoLink href="tel:+(84)945-076-768">
+                                  (84) 945076768
                                 </InfoLink>
                               </InfoLinkContainer>
                             </Info>
@@ -162,7 +163,7 @@ class ContactCreative extends React.Component {
                             </IconContainer>
                             <Info>
                               <InfoTitle>
-                                <Trans>Address</Trans>
+                                <Trans>Địa chỉ</Trans>
                               </InfoTitle>
                               <InfoLinkContainer>
                                 <InfoLink target="_blank" href="https://goo.gl/maps/wuVLEBBR9gAJuKoB8">

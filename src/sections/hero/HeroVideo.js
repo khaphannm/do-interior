@@ -6,6 +6,7 @@ import Typewriter from 'typewriter-effect'
 import LoopVideo from './assets/loop.mp4'
 import {secondaryMain, secondaryLight} from '../../constants/color'
 import { Trans } from '@lingui/macro'
+import {i18n} from '@lingui/core';
 
 class HeroVideo extends React.Component {
 
@@ -207,8 +208,8 @@ class HeroVideo extends React.Component {
         const ServiceHeading = styled.h4`
             font-size: 30px;
             font-weight: 400;
-            font-family: Teko;
-        `
+            font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
+            `
         const ServiceSeparator = styled.div`
             height: 5px;
             width: 50px;
@@ -238,6 +239,7 @@ class HeroVideo extends React.Component {
             font-size: 14px;
             font-weight: 300;
             color: #c5c5c5;
+            font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
         `
  
         return (
@@ -282,8 +284,7 @@ class HeroVideo extends React.Component {
                                             <ServiceHeading><Trans>Design</Trans></ServiceHeading>
                                             <ServiceSeparator/>
                                             <ServiceText>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae ultricies lacus, vitae varius velit. 
-                                                Pellentesque blandit libero eu turpis condimentum bibendum.
+                                                Nhà phố, biệt thự, khách sạn và các thể loại kiến trúc khác như cafe, văn phòng, bệnh viện ...
                                             </ServiceText>
                                         </ServiceContent>
                                     </Service>
@@ -297,8 +298,7 @@ class HeroVideo extends React.Component {
                                             <ServiceHeading><Trans>Interior</Trans></ServiceHeading>
                                             <ServiceSeparator/>
                                             <ServiceText>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vitae ultricies lacus, vitae varius velit. 
-                                                Pellentesque blandit libero eu turpis condimentum bibendum.
+                                                Phong cách hiện đại, phong cách Bắc Âu, phong cách tối giản, phong cách công nghiệp, phong cách Đông dương, phong cách bán cổ điển, phong cách cổ điển
                                             </ServiceText>
                                         </ServiceContent>
                                     </Service>

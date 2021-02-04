@@ -1,8 +1,8 @@
 ---
 id: 1
-image: './image.jpg'
-large: './large.jpg'
-name: 'Minh Kha'
-profession: 'Interior Designer'
-text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel est eu tortor porttitor congue. Praesent finibus eleifend mi, eu dictum est scelerisque ut. Nulla sed nulla sed tellus feugiat dignissim a pulvinar sem.'
+image: './image.png'
+large: './large.png'
+name: 'Trọng Nghĩa'
+profession: 'Kỹ sư thiết kế'
+text: 'DO làm việc rất chuyên nghiệp và uy tín. Tôi mong rằng sẽ được hợp tác lâu dài với DO.'
 ---

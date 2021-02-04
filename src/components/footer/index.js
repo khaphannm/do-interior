@@ -64,7 +64,7 @@ class Footer extends React.Component{
                     <FontAwesomeIcon icon={faYoutube} className="social_icon" onClick={() => window.open('https://www.youtube.com')} />
                     <FontAwesomeIcon icon={faLinkedin} className="social_icon" onClick={() => window.open('https://www.linkedin.com')} />
                 </SocialIcons>
-                <LanguageZone>
+                {/* <LanguageZone>
                     <DropdownButton
                         onSelect={this.handleSelectLanguage}
                         title={i18n._(t`Ngôn ngữ`)}
@@ -74,7 +74,7 @@ class Footer extends React.Component{
                         <Dropdown.Item eventKey="vi"><Trans>Việt nam</Trans></Dropdown.Item>
                         <Dropdown.Item eventKey="en"><Trans>Tiếng anh</Trans></Dropdown.Item>
                     </DropdownButton>
-                </LanguageZone>
+                </LanguageZone> */}
             </FooterMain>
         )
     }
