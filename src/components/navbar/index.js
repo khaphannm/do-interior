@@ -177,30 +177,6 @@ class Navbar extends React.Component {
         }
     }
 
-    dropDownItem() {
-        return (
-            <Dropdown
-                autoOpen
-                pullRight
-            >
-                <DropdownToggle btnStyle="emphasis" >
-                    Toggler
-                </DropdownToggle>
-                <DropdownMenu key={1}>
-                    <MenuItem>
-                        Menu item one1
-                    </MenuItem>
-                    <MenuItem>
-                        Menu item two1
-                    </MenuItem>
-                    <MenuItem>
-                        Menu item three1
-                    </MenuItem>
-                </DropdownMenu>
-            </Dropdown>
-        )
-    }
-
     navItems() {
         const NavItem = styled.button`
             background: none;
@@ -210,7 +186,6 @@ class Navbar extends React.Component {
             font-weight: 500;
             margin: 10px 5px;
             transition: .5s;
-            font-family: ${i18n._locale === 'vi' ?  'Cuprum' : 'Poppins'};
             &:hover {
                 color: ${secondaryLight};
             }
@@ -222,39 +197,61 @@ class Navbar extends React.Component {
                 margin: 2px;
             }
         `
+        const StyleDropdown = styled(Dropdown)`
+            display: inline-flex;
+            align-items: center;
+            text-transform: capitalize;
+            font-weight: 500;
+            color: #fff;
+            margin: 10px 5px;
+            transition: .5s;
+            cursor: pointer;
+            &:hover {
+                color: ${secondaryLight};
+            }
+            &:focus {
+                outline: none;
+            }
+            @media (min-width: 501px) and (max-width: 1023px) {
+                font-size: 11px;
+                margin: 2px;
+            }
+        `;
+
+        const StyleDropdownMenu = styled(DropdownMenu)`
+            
+        `;
         const NavDropdown = () => 
-        <Dropdown
-            autoOpen
-            pullRight
-        >
-            <DropdownToggle btnStyle="emphasis" >
-                Toggler
-            </DropdownToggle>
-            <DropdownMenuWrapper style={{ whiteSpace: 'nowrap' }}>
-                <DropdownMenu key={300}>
-                    <MenuItem>
-                        Menu item one1
-                    </MenuItem>
-                    <MenuItem>
-                        Menu item two1
-                    </MenuItem>
-                    <MenuItem>
-                        Menu item three1
-                    </MenuItem>
-                </DropdownMenu>
-                <DropdownMenu style={{borderLeft: '1px solid #ddd'}} key={301}>
-                    <MenuItem>
-                        Menu item one1
-                    </MenuItem>
-                    <MenuItem>
-                        Menu item two1
-                    </MenuItem>
-                    <MenuItem>
-                        Menu item three1
-                    </MenuItem>
-                </DropdownMenu>
-            </DropdownMenuWrapper>
-        </Dropdown>;
+            <StyleDropdown
+                open
+                pullRight
+            >
+                <DropdownToggle style={{marginBottom: 0}} componentClass={"p"} title="Dịch vụ" />
+                <DropdownMenuWrapper style={{ whiteSpace: 'nowrap', border: 'none', borderRadius: '12px' }}>
+                    <DropdownMenu key={300}>
+                        <MenuItem>
+                            Menu item one1
+                        </MenuItem>
+                        <MenuItem>
+                            Menu item two1
+                        </MenuItem>
+                        <MenuItem>
+                            Menu item three1
+                        </MenuItem>
+                    </DropdownMenu>
+                    <DropdownMenu style={{borderLeft: '1px solid #ddd'}} key={301}>
+                        <MenuItem>
+                            Menu item one1
+                        </MenuItem>
+                        <MenuItem>
+                            Menu item two1
+                        </MenuItem>
+                        <MenuItem>
+                            Menu item three1
+                        </MenuItem>
+                    </DropdownMenu>
+                </DropdownMenuWrapper>
+            </StyleDropdown>;
         
         return this.state.sections.map((item, index) => {
             if (item.isDropdown)
