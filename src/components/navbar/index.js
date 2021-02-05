@@ -3,9 +3,10 @@ import styled from 'styled-components'
 import { Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { primaryMain, secondaryLight } from '../../constants/color'
+import { primaryMain, primaryLight, secondaryLight, secondaryMain, primaryContrast } from '../../constants/color'
 import { i18n } from '@lingui/core'
 import '@trendmicro/react-dropdown/dist/react-dropdown.css';
+import {StaticQuery} from 'gatsby'
 import Dropdown, {
     DropdownToggle,
     DropdownMenu,
@@ -218,39 +219,92 @@ class Navbar extends React.Component {
             }
         `;
 
-        const StyleDropdownMenu = styled(DropdownMenu)`
-            
+        const StyleDropdownMenuWrapper = styled(DropdownMenuWrapper)`
+            white-space: nowrap;
+            border: none;
+            overflow: hidden;
+            border-radius: 12px;
+            padding: 16px 0;
+            opacity: 0.7;
+            .borderLeft {
+                border-left: 1px solid #fff !important;
+            } 
+            background-color: ${primaryLight};
         `;
+
+        const StyleDropdownMenu = styled(DropdownMenu)`
+            background-color: ${primaryLight};
+            .headerItem {
+                color: #fff;
+                font-weight: bold;
+                font-size: 1.1rem;
+                transform: translateY(6px);
+            }
+        `;
+        
+        const StyleMenuItem = styled(MenuItem)`
+            font-size: 1.0rem;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            & > div {
+                color: ${secondaryMain} !important;
+
+                &:hover {
+                    color: ${primaryMain} !important;
+                    background-color: ${secondaryLight} !important;
+                }
+                &:focus {
+                    color: ${primaryMain} !important;
+                    background-color: ${secondaryLight} !important;
+                }
+                transition: 0.3s;
+            };
+        `;
+
         const NavDropdown = () => 
             <StyleDropdown
-                open
+                autoOpen
                 pullRight
             >
-                <DropdownToggle style={{marginBottom: 0}} componentClass={"p"} title="Dịch vụ" />
-                <DropdownMenuWrapper style={{ whiteSpace: 'nowrap', border: 'none', borderRadius: '12px' }}>
-                    <DropdownMenu key={300}>
-                        <MenuItem>
+                <DropdownToggle style={{marginBottom: 0}} componentClass={"p"} title="Dự án" />
+                <StyleDropdownMenuWrapper>
+                    <StyleDropdownMenu key={300}>
+                        <StyleMenuItem className="headerItem" header>Dự án</StyleMenuItem>
+                        <StyleMenuItem>
                             Menu item one1
-                        </MenuItem>
-                        <MenuItem>
+                        </StyleMenuItem>
+                        <StyleMenuItem>
                             Menu item two1
-                        </MenuItem>
-                        <MenuItem>
+                        </StyleMenuItem>
+                        <StyleMenuItem>
                             Menu item three1
-                        </MenuItem>
-                    </DropdownMenu>
-                    <DropdownMenu style={{borderLeft: '1px solid #ddd'}} key={301}>
-                        <MenuItem>
+                        </StyleMenuItem>
+                    </StyleDropdownMenu>
+                    <StyleDropdownMenu className="borderLeft" key={301}>
+                        <StyleMenuItem className="headerItem" header>Thư viện</StyleMenuItem>
+                        <StyleMenuItem>
                             Menu item one1
-                        </MenuItem>
-                        <MenuItem>
+                        </StyleMenuItem>
+                        <StyleMenuItem>
                             Menu item two1
-                        </MenuItem>
-                        <MenuItem>
+                        </StyleMenuItem>
+                        <StyleMenuItem>
                             Menu item three1
-                        </MenuItem>
-                    </DropdownMenu>
-                </DropdownMenuWrapper>
+                        </StyleMenuItem>
+                    </StyleDropdownMenu>
+                    <StyleDropdownMenu className="borderLeft" key={302}>
+                        <StyleMenuItem className="headerItem" header>Thư viện*</StyleMenuItem>
+                        <StyleMenuItem>
+                            Menu item one1
+                        </StyleMenuItem>
+                        <StyleMenuItem>
+                            Menu item two1
+                        </StyleMenuItem>
+                        <StyleMenuItem>
+                            Menu item three1
+                        </StyleMenuItem>
+                    </StyleDropdownMenu>
+                </StyleDropdownMenuWrapper>
             </StyleDropdown>;
         
         return this.state.sections.map((item, index) => {
@@ -265,4 +319,18 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar
+export default props => (
+    <StaticQuery
+      query={graphql`
+      query {
+        background: file(relativePath: {eq: "background-poly.jpg"}) {
+          childImageSharp {
+            fluid(maxWidth: 2000, quality: 100) {
+              src
+            }
+          }
+        }
+      }`}
+      render={({background}) => <Navbar background={background} {...props} />} 
+    />
+)
