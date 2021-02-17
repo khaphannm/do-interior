@@ -1,18 +1,20 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { primaryMain, primaryLight, secondaryLight, secondaryMain, primaryContrast } from '../../constants/color'
-import { i18n } from '@lingui/core'
+// import { i18n } from '@lingui/core'
 import '@trendmicro/react-dropdown/dist/react-dropdown.css';
-import {StaticQuery} from 'gatsby'
+import {StaticQuery} from 'gatsby';
+import sizeMe from 'react-sizeme';
 import Dropdown, {
     DropdownToggle,
     DropdownMenu,
     DropdownMenuWrapper,
     MenuItem,
 } from '@trendmicro/react-dropdown';
+import { Accordion, Card, ListGroup, ListGroupItem } from 'react-bootstrap'
 var scrollToElement = require('scroll-to-element')
 
 class Navbar extends React.Component {
@@ -157,7 +159,7 @@ class Navbar extends React.Component {
                     </Toggler>
                     <Nav className={`navbar navbar-expand-sm ${this.state.collapse === true ? 'expand' : 'hidden_mobile'}`}>
                         <NavInner className={`navbar-collapse collapse ${this.state.collapse === true ? 'show' : ''}`}>
-                            <div className="navbar-nav">{this.navItems()}</div>
+                            <div className="navbar-nav">{this.navItems(this.props.size.width)}</div>
                         </NavInner>
                     </Nav>
                 </NavbarContainer>
@@ -178,7 +180,7 @@ class Navbar extends React.Component {
         }
     }
 
-    navItems() {
+    navItems(width) {
         const NavItem = styled.button`
             background: none;
             border: none;
@@ -197,26 +199,36 @@ class Navbar extends React.Component {
                 font-size: 11px;
                 margin: 2px;
             }
+            
         `
-        const StyleDropdown = styled(Dropdown)`
+        const baseDropdown = css`
             display: inline-flex;
             align-items: center;
             text-transform: capitalize;
             font-weight: 500;
             color: #fff;
-            margin: 10px 5px;
             transition: .5s;
             cursor: pointer;
-            &:hover {
-                color: ${secondaryLight};
-            }
-            &:focus {
-                outline: none;
-            }
+            
             @media (min-width: 501px) and (max-width: 1023px) {
                 font-size: 11px;
                 margin: 2px;
             }
+
+        `;
+
+        const StyleDropdown = styled(Dropdown)`
+           ${baseDropdown} 
+            &:hover {
+             color: ${secondaryLight};
+            }
+            &:focus {
+                outline: none;
+            }
+           margin: 10px 5px;
+           @media (max-width: 500px) {
+                margin: 0 auto;
+           }
         `;
 
         const StyleDropdownMenuWrapper = styled(DropdownMenuWrapper)`
@@ -224,7 +236,7 @@ class Navbar extends React.Component {
             border: none;
             overflow: hidden;
             border-radius: 12px;
-            padding: 16px 0;
+            padding: 32px 24px;
             opacity: 0.7;
             .borderLeft {
                 border-left: 1px solid #fff !important;
@@ -261,10 +273,56 @@ class Navbar extends React.Component {
             };
         `;
 
-        const NavDropdown = () => 
+        const StyleAccordion = styled(Accordion)`
+            ${baseDropdown}
+            .itemName {
+                margin: 0;
+                text-align: center;
+            }
+            .accordion-card {
+                background-color: transparent;
+                width: 100%
+            }
+        `;
+        const AccordionTitle = styled.p`
+            color: #fff;
+            font-size: 1.0rem;
+            text-align: left;
+            margin-bottom: 4px;
+        `;
+        const StyleListGroupItem = styled(ListGroupItem)`
+            background-color: ${secondaryMain};
+        `;
+
+        const AccordionDropdown = () => {
+            return (
+                <StyleAccordion>
+                    <Card className="accordion-card">
+                        {/* <Card.Header className="cardHeader"> */}
+                            <Accordion.Toggle className="itemName" as={"p"} eventKey="0">
+                                Click me!▼ 
+                            </Accordion.Toggle>                        
+                        {/* </Card.Header> */}
+                        <Accordion.Collapse eventKey="0">
+                            <Card.Body>
+                                <AccordionTitle>Dự án</AccordionTitle>
+                                <ListGroup className="listGroup" variant="flush">
+                                    <StyleListGroupItem>Cras justo odio</StyleListGroupItem>
+                                    <StyleListGroupItem>Dapibus ac facilisis in</StyleListGroupItem>
+                                    <StyleListGroupItem>Morbi leo risus</StyleListGroupItem>
+                                    <StyleListGroupItem>Porta ac consectetur ac</StyleListGroupItem>
+                                </ListGroup>
+                            </Card.Body>
+                        </Accordion.Collapse>
+                    </Card>
+                </StyleAccordion>
+            );
+        }
+
+        const NavDropdown = () => { 
+            return (
             <StyleDropdown
                 autoOpen
-                pullRight
             >
                 <DropdownToggle style={{marginBottom: 0}} componentClass={"p"} title="Dự án" />
                 <StyleDropdownMenuWrapper>
@@ -305,11 +363,14 @@ class Navbar extends React.Component {
                         </StyleMenuItem>
                     </StyleDropdownMenu>
                 </StyleDropdownMenuWrapper>
-            </StyleDropdown>;
+            </StyleDropdown>
+            );
+        }
         
         return this.state.sections.map((item, index) => {
+            console.log(width)
             if (item.isDropdown)
-                return <NavDropdown />;
+                return width <= 500 ? <AccordionDropdown /> : <NavDropdown />;
             return (
                 <NavItem key={item.id} onClick={() => this.navigate(item.id)}>
                     {item.display}
@@ -319,7 +380,7 @@ class Navbar extends React.Component {
     }
 }
 
-export default props => (
+export default sizeMe()(props => (
     <StaticQuery
       query={graphql`
       query {
@@ -333,4 +394,4 @@ export default props => (
       }`}
       render={({background}) => <Navbar background={background} {...props} />} 
     />
-)
+))
