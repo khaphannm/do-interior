@@ -18,66 +18,70 @@ msgstr ""
 #~ msgstr ""
 
 #: src/sections/about/AboutTwo.js:308
-msgid "About"
-msgstr ""
+#~ msgid "About"
+#~ msgstr ""
 
 #: src/sections/testimonials/TestimonialsTwo.js:134
-msgid "By our clients"
-msgstr ""
+#~ msgid "By our clients"
+#~ msgstr ""
 
 #: src/sections/pricing/Pricing.js:71
-msgid "Bảng Giá Dịch Vụ"
-msgstr "Pricings"
+#~ msgid "Bảng Giá Dịch Vụ"
+#~ msgstr "Pricings"
 
-#: src/sections/about/AboutTwo.js:343
+#: src/sections/testimonials/TestimonialsTwo.js:135
+msgid "Bởi Khách hàng"
+msgstr ""
+
+#: src/sections/about/AboutTwo.js:342
 msgid "Clients Worked With"
 msgstr ""
 
 #: src/sections/about/AboutTwo.js:308
-msgid "Company From"
-msgstr ""
+#~ msgid "Company From"
+#~ msgstr ""
 
-#: src/sections/hero/HeroVideo.js:282
+#: src/sections/hero/HeroVideo.js:284
 msgid "Design"
 msgstr ""
 
-#: src/sections/hero/HeroVideo.js:297
+#: src/sections/hero/HeroVideo.js:298
 msgid "Interior"
 msgstr ""
 
 #: src/components/footer/index.js:70
-msgid "Ngôn ngữ"
-msgstr "Language"
+#~ msgid "Ngôn ngữ"
+#~ msgstr "Language"
 
 #: src/sections/services/ServicesTwo.js:80
-msgid "Our Services"
-msgstr ""
+#~ msgid "Our Services"
+#~ msgstr ""
 
 #: src/sections/portfolio/PortfolioTwo.js:76
-msgid "Recent projects"
-msgstr ""
+#~ msgid "Recent projects"
+#~ msgstr ""
 
 #: src/sections/testimonials/TestimonialsTwo.js:134
-msgid "Reveiews"
-msgstr ""
+#~ msgid "Reveiews"
+#~ msgstr ""
 
 #: src/sections/pricing/Pricing.js:80
 msgid "Thiết kế"
 msgstr "Design"
 
 #: src/components/footer/index.js:75
-msgid "Tiếng anh"
-msgstr "English"
+#~ msgid "Tiếng anh"
+#~ msgstr "English"
 
 #: src/components/footer/index.js:74
-msgid "Việt nam"
-msgstr "Vietnamese"
+#~ msgid "Việt nam"
+#~ msgstr "Vietnamese"
 
 #: src/sections/pricing/Pricing.js:100
 msgid "Xây dựng"
 msgstr "Construction"
 
-#: src/sections/about/AboutTwo.js:336
+#: src/sections/about/AboutTwo.js:335
 msgid "Years of Experience"
 msgstr ""
 
@@ -107,4 +111,16 @@ msgstr ""
 
 #: src/pages/index.js:24
 msgid "testimonials"
+msgstr ""
+
+#: src/sections/contact/ContactCreative.js:147
+msgid "Điện thoại"
+msgstr ""
+
+#: src/sections/testimonials/TestimonialsTwo.js:135
+msgid "Đánh giá"
+msgstr ""
+
+#: src/sections/contact/ContactCreative.js:166
+msgid "Địa chỉ"
 msgstr ""

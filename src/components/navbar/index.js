@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Container } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { primaryMain, primaryLight, secondaryLight, secondaryMain, primaryContrast } from '../../constants/color'
+import { primaryMain, primaryLight, secondaryLight, secondaryMain } from '../../constants/color'
 // import { i18n } from '@lingui/core'
 import '@trendmicro/react-dropdown/dist/react-dropdown.css';
 import {StaticQuery} from 'gatsby';
@@ -236,12 +236,15 @@ class Navbar extends React.Component {
             border: none;
             overflow: hidden;
             border-radius: 12px;
-            padding: 32px 24px;
-            opacity: 0.7;
+            padding: 24px 16px;
+            opacity: 0.9;
             .borderLeft {
                 border-left: 1px solid #fff !important;
             } 
             background-color: ${primaryLight};
+            @media (min-width: 500px) and (max-width: 1280px) {
+                padding: 12px 8px;
+            } 
         `;
 
         const StyleDropdownMenu = styled(DropdownMenu)`
@@ -251,7 +254,13 @@ class Navbar extends React.Component {
                 font-weight: bold;
                 font-size: 1.1rem;
                 transform: translateY(6px);
+                @media (min-width: 500px) and (max-width: 1280px) {
+                    font-size: 0.7rem;
+                } 
             }
+            @media (min-width: 500px) and (max-width: 1280px) {
+                padding: 0;
+            } 
         `;
         
         const StyleMenuItem = styled(MenuItem)`
@@ -271,6 +280,12 @@ class Navbar extends React.Component {
                 }
                 transition: 0.3s;
             };
+            @media (min-width: 500px) and (max-width: 1280px) {
+                font-size: 0.7rem;
+                & > div {
+                    line-height: 8px !important;
+                }
+            } 
         `;
 
         const StyleAccordion = styled(Accordion)`
@@ -300,7 +315,7 @@ class Navbar extends React.Component {
                     <Card className="accordion-card">
                         {/* <Card.Header className="cardHeader"> */}
                             <Accordion.Toggle className="itemName" as={"p"} eventKey="0">
-                                Click me!▼ 
+                                Dự án ▼ 
                             </Accordion.Toggle>                        
                         {/* </Card.Header> */}
                         <Accordion.Collapse eventKey="0">
@@ -322,7 +337,7 @@ class Navbar extends React.Component {
         const NavDropdown = () => { 
             return (
             <StyleDropdown
-                autoOpen
+                open
             >
                 <DropdownToggle style={{marginBottom: 0}} componentClass={"p"} title="Dự án" />
                 <StyleDropdownMenuWrapper>
@@ -363,12 +378,18 @@ class Navbar extends React.Component {
         
         return this.state.sections.map((item, index) => {
             if (item.isDropdown)
+            {
                 return width <= 500 ? <AccordionDropdown /> : <NavDropdown />;
-            return (
-                <NavItem key={item.id} onClick={() => this.navigate(item.id)}>
-                    {item.display}
-                </NavItem>
-            )
+            }
+            else 
+            {
+                return (
+                    <NavItem key={item.id} onClick={() => this.navigate(item.id)}>
+                        {item.display}
+                    </NavItem>
+                )
+            }
+                
         })
     }
 }
