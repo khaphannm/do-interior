@@ -337,7 +337,7 @@ class Navbar extends React.Component {
         const NavDropdown = () => { 
             return (
             <StyleDropdown
-                open
+                autoOpen
             >
                 <DropdownToggle style={{marginBottom: 0}} componentClass={"p"} title="Dự án" />
                 <StyleDropdownMenuWrapper>
