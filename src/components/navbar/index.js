@@ -329,37 +329,31 @@ class Navbar extends React.Component {
                     <StyleDropdownMenu key={300}>
                         <StyleMenuItem className="headerItem" header>Dự án</StyleMenuItem>
                         <StyleMenuItem>
-                            Menu item one1
+                            Ảnh thực tế sau thi công
                         </StyleMenuItem>
                         <StyleMenuItem>
-                            Menu item two1
+                             Căn hộ, penthouse
                         </StyleMenuItem>
                         <StyleMenuItem>
-                            Menu item three1
+                            Biệt thự
                         </StyleMenuItem>
                     </StyleDropdownMenu>
                     <StyleDropdownMenu className="borderLeft" key={301}>
                         <StyleMenuItem className="headerItem" header>Thư viện</StyleMenuItem>
                         <StyleMenuItem>
-                            Menu item one1
+                            Phòng khách
                         </StyleMenuItem>
                         <StyleMenuItem>
-                            Menu item two1
+                            Bếp, phòng ăn
                         </StyleMenuItem>
                         <StyleMenuItem>
-                            Menu item three1
+                            Phòng ngủ
                         </StyleMenuItem>
                     </StyleDropdownMenu>
                     <StyleDropdownMenu className="borderLeft" key={302}>
                         <StyleMenuItem className="headerItem" header>Thư viện*</StyleMenuItem>
                         <StyleMenuItem>
-                            Menu item one1
-                        </StyleMenuItem>
-                        <StyleMenuItem>
-                            Menu item two1
-                        </StyleMenuItem>
-                        <StyleMenuItem>
-                            Menu item three1
+                            Mẫu tham khảo
                         </StyleMenuItem>
                     </StyleDropdownMenu>
                 </StyleDropdownMenuWrapper>
@@ -368,7 +362,6 @@ class Navbar extends React.Component {
         }
         
         return this.state.sections.map((item, index) => {
-            console.log(width)
             if (item.isDropdown)
                 return width <= 500 ? <AccordionDropdown /> : <NavDropdown />;
             return (

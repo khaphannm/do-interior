@@ -3,7 +3,7 @@ import styled, {keyframes, css} from 'styled-components';
 import Tilt from 'react-tilt';
 import {faCheckCircle} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { primaryContrast, primaryMain, secondaryMain } from '../../../constants/color';
+import { primaryMain } from '../../../constants/color';
 
 const MoveUp = keyframes`
     0% { transform: translateY(0); }
