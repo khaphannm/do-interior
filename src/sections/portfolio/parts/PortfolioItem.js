@@ -23,7 +23,7 @@ class PortfolioItem extends React.Component {
             object-fit: cover;
             height: ${this.props.type !== "slider" ? "100%" : "600px"};
             transition: .5s;
-            height: 700px;
+            height: ${this.props.fixedHeight ? this.props.fixedHeight : '700px'}
             @media (max-width:1500px) {
                 height: 600px;
             }
@@ -90,8 +90,8 @@ class PortfolioItem extends React.Component {
         `
         const Item = styled.div`
             position: relative;
-            min-height: 700px;
-            max-height: 700px;
+            min-height: ${this.props.fixedHeight ? this.props.fixedHeight : '700px'};
+            max-height: ${this.props.fixedHeight ? this.props.fixedHeight : '700px'};
             @media (max-width:1500px) {
                 min-height: 600px;
                 max-height: 600px;
