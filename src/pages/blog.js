@@ -1,5 +1,6 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import PropTypes from 'prop-types';
+import { graphql } from "gatsby";
 import { Row, Col, Container } from 'react-bootstrap'
 import styled from 'styled-components'
 import Layout from 'components/layout';
@@ -16,10 +17,29 @@ const Wrapper = styled.div`
     padding: 0 16px;
 `
 
-const images = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+export const query = graphql`
+    query {
+        allContentfulBlogPost (sort:{
+            fields: publishedDate
+            order: DESC
+        }) {
+            edges {
+            node {
+                id
+                title
+                metaTitle
+                slug
+                categoryIds {
+                    id
+                    name
+                }
+            }
+            }
+        }
+    }
+`;
 
-const BlogPage = (props) => {
-
+const BlogPage = ({data, ...props}) => {
     return (
         <Layout
             isHome={true}
@@ -31,16 +51,15 @@ const BlogPage = (props) => {
                 {/* Post gallery */}
                 <Wrapper>
                     <Row>
-                    {images.map((item, index) => 
+                    {data.allContentfulBlogPost.edges.map((blog) => 
                         <Col md={4} lg={3} sm={6} xs={12}>
                             <PortfolioItem 
                                 fixedHeight={'450px'}
-                                key={index}
-                                index={index} 
+                                key={blog.node.id}
                                 image={'https://source.unsplash.com/random/800x600'} 
-                                text={'Title title'} 
-                                category={'Ảnh thực tế sau thi công'}
-                                link={'/'}
+                                text={blog.node.title} 
+                                category={blog.node.categoryIds.map(category => category.name).join(' ')}
+                                link={`blog/${blog.node.slug}`}
                                 type="slider"
                             /> 
                         </Col>

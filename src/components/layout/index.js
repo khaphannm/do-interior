@@ -39,7 +39,7 @@ class Layout extends React.Component {
       <div id="main">
         <I18nProvider i18n={i18n}>
           <Navbar scroll={this.props.isHome ? true : false} sections={sectionData} />
-          <PageRevealer />
+          {!this.props.disabledRevealer && <PageRevealer />}
           <div>
             {children}
           </div>

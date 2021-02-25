@@ -93,8 +93,8 @@ class PortfolioItem extends React.Component {
             min-height: ${this.props.fixedHeight ? this.props.fixedHeight : '700px'};
             max-height: ${this.props.fixedHeight ? this.props.fixedHeight : '700px'};
             @media (max-width:1500px) {
-                min-height: 600px;
-                max-height: 600px;
+                min-height: ${this.props.fixedHeight ? this.props.fixedHeight : '600px'};
+                max-height: ${this.props.fixedHeight ? this.props.fixedHeight : '600px'};
             }
             @media (max-width:1024px) {
                 min-height: 400px;

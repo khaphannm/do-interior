@@ -5,6 +5,7 @@
   "author": "Minh Kha",
   "private": true,
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^14.1.2",
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@hot-loader/react-dom": "^16.13.0",
     "@lingui/react": "^3.3.0",
