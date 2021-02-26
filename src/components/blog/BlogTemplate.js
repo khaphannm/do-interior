@@ -97,7 +97,6 @@ const PublishDate = styled.p`
 
 const BlogTemplate = ({data, ...props}) => {
     return (
-        <Layout disabledRevealer isHome={false}>
             <Section>
                 <PostImageContainer img={data.contentfulBlogPost.thumbnailImage.file.url}>
                     <div className="textContainer">
@@ -107,12 +106,10 @@ const BlogTemplate = ({data, ...props}) => {
                 </PostImageContainer>
                 <Wrapper>
                     <Container>
-                        
                         {renderRichText(data.contentfulBlogPost.body)} 
                     </Container>
                 </Wrapper>
             </Section> 
-        </Layout>
     )
 }
 

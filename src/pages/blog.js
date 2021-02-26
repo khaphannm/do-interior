@@ -1,11 +1,12 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import PropTypes from 'prop-types';
 import { graphql } from "gatsby";
 import { Row, Col, Container } from 'react-bootstrap'
 import styled from 'styled-components'
 import Layout from 'components/layout';
 import AnimatedHeading from 'components/animated-heading';
-import PortfolioItem from 'sections/portfolio/parts/PortfolioItem.js'
+import PortfolioItem from 'sections/portfolio/parts/PortfolioItem.js';
+import LayoutContext from '../context/LayoutContext'
 
 const Section = styled.section`
     position: relative;
@@ -18,32 +19,38 @@ const Wrapper = styled.div`
 `
 
 export const query = graphql`
-    query {
+    query($categoryId: String!) {
         allContentfulBlogPost (sort:{
             fields: publishedDate
             order: DESC
-        }) {
+        }, filter:{
+            categoryIds:{elemMatch:{id:{eq: $categoryId}}}
+        }){
             edges {
-            node {
-                id
-                title
-                metaTitle
-                slug
-                categoryIds {
+                node {
                     id
-                    name
+                    title
+                    metaTitle
+                    slug
+                    categoryIds {
+                        id
+                        name
+                    }
+                    thumbnailImage {
+                        file {
+                            url
+                        }
+                    }
                 }
-            }
             }
         }
     }
 `;
 
-const BlogPage = ({data, ...props}) => {
+const BlogPage = ({data, pageContext, ...props}) => {
+    const contextData = useContext(LayoutContext);
+    console.log(contextData)
     return (
-        <Layout
-            isHome={true}
-        >
             <Section>
                 <Container>
                     <AnimatedHeading fontSize={"48px"} space={"3px"} text={`Ảnh thực tế sau thi công`} />
@@ -52,14 +59,13 @@ const BlogPage = ({data, ...props}) => {
                 <Wrapper>
                     <Row>
                     {data.allContentfulBlogPost.edges.map((blog) => 
-                        <Col md={4} lg={3} sm={6} xs={12}>
+                        <Col key={blog.node.id} md={4} lg={3} sm={6} xs={12}>
                             <PortfolioItem 
                                 fixedHeight={'450px'}
-                                key={blog.node.id}
-                                image={'https://source.unsplash.com/random/800x600'} 
+                                image={blog.node.thumbnailImage.file && blog.node.thumbnailImage.file.url} 
                                 text={blog.node.title} 
                                 category={blog.node.categoryIds.map(category => category.name).join(' ')}
-                                link={`blog/${blog.node.slug}`}
+                                link={`/blog/${pageContext.slug}/${blog.node.slug}`}
                                 type="slider"
                             /> 
                         </Col>
@@ -68,7 +74,6 @@ const BlogPage = ({data, ...props}) => {
                     
                 </Wrapper>
             </Section>
-        </Layout>
     )
 }
 

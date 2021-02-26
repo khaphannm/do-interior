@@ -21,26 +21,70 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage }) => {
 
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
-  const blogTemplate = path.resolve('./src/components/blog/BlogTemplate.js');
-  const res = await graphql(`
+
+  /**
+   * Blog page list according to Category (I.e: blog/category)
+   */
+  const blogListTemplate = path.resolve('./src/pages/blog.js');
+  const blogListTemplate_res = await graphql(`
+    query {
+      allContentfulCategory {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
+    }
+  `)
+  blogListTemplate_res.data.allContentfulCategory.edges.forEach(async (categoryEdge) => {
+    createPage({
+      component: blogListTemplate,
+      path: `blog/${categoryEdge.node.slug}`,
+      // This one will be added as props to Template component
+      context: {
+        categoryId: categoryEdge.node.id,
+        slug: categoryEdge.node.slug
+      }
+    }) 
+
+    /**
+     * Specific Blog template (blog/category/blog_slug)
+     */
+    const specificBlogTemplate = path.resolve('./src/components/blog/BlogTemplate.js');
+    const specificBlogs_Res = await graphql(`
       query {
-        allContentfulBlogPost {
+        allContentfulBlogPost (filter:{
+          categoryIds:{elemMatch:{id:{eq: "${categoryEdge.node.id}"}}}
+        }) {
           edges {
             node {
+              id
+              title
+              metaTitle
               slug
+              publishedDate(formatString: "DD MMM YYYY")
+              categoryIds {
+                id
+                name
+              }
             }
           }
         }
       }
-  `)
+    `)
 
-  res.data.allContentfulBlogPost.edges.forEach((edge) => {
-    createPage({
-      component: blogTemplate,
-      path: `blog/${edge.node.slug}`,
-      context: {
-        slug: edge.node.slug
-      }
+    specificBlogs_Res.data.allContentfulBlogPost.edges.forEach((edge) => {
+      createPage({
+        component: specificBlogTemplate,
+        path: `blog/${categoryEdge.node.slug}/${edge.node.slug}`,
+        // This one will be added as props to Template component
+        context: {
+          slug: edge.node.slug
+        }
+      })
     })
-  })
+  });
+  
 }
