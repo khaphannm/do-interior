@@ -14,7 +14,7 @@ import TestimonialsTwo from 'sections/testimonials/TestimonialsTwo.js'
 // import ClientsTwo from 'sections/clients/ClientsTwo.js'
 import ContactCreative from 'sections/contact/ContactCreative.js'
 import Pricing from 'sections/pricing/Pricing.js'
-import LayoutContext from '../context/LayoutContext'
+import {LayoutContext} from '../context/LayoutContext'
 // import { defaultLocale, dynamicActivate } from '../utils/i18n'
 
 
@@ -31,28 +31,26 @@ const Index = ({data, ...props}) => {
   //     }
   //   }
   // `)
-    useEffect(() => {
-      if(contextLayout.data.dynamicSections.length === 0) {
-        console.log(contextLayout.data.dynamicSections.length)
-        const saveData = {
-          data: {
-            dynamicSections: data.allContentfulNavigation.edges
-          }
-        }
-        contextLayout.set(saveData);
-      }
-    }, [])
-    console.log(contextLayout.data.dynamicSections)
+    // useEffect(() => {
+    //   if(contextLayout.dynamicSections.length === 0) {
+    //     console.log(contextLayout.dynamicSections.length)
+    //     const saveData = {
+    //       dynamicSections: data.allContentfulNavigation.edges
+    //     }
+    //     contextLayout.setDynamicSections(saveData);
+    //   }
+    // }, [])
+    // console.log(contextLayout.dynamicSections)
     return (
       <div>
         <Helmet>
           <title>{data.site.meta.title}</title>
           <meta name="description" content={data.site.meta.description} />
         </Helmet>
-          {/* <Layout */}
-            {/* dynamicSections={data.allContentfulNavigation.edges} */}
-            {/* isHome={true} */}
-          {/* > */}
+          <Layout
+            dynamicSections={data.allContentfulNavigation.edges}
+            isHome={true}
+          > 
             <HeroVideo />
             <AboutTwo />
             {/* <ServicesTwo /> */}
@@ -62,7 +60,7 @@ const Index = ({data, ...props}) => {
             {/* <ClientsTwo /> */}
             <Pricing />
             <ContactCreative />
-          {/* </Layout> */}
+          </Layout>
       </div>
     )
 }

@@ -1,28 +1,25 @@
 // Context.js
 import React, {useState} from "react"
-import { siteMetadata } from "../../gatsby-config"
 
 const defaultContextValue = {
-  data: {dynamicSections: []},
-  set: () => {}
+  dynamicSections: [],
+  setDynamicSections: () => {}
 }
 
-const LayoutContext = React.createContext(defaultContextValue)
+export const LayoutContext = React.createContext(defaultContextValue)
 
 const ContextProviderComponent = (props) => {
-    const setData = (data) => {
-        setState({
-            ...state,
-            ...data
-        })
-    }
-    const [state, setState] = useState({
-        ...defaultContextValue, set: setData
-    })
 
-    
+    const [state, setState] = useState(defaultContextValue)
 
-    return <LayoutContext.Provider value={state}>{props.children}</LayoutContext.Provider>
+    return (
+        <LayoutContext.Provider value={{
+            dynamicSections: state.dynamicSections,
+            setDynamicSections: (dynamicSectionsState) => setState(dynamicSectionsState)
+        }}>
+            {props.children}
+        </LayoutContext.Provider>
+    )
 }
 
-export { LayoutContext as default, ContextProviderComponent }
+export default ContextProviderComponent

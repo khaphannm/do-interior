@@ -8,7 +8,8 @@ import Footer from 'components/footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'scss/abstract.scss';
 import { defaultLocale, dynamicActivate } from '../../utils/i18n';
-import { ContextProviderComponent } from "../../context/LayoutContext"
+import ContextProviderComponent from '../../context/LayoutContext';
+// import { ContextProviderComponent } from "../../context/LayoutContext"
 
 const sectionData = [
   {id: 'home', display: <Trans>home</Trans>}, 
@@ -37,18 +38,18 @@ class Layout extends React.Component {
     
 
     return (
-      <ContextProviderComponent>
         <div id="main">
           <I18nProvider i18n={i18n}>
-            <Navbar scroll={this.props.isHome ? true : false} sections={sectionData} />
-            {/* {!this.props.disabledRevealer && <PageRevealer />} */}
-            <div>
-              {children}
-            </div>
-            <Footer />
+            <ContextProviderComponent>
+              <Navbar scroll={this.props.isHome ? true : false} sections={sectionData} dynamicSections={this.props.dynamicSections} />
+              {!this.props.disabledRevealer && <PageRevealer />}
+              <div>
+                {children}
+              </div>
+              <Footer />
+            </ContextProviderComponent>
           </I18nProvider>
         </div>
-      </ContextProviderComponent>
     )
   }
 }

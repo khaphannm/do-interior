@@ -6,12 +6,12 @@ module.exports = {
   },
   pathPrefix: '/',
   plugins: [
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`${__dirname}/src/components/layout`),
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-layout`,
+    //   options: {
+    //     component: require.resolve(`${__dirname}/src/components/layout`),
+    //   },
+    // },
     {
       resolve: 'gatsby-source-contentful',
       options: {

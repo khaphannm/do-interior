@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Layout from 'components/layout';
 import AnimatedHeading from 'components/animated-heading';
 import PortfolioItem from 'sections/portfolio/parts/PortfolioItem.js';
-import LayoutContext from '../context/LayoutContext'
+import {LayoutContext} from '../context/LayoutContext'
 
 const Section = styled.section`
     position: relative;

@@ -15,7 +15,7 @@ import Dropdown, {
     MenuItem,
 } from '@trendmicro/react-dropdown';
 import { Accordion, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
-import LayoutContext from '../../context/LayoutContext'
+import {LayoutContext} from '../../context/LayoutContext'
 var scrollToElement = require('scroll-to-element')
 
 
@@ -99,7 +99,7 @@ const Toggler = styled.button`
 
 
 
-const Navbar = ({dynamicSections, ...props}) => {
+const Navbar = (props) => {
     // constructor(props) {
     //     super(props)
     //     this.state = {
@@ -177,7 +177,7 @@ const Navbar = ({dynamicSections, ...props}) => {
             </NavItem>
         );
         // Navigation item from Contentful
-        const listItemFromServer = contextLayout.data.dynamicSections.map(edge => {
+        const listItemFromServer = props.dynamicSections.map(edge => {
             if(props.size.width <= 500)
                 return <AccordionDropdown key={edge.node.id} data={edge.node} />
             else
@@ -204,7 +204,9 @@ const Navbar = ({dynamicSections, ...props}) => {
         <NavbarWrapper className={`header${sticky === true ? ' sticky' : ''}`}>
             <NavbarContainer>
                 <LogoWrapper className="logo">
-                    <Logo src="/img/logo.png" alt="logo" />
+                    <Link to="/">
+                        <Logo src="/img/logo.png" alt="logo" />
+                    </Link>
                 </LogoWrapper>
                 <Toggler
                     onClick={() => collapseNav()}

@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import RevealContent from 'components/reveal-content'
 import Tilt from 'react-tilt'
 import DesktopContent from './DesktopContent.js'
+import {Link} from 'gatsby';
 class PortfolioItem extends React.Component {
 
     constructor(props) {
@@ -133,7 +134,7 @@ class PortfolioItem extends React.Component {
 
         if (this.props.type === "slider") {
             return (
-                <a href={this.props.link} target="_blank" rel="noopener noreferrer">
+                <Link to={this.props.link} target="_blank" rel="noopener noreferrer">
                     <Tilt options={{ scale: 1, max: 10 }}>
                         <Item className="gold-shadow">
                             {this.showImage()}
@@ -146,11 +147,11 @@ class PortfolioItem extends React.Component {
                             <DesktopContent text={this.props.text} category={this.props.category} ref={(cd) => this.child = cd} type={this.props.type} />
                         </Item>
                     </Tilt>
-                </a>
+                </Link>
             )
         } else {
             return (
-                <a href={this.props.link} target="_blank" rel="noopener noreferrer">
+                <Link to={this.props.link} target="_blank" rel="noopener noreferrer">
                     <Tilt options={{ scale: 1, max: 10 }}>
                         <Item className={`${this.props.index % 2 === 0 ? "move-up" : "move-down"}`} id={`portfolio-item-${this.props.index}`}>
                             {this.showImage()}
@@ -163,7 +164,7 @@ class PortfolioItem extends React.Component {
                             <DesktopContent text={this.props.text} category={this.props.category} ref={(cd) => this.child = cd} type={this.props.type} />
                         </Item>
                     </Tilt>
-                </a>
+                </Link>
             )
         }
     }
