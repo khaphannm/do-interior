@@ -48,8 +48,8 @@ export const query = graphql`
 `;
 
 const BlogPage = ({data, pageContext, ...props}) => {
-    const contextData = useContext(LayoutContext);
-    console.log(contextData)
+    // const contextData = useContext(LayoutContext);
+    // console.log(contextData)
     return (
             <Section>
                 <Container>

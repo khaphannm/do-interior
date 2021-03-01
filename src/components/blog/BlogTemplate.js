@@ -97,19 +97,19 @@ const PublishDate = styled.p`
 
 const BlogTemplate = ({data, ...props}) => {
     return (
-            <Section>
-                <PostImageContainer img={data.contentfulBlogPost.thumbnailImage.file.url}>
-                    <div className="textContainer">
-                        <BlogTitle>{data.contentfulBlogPost.title}</BlogTitle>
-                        <PublishDate>{data.contentfulBlogPost.publishedDate}</PublishDate>
-                    </div>
-                </PostImageContainer>
-                <Wrapper>
-                    <Container>
-                        {renderRichText(data.contentfulBlogPost.body)} 
-                    </Container>
-                </Wrapper>
-            </Section> 
+        <Section>
+            <PostImageContainer img={data.contentfulBlogPost.thumbnailImage.file.url}>
+                <div className="textContainer">
+                    <BlogTitle>{data.contentfulBlogPost.title}</BlogTitle>
+                    <PublishDate>{data.contentfulBlogPost.publishedDate}</PublishDate>
+                </div>
+            </PostImageContainer>
+            <Wrapper>
+                <Container>
+                    {renderRichText(data.contentfulBlogPost.body)} 
+                </Container>
+            </Wrapper>
+        </Section>
     )
 }
 

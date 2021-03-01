@@ -1,5 +1,5 @@
 import React, {useEffect, useContext} from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import { I18nProvider } from '@lingui/react';
 import {Trans} from '@lingui/macro';
@@ -15,7 +15,6 @@ import TestimonialsTwo from 'sections/testimonials/TestimonialsTwo.js'
 import ContactCreative from 'sections/contact/ContactCreative.js'
 import Pricing from 'sections/pricing/Pricing.js'
 import {LayoutContext} from '../context/LayoutContext'
-// import { defaultLocale, dynamicActivate } from '../utils/i18n'
 
 
 
@@ -31,15 +30,15 @@ const Index = ({data, ...props}) => {
   //     }
   //   }
   // `)
-    // useEffect(() => {
-    //   if(contextLayout.dynamicSections.length === 0) {
-    //     console.log(contextLayout.dynamicSections.length)
-    //     const saveData = {
-    //       dynamicSections: data.allContentfulNavigation.edges
-    //     }
-    //     contextLayout.setDynamicSections(saveData);
-    //   }
-    // }, [])
+    useEffect(() => {
+      if(contextLayout.dynamicSections.length === 0) {
+        console.log(contextLayout.dynamicSections.length)
+        const saveData = {
+          dynamicSections: data.allContentfulNavigation.edges
+        }
+        contextLayout.setDynamicSections(saveData);
+      }
+    }, [])
     // console.log(contextLayout.dynamicSections)
     return (
       <div>
@@ -47,10 +46,11 @@ const Index = ({data, ...props}) => {
           <title>{data.site.meta.title}</title>
           <meta name="description" content={data.site.meta.description} />
         </Helmet>
-          <Layout
-            dynamicSections={data.allContentfulNavigation.edges}
+         {/* <I18nProvider i18n={i18n}> */}
+          {/* <Layout
+            // dynamicSections={data.allContentfulNavigation.edges}
             isHome={true}
-          > 
+          >  */}
             <HeroVideo />
             <AboutTwo />
             {/* <ServicesTwo /> */}
@@ -60,7 +60,8 @@ const Index = ({data, ...props}) => {
             {/* <ClientsTwo /> */}
             <Pricing />
             <ContactCreative />
-          </Layout>
+          {/* </I18nProvider> */}
+          {/* </Layout> */}
       </div>
     )
 }
