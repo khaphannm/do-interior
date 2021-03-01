@@ -22,10 +22,6 @@ const sectionData = [
 
 class Layout extends React.Component {
 
-  componentDidUpdate() {
-    window.location.reload(false);
-  }
-
   componentDidMount() {
     dynamicActivate(defaultLocale);
   }
@@ -41,7 +37,8 @@ class Layout extends React.Component {
         <div id="main">
           <I18nProvider i18n={i18n}>
             <ContextProviderComponent>
-              <Navbar scroll={this.props.isHome ? true : false} sections={sectionData} dynamicSections={this.props.dynamicSections} />
+              {/* <Navbar scroll={this.props.isHome ? true : false} sections={sectionData} dynamicSections={this.props.dynamicSections} /> */}
+              <Navbar scroll={this.props.isHome ? true : false} sections={sectionData}/>
               {!this.props.disabledRevealer && <PageRevealer />}
               <div>
                 {children}

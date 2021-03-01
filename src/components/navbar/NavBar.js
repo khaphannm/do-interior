@@ -177,7 +177,13 @@ const Navbar = (props) => {
             </NavItem>
         );
         // Navigation item from Contentful
-        const listItemFromServer = props.dynamicSections.map(edge => {
+        // const listItemFromServer = props.dynamicSections.map(edge => {
+        //     if(props.size.width <= 500)
+        //         return <AccordionDropdown key={edge.node.id} data={edge.node} />
+        //     else
+        //         return <NavDropdown key={`${edge.node.id}nav-dropdown`} data={edge.node} />
+        // })
+        const listItemFromServer = contextLayout.dynamicSections.map(edge => {
             if(props.size.width <= 500)
                 return <AccordionDropdown key={edge.node.id} data={edge.node} />
             else

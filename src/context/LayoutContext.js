@@ -15,7 +15,7 @@ const ContextProviderComponent = (props) => {
     return (
         <LayoutContext.Provider value={{
             dynamicSections: state.dynamicSections,
-            setDynamicSections: (dynamicSectionsState) => setState(dynamicSectionsState)
+            setDynamicSections: setState
         }}>
             {props.children}
         </LayoutContext.Provider>
