@@ -189,7 +189,7 @@ const Navbar = (props) => {
             else
                 return <NavDropdown key={`${edge.node.id}nav-dropdown`} data={edge.node} />
         })
-        return listItemRendered.concat(listItemFromServer);
+        return listItemFromServer.concat(listItemRendered);
     }
 
     /**

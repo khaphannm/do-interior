@@ -14,7 +14,7 @@ import ContextProviderComponent from '../../context/LayoutContext';
 const sectionData = [
   {id: 'home', display: <Trans>home</Trans>}, 
   {id: 'about', display: <Trans>about</Trans>}, 
-  {id:'services', display: <Trans>services</Trans>, isDropdown: true}, 
+  {id: 'services', display: <Trans>services</Trans>}, 
   {id: 'portfolio', display: <Trans>portfolio</Trans>}, 
   {id: 'testimonials', display: <Trans>testimonials</Trans>}, 
   {id: 'pricing', display: <Trans>pricing</Trans>}, 
@@ -31,8 +31,6 @@ class Layout extends React.Component {
 
     const { children } = this.props
     
-    
-
     return (
         <div id="main">
           <I18nProvider i18n={i18n}>

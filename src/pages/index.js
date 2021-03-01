@@ -1,13 +1,8 @@
 import React, {useEffect, useContext} from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import { I18nProvider } from '@lingui/react';
-import {Trans} from '@lingui/macro';
-import { i18n } from '@lingui/core';
-import Layout from 'components/layout'
 import HeroVideo from 'sections/hero/HeroVideo.js'
 import AboutTwo from 'sections/about/AboutTwo.js'
-import ServicesTwo from 'sections/services/ServicesTwo.js'
 import PortfolioTwo from 'sections/portfolio/PortfolioTwo.js'
 import TestimonialsTwo from 'sections/testimonials/TestimonialsTwo.js'
 // import TeamTwo from 'sections/team/TeamTwo.js'
@@ -20,25 +15,16 @@ import {LayoutContext} from '../context/LayoutContext'
 
 const Index = ({data, ...props}) => {
   const contextLayout = useContext(LayoutContext);
-  // const staticData = useStaticQuery(graphql`
-  //   query {
-  //     site {
-  //       meta: siteMetadata {
-  //         title
-  //         description
-  //       }
-  //     }
-  //   }
-  // `)
-    useEffect(() => {
-      if(contextLayout.dynamicSections.length === 0) {
-        console.log(contextLayout.dynamicSections.length)
-        const saveData = {
-          dynamicSections: data.allContentfulNavigation.edges
-        }
-        contextLayout.setDynamicSections(saveData);
+
+  useEffect(() => {
+    if(contextLayout.dynamicSections.length === 0) {
+      console.log(contextLayout.dynamicSections.length)
+      const saveData = {
+        dynamicSections: data.allContentfulNavigation.edges
       }
-    }, [])
+      contextLayout.setDynamicSections(saveData);
+    }
+  }, [])
     // console.log(contextLayout.dynamicSections)
     return (
       <div>
