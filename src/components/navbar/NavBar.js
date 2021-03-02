@@ -288,7 +288,11 @@ const NavItem = styled.button`
     &:focus {
         outline: none;
     }
-    @media (min-width: 501px) and (max-width: 1023px) {
+    @media (min-width: 501px) and (max-width: 770px) {
+        font-size: 7px;
+        margin: -0.5px;
+    }
+    @media (min-width: 771px) and (max-width: 1023px) {
         font-size: 11px;
         margin: 2px;
     }
@@ -303,7 +307,11 @@ const baseDropdown = css`
     transition: .5s;
     cursor: pointer;
     
-    @media (min-width: 501px) and (max-width: 1023px) {
+    @media (min-width: 501px) and (max-width: 770px) {
+        font-size: 7px;
+        margin: -0.5px;
+    }
+    @media (min-width: 771px) and (max-width: 1023px) {
         font-size: 11px;
         margin: 2px;
     }
