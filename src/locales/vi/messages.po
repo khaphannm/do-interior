@@ -99,7 +99,7 @@ msgstr "trang chủ"
 
 #: src/pages/index.js:23
 msgid "portfolio"
-msgstr "tiêu biểu"
+msgstr "nổi bật"
 
 #: src/pages/index.js:25
 msgid "pricing"

@@ -53,7 +53,7 @@ const BlogPage = ({data, pageContext, ...props}) => {
     return (
             <Section>
                 <Container>
-                    <AnimatedHeading fontSize={"48px"} space={"3px"} text={`Ảnh thực tế sau thi công`} />
+                    <AnimatedHeading fontSize={"48px"} space={"3px"} text={`${pageContext.categoryName}`} />
                 </Container>
                 {/* Post gallery */}
                 <Wrapper>

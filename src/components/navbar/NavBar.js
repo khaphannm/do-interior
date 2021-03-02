@@ -17,6 +17,7 @@ import Dropdown, {
 } from '@trendmicro/react-dropdown';
 import { Accordion, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import {LayoutContext} from '../../context/LayoutContext';
+import { getDynamicCategory } from '../../utils/localStorage'
 var scrollToElement = require('scroll-to-element')
 
 
@@ -204,7 +205,8 @@ const Navbar = (props) => {
         //     else
         //         return <NavDropdown key={`${edge.node.id}nav-dropdown`} data={edge.node} />
         // })
-        const listItemFromServer = contextLayout.dynamicSections.map(edge => {
+        const listDynamicSections = !getDynamicCategory() ? contextLayout.dynamicSections : JSON.parse(getDynamicCategory());
+        const listItemFromServer = listDynamicSections.map(edge => {
             if(props.size.width <= 500)
                 return <AccordionDropdown key={edge.node.id} data={edge.node} />
             else
@@ -329,8 +331,10 @@ const StyleDropdownMenuWrapper = styled(DropdownMenuWrapper)`
     border-radius: 12px;
     padding: 24px 16px;
     opacity: 0.9;
-    .borderLeft {
-        border-left: 1px solid #fff !important;
+    .borderRight {
+        border-right: 1px solid #fff !important;
+        margin-right: 0.6rem;
+        padding-right: 0.6rem;
     } 
     background-color: ${primaryLight};
     @media (min-width: 500px) and (max-width: 1280px) {
@@ -345,6 +349,7 @@ const StyleDropdownMenu = styled(DropdownMenu)`
         font-weight: bold;
         font-size: 1.1rem;
         transform: translateY(6px);
+        padding-left: 0;
         @media (min-width: 500px) and (max-width: 1280px) {
             font-size: 0.7rem;
         } 
@@ -425,7 +430,7 @@ const AccordionDropdown = ({data, ...props}) => {
                             <StyleListGroupItem>Morbi leo risus</StyleListGroupItem>
                             <StyleListGroupItem>Porta ac consectetur ac</StyleListGroupItem>
                         </ListGroup> */}
-                        {data.categoryNestedList.map(category => {
+                        {data.categoryNestedList && data.categoryNestedList.map(category => {
                             return (
                                 <>
                                     <AccordionTitle>{category.name}</AccordionTitle>
@@ -453,9 +458,9 @@ const NavDropdown = ({data, ...props}) => {
     >
         <DropdownToggle style={{marginBottom: 0}} componentClass={"p"} title={data.navigationTitle} />
         <StyleDropdownMenuWrapper>
-            {data.categoryNestedList.map(category => {
+            {data.categoryNestedList && data.categoryNestedList.map((category, index) => {
                 return (
-                    <StyleDropdownMenu key={category.id}>
+                    <StyleDropdownMenu className={index !== data.categoryNestedList.length - 1 ? 'borderRight' : ""} key={category.id}>
                         <StyleMenuItem className="headerItem" header>{category.name}</StyleMenuItem>
                         {category.category.length > 0 && category.category.map(childCategory =>
                             <StyleLink key={childCategory.id} to={`/blog/${childCategory.slug}`}>

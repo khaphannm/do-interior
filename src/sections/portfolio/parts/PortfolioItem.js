@@ -22,9 +22,8 @@ class PortfolioItem extends React.Component {
         const Image = styled.img`
             width: 100%;
             object-fit: cover;
-            height: ${this.props.type !== "slider" ? "100%" : "600px"};
             transition: .5s;
-            height: ${this.props.fixedHeight ? this.props.fixedHeight : '700px'}
+            height: ${this.props.fixedHeight ? this.props.fixedHeight : '700px'};
             @media (max-width:1500px) {
                 height: 600px;
             }

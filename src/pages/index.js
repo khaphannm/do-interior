@@ -10,6 +10,7 @@ import TestimonialsTwo from 'sections/testimonials/TestimonialsTwo.js'
 import ContactCreative from 'sections/contact/ContactCreative.js'
 import Pricing from 'sections/pricing/Pricing.js'
 import {LayoutContext} from '../context/LayoutContext'
+import { getDynamicCategory, setDynamicCategory } from '../utils/localStorage'
 
 
 
@@ -17,13 +18,17 @@ const Index = ({data, ...props}) => {
   const contextLayout = useContext(LayoutContext);
 
   useEffect(() => {
-    if(contextLayout.dynamicSections.length === 0) {
-      console.log(contextLayout.dynamicSections.length)
-      const saveData = {
-        dynamicSections: data.allContentfulNavigation.edges,
+      if(contextLayout.dynamicSections.length === 0) {
+        // console.log(contextLayout.dynamicSections.length)
+        const saveData = {
+          dynamicSections: data.allContentfulNavigation.edges,
+        }
+        contextLayout.setSomeState(saveData);
+  
+        // Store in localStorage
+        setDynamicCategory(JSON.stringify(saveData.dynamicSections))
       }
-      contextLayout.setSomeState(saveData);
-    }
+
   }, [])
     // console.log(contextLayout.dynamicSections)
     return (

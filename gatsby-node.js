@@ -33,6 +33,7 @@ exports.createPages = async ({graphql, actions}) => {
           node {
             id
             slug
+            name
           }
         }
       }
@@ -45,6 +46,7 @@ exports.createPages = async ({graphql, actions}) => {
       // This one will be added as props to Template component
       context: {
         categoryId: categoryEdge.node.id,
+        categoryName: categoryEdge.node.name,
         slug: categoryEdge.node.slug
       }
     }) 
