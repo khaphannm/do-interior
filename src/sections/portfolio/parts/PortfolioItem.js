@@ -23,7 +23,7 @@ class PortfolioItem extends React.Component {
             width: 100%;
             object-fit: cover;
             transition: .5s;
-            height: ${this.props.fixedHeight ? this.props.fixedHeight : '700px'};
+            height: ${props => props.fixedHeight ? props.fixedHeight : '700px'};
             @media (max-width:1500px) {
                 height: 600px;
             }
@@ -32,11 +32,11 @@ class PortfolioItem extends React.Component {
             }
         `
         if (this.props.type === "slider") {
-            return <Image src={this.props.image} alt={this.props.text} />
+            return <Image fixedHeight={this.props.fixedHeight} src={this.props.image} alt={this.props.text} />
         } else {
             return (
                 <RevealContent callParentMethod={true} parentMethod={this.showContent}>
-                    <Image src={this.props.image} alt={this.props.text} />
+                    <Image fixedHeight={this.props.fixedHeight} src={this.props.image} alt={this.props.text} />
                 </RevealContent>
             )
         }
@@ -90,11 +90,11 @@ class PortfolioItem extends React.Component {
         `
         const Item = styled.div`
             position: relative;
-            min-height: ${this.props.fixedHeight ? this.props.fixedHeight : '700px'};
-            max-height: ${this.props.fixedHeight ? this.props.fixedHeight : '700px'};
+            min-height: ${props => props.fixedHeight ? props.fixedHeight : '700px'};
+            max-height: ${props => props.fixedHeight ? props.fixedHeight : '700px'};
             @media (max-width:1500px) {
-                min-height: ${this.props.fixedHeight ? this.props.fixedHeight : '600px'};
-                max-height: ${this.props.fixedHeight ? this.props.fixedHeight : '600px'};
+                min-height: ${props => props.fixedHeight ? props.fixedHeight : '600px'};
+                max-height: ${props => props.fixedHeight ? props.fixedHeight : '600px'};
             }
             @media (max-width:1024px) {
                 min-height: 400px;
@@ -102,7 +102,7 @@ class PortfolioItem extends React.Component {
             }
             overflow: hidden;
             max-width: 95%;
-            margin: 40px ${this.props.type !== "slider" ? "0" : "auto"};
+            margin: 40px ${props => props.type !== "slider" ? "0" : "auto"};
             border-radius: 10px;
             &.move-up {
                 animation: ${MoveUp} 5s infinite alternate;
@@ -136,7 +136,7 @@ class PortfolioItem extends React.Component {
                 // <Link to={this.props.link} target="_blank" rel="noopener noreferrer">
                 <Link to={this.props.link}>
                     <Tilt options={{ scale: 1, max: 10 }}>
-                        <Item className="gold-shadow">
+                        <Item fixedHeight={this.props.fixedHeight} type={this.props.type} className="gold-shadow">
                             {this.showImage()}
                             <MobileContent>
                                 <Text>
@@ -153,7 +153,7 @@ class PortfolioItem extends React.Component {
             return (
                 <Link to={this.props.link}>
                     <Tilt options={{ scale: 1, max: 10 }}>
-                        <Item className={`${this.props.index % 2 === 0 ? "move-up" : "move-down"}`} id={`portfolio-item-${this.props.index}`}>
+                        <Item fixedHeight={this.props.fixedHeight} type={this.props.type} className={`${this.props.index % 2 === 0 ? "move-up" : "move-down"}`} id={`portfolio-item-${this.props.index}`}>
                             {this.showImage()}
                             <MobileContent>
                                 <Text>
