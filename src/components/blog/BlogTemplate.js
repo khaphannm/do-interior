@@ -4,11 +4,13 @@ import { graphql } from "gatsby";
 import Layout from "components/layout";
 // import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled, {css} from 'styled-components';
-// import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { Container } from 'react-bootstrap';
 
 /* For reference https://www.gatsbyjs.com/docs/how-to/querying-data/page-query/#provide-data-to-the-homepage--component */
+// Need to add references to get image information, this is missing in the doc, but reveal by a friend, detail here:
+// https://github.com/contentful/rich-text/issues/61#issuecomment-740691185
 export const query = graphql`
     query($slug: String!) {
         contentfulBlogPost(slug: {eq:$slug}) {
@@ -17,6 +19,15 @@ export const query = graphql`
             publishedDate(formatString: "DD/MM/YYYY HH:mm:ss")
             body {
                 raw
+                references {
+                    ... on ContentfulAsset {
+                        contentful_id
+                        __typename
+                        fluid(maxWidth: 2560) {
+                            ...GatsbyContentfulFluid_withWebp
+                        }
+                    }
+                }
             }
             thumbnailImage {
                 file {
@@ -32,7 +43,8 @@ const Section = styled.section`
 `
 const Wrapper = styled.div`
     padding: 0 16px;
-    padding-top: 34px;
+    padding-top: 56px;
+    padding-bottom: 48px;
     min-height: 100vh;
     background-color: #fff;
 `
@@ -95,6 +107,37 @@ const PublishDate = styled.p`
     }
 `;
 
+const options = {
+    renderNode: {
+        [BLOCKS.EMBEDDED_ASSET]: node => {
+            // const { title, description, file } = node.data.target.fields;
+            return <img
+                    alt="assets"
+                    src={node.data.target.fluid.src}
+                />
+            // const mimeType = file['en-US'].contentType
+            // const mimeGroup = mimeType.split('/')[0]
+
+            // switch (mimeGroup) {
+            //     case 'image':
+            //     return <img
+            //         title={ title ? title['en-US'] : null}
+            //         alt={description ?  description['en-US'] : null}
+            //         src={file['en-US'].url}
+            //     />
+            //     case 'application':
+            //     return <a
+            //             alt={description ?  description['en-US'] : null}
+            //             href={file['en-US'].url}
+            //             >{ title ? title['en-US'] : file['en-US'].details.fileName }
+            //         </a>
+            //     default:
+            //         return <span style={{backgroundColor: 'red', color: 'white'}}> {mimeType} embedded asset </span>
+            // } 
+          },
+      }, 
+}
+
 const BlogTemplate = ({data, ...props}) => {
     return (
         <Section>
@@ -106,7 +149,7 @@ const BlogTemplate = ({data, ...props}) => {
             </PostImageContainer>
             <Wrapper>
                 <Container>
-                    {renderRichText(data.contentfulBlogPost.body)} 
+                    {renderRichText(data.contentfulBlogPost.body, options)} 
                 </Container>
             </Wrapper>
         </Section>

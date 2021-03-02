@@ -1,8 +1,8 @@
 import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
+// import { StaticQuery, graphql } from 'gatsby'
 import { Col, Container } from 'react-bootstrap'
 import styled from 'styled-components'
-import {Trans} from '@lingui/macro'
+// import {Trans} from '@lingui/macro'
 import PortfolioItem from 'sections/portfolio/parts/PortfolioItem.js'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
@@ -88,17 +88,19 @@ class PortfolioTwo extends React.Component {
     }
 
   portfolio() {
-      const { items } = this.props
+      const { specialPosts } = this.props
 
-      return items.map((value, index) => {
+      return specialPosts.edges.map((post, index) => {
+        const linkTo = `/blog/${post.node.categoryIds.length > 0 ? post.node.categoryIds[0].slug : ""}/${post.node.slug}`;
+
         return (
           <PortfolioItem 
-            key={index}
+            key={post.node.id}
             index={index} 
-            image={value.content.frontmatter.image.childImageSharp.fluid.src} 
-            text={value.content.frontmatter.title} 
-            category={value.content.frontmatter.category}
-            link={value.content.frontmatter.link}
+            image={post.node.thumbnailImage.file.url} 
+            text={post.node.title} 
+            category={post.node.categoryIds.map(category => category.name).join(", ")}
+            link={linkTo}
             type="slider"
           />
         )
@@ -106,31 +108,33 @@ class PortfolioTwo extends React.Component {
     }
 }
 
-export default props => (
-  <StaticQuery
-      query={graphql`
-          query {
-              items: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(portfolio)/"}}, sort: {fields: [frontmatter___id], order: ASC}, limit: 9) {
-                edges {
-                  content: node {
-                    frontmatter {
-                      id
-                      title
-                      category
-                      link
-                      image {
-                        childImageSharp {
-                          fluid(maxWidth: 1000) {
-                            src
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }           
-          `}
-      render={({ items }) => <PortfolioTwo items={items.edges} {...props} />}
-  />
-)
+export default PortfolioTwo;
+
+// export default props => (
+//   <StaticQuery
+//       query={graphql`
+//           query {
+//               items: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(portfolio)/"}}, sort: {fields: [frontmatter___id], order: ASC}, limit: 9) {
+//                 edges {
+//                   content: node {
+//                     frontmatter {
+//                       id
+//                       title
+//                       category
+//                       link
+//                       image {
+//                         childImageSharp {
+//                           fluid(maxWidth: 1000) {
+//                             src
+//                           }
+//                         }
+//                       }
+//                     }
+//                   }
+//                 }
+//               }
+//             }           
+//           `}
+//       render={({ items }) => <PortfolioTwo items={items.edges} {...props} />}
+//   />
+// )

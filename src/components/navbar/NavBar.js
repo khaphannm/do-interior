@@ -15,7 +15,7 @@ import Dropdown, {
     DropdownMenuWrapper,
     MenuItem,
 } from '@trendmicro/react-dropdown';
-import { Accordion, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Accordion, Card, ListGroupItem } from 'react-bootstrap';
 import {LayoutContext} from '../../context/LayoutContext';
 import { getDynamicCategory } from '../../utils/localStorage'
 var scrollToElement = require('scroll-to-element')
@@ -457,41 +457,43 @@ const NavDropdown = ({data, ...props}) => {
         autoOpen
     >
         <DropdownToggle style={{marginBottom: 0}} componentClass={"p"} title={data.navigationTitle} />
-        <StyleDropdownMenuWrapper>
-            {data.categoryNestedList && data.categoryNestedList.map((category, index) => {
-                return (
-                    <StyleDropdownMenu className={index !== data.categoryNestedList.length - 1 ? 'borderRight' : ""} key={category.id}>
-                        <StyleMenuItem className="headerItem" header>{category.name}</StyleMenuItem>
-                        {category.category.length > 0 && category.category.map(childCategory =>
-                            <StyleLink key={childCategory.id} to={`/blog/${childCategory.slug}`}>
-                                <StyleMenuItem href={`/blog/${childCategory.slug}`} id={childCategory.id}>
-                                    {childCategory.name}
-                                </StyleMenuItem>
-                            </StyleLink>
-                        )}
-                    </StyleDropdownMenu>
-                )
-            })}
-            
-            {/* <StyleDropdownMenu className="borderLeft" key={301}>
-                <StyleMenuItem className="headerItem" header>Thư viện</StyleMenuItem>
-                <StyleMenuItem>
-                    Phòng khách
-                </StyleMenuItem>
-                <StyleMenuItem>
-                    Bếp, phòng ăn
-                </StyleMenuItem>
-                <StyleMenuItem>
-                    Phòng ngủ
-                </StyleMenuItem>
-            </StyleDropdownMenu>
-            <StyleDropdownMenu className="borderLeft" key={302}>
-                <StyleMenuItem className="headerItem" header>Thư viện*</StyleMenuItem>
-                <StyleMenuItem>
-                    Mẫu tham khảo
-                </StyleMenuItem>
-            </StyleDropdownMenu> */}
-        </StyleDropdownMenuWrapper>
+        {data.categoryNestedList && 
+            <StyleDropdownMenuWrapper>
+                {data.categoryNestedList.map((category, index) => {
+                    return (
+                        <StyleDropdownMenu className={index !== data.categoryNestedList.length - 1 ? 'borderRight' : ""} key={category.id}>
+                            <StyleMenuItem className="headerItem" header>{category.name}</StyleMenuItem>
+                            {category.category.length > 0 && category.category.map(childCategory =>
+                                <StyleLink key={childCategory.id} to={`/blog/${childCategory.slug}`}>
+                                    <StyleMenuItem href={`/blog/${childCategory.slug}`} id={childCategory.id}>
+                                        {childCategory.name}
+                                    </StyleMenuItem>
+                                </StyleLink>
+                            )}
+                        </StyleDropdownMenu>
+                    )
+                })}
+                
+                {/* <StyleDropdownMenu className="borderLeft" key={301}>
+                    <StyleMenuItem className="headerItem" header>Thư viện</StyleMenuItem>
+                    <StyleMenuItem>
+                        Phòng khách
+                    </StyleMenuItem>
+                    <StyleMenuItem>
+                        Bếp, phòng ăn
+                    </StyleMenuItem>
+                    <StyleMenuItem>
+                        Phòng ngủ
+                    </StyleMenuItem>
+                </StyleDropdownMenu>
+                <StyleDropdownMenu className="borderLeft" key={302}>
+                    <StyleMenuItem className="headerItem" header>Thư viện*</StyleMenuItem>
+                    <StyleMenuItem>
+                        Mẫu tham khảo
+                    </StyleMenuItem>
+                </StyleDropdownMenu> */}
+            </StyleDropdownMenuWrapper>
+        }
     </StyleDropdown>
     );
 }

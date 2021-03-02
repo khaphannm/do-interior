@@ -10,13 +10,13 @@ import TestimonialsTwo from 'sections/testimonials/TestimonialsTwo.js'
 import ContactCreative from 'sections/contact/ContactCreative.js'
 import Pricing from 'sections/pricing/Pricing.js'
 import {LayoutContext} from '../context/LayoutContext'
-import { getDynamicCategory, setDynamicCategory } from '../utils/localStorage'
+import { setDynamicCategory } from '../utils/localStorage'
 
 
 
 const Index = ({data, ...props}) => {
   const contextLayout = useContext(LayoutContext);
-
+  console.log(data);
   useEffect(() => {
       if(contextLayout.dynamicSections.length === 0) {
         // console.log(contextLayout.dynamicSections.length)
@@ -29,7 +29,7 @@ const Index = ({data, ...props}) => {
         setDynamicCategory(JSON.stringify(saveData.dynamicSections))
       }
 
-  }, [])
+  }, [contextLayout])
     // console.log(contextLayout.dynamicSections)
     return (
       <div>
@@ -44,7 +44,8 @@ const Index = ({data, ...props}) => {
             <HeroVideo />
             <AboutTwo />
             {/* <ServicesTwo /> */}
-            <PortfolioTwo />
+            {/* PortfolioTwo is presented for Special posts */}
+            <PortfolioTwo specialPosts={data.specialPosts} />
             <TestimonialsTwo />
             {/* <TeamTwo /> */}
             {/* <ClientsTwo /> */}
@@ -80,6 +81,26 @@ export const query = graphql`
               name
               slug
             }
+          }
+        }
+      }
+    },
+    specialPosts: allContentfulBlogPost(filter:{isSpecial:{eq:true}})
+    {
+      edges {
+        node {
+          id
+          title
+          slug
+          thumbnailImage {
+            file {
+              url
+            }
+          }
+          categoryIds {
+            id
+            slug
+            name
           }
         }
       }

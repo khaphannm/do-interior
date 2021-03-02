@@ -1,19 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { DropdownButton as BootDropdown, Dropdown } from 'react-bootstrap';
-import { faFacebook, faLinkedin, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons'
+// import { DropdownButton as BootDropdown } from 'react-bootstrap';
+import { faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { secondaryMain } from '../../constants/color'
-import { dynamicActivate } from '../../utils/i18n';
-import { i18n } from '@lingui/core';
-import {t} from '@lingui/macro';
-import {Trans} from '@lingui/macro';
 
 class Footer extends React.Component{
 
-    handleSelectLanguage = async (eventKey, event) => {
-        await dynamicActivate(eventKey);
-    }
+    // handleSelectLanguage = async (eventKey, event) => {
+    //     await dynamicActivate(eventKey);
+    // }
 
     render() {
         const FooterMain = styled.div`
@@ -37,32 +33,31 @@ class Footer extends React.Component{
                 }
             }
         `
-
-        const LanguageZone = styled.div`
-            position: absolute;
-            right: 2%;
-            bottom: 12%;
-        `
-        const DropdownButton = styled(BootDropdown)`
-            width: 100px;
-            & > .btn {
-                border-radius: 24px;
-                background-color: #111;
-                border: 1px solid #fff;
-            }
-            & .dropdown-item {
-                &:active {
-                    background-color:${secondaryMain}; 
-                }
-            }
-        `
+        // const LanguageZone = styled.div`
+        //     position: absolute;
+        //     right: 2%;
+        //     bottom: 12%;
+        // `
+        // const DropdownButton = styled(BootDropdown)`
+        //     width: 100px;
+        //     & > .btn {
+        //         border-radius: 24px;
+        //         background-color: #111;
+        //         border: 1px solid #fff;
+        //     }
+        //     & .dropdown-item {
+        //         &:active {
+        //             background-color:${secondaryMain}; 
+        //         }
+        //     }
+        // `
         return (
             <FooterMain>
                 <SocialIcons>
-                    <FontAwesomeIcon icon={faFacebook} className="social_icon" onClick={() => window.open('https://www.facebook.com')}/>
-                    <FontAwesomeIcon icon={faTwitter} className="social_icon" onClick={() => window.open('https://www.twitter.com')} />
-                    <FontAwesomeIcon icon={faYoutube} className="social_icon" onClick={() => window.open('https://www.youtube.com')} />
-                    <FontAwesomeIcon icon={faLinkedin} className="social_icon" onClick={() => window.open('https://www.linkedin.com')} />
+                    <FontAwesomeIcon icon={faFacebook} className="social_icon" onClick={() => window.open('https://www.facebook.com/thietkenoithatsuanha')}/>
+                    {/* <FontAwesomeIcon icon={faTwitter} className="social_icon" onClick={() => window.open('https://www.twitter.com')} /> */}
+                    <FontAwesomeIcon icon={faYoutube} className="social_icon" onClick={() => window.open('https://www.youtube.com/thietkenoithatsuanha')} />
+                    {/* <FontAwesomeIcon icon={faLinkedin} className="social_icon" onClick={() => window.open('https://www.linkedin.com')} /> */}
                 </SocialIcons>
                 {/* <LanguageZone>
                     <DropdownButton

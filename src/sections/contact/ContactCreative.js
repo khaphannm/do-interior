@@ -112,7 +112,7 @@ class ContactCreative extends React.Component {
                         <Map  
                           title="map"
                           width="600" height="450" frameborder="0" allowfullscreen="" aria-hidden="false"
-                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62860.62274110656!2d105.72255087486968!3d10.034269632974542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0629f6de3edb7%3A0x527f09dbfb20b659!2zQ2FuIFRobywgTmluaCBLaeG7gXUsIEPhuqduIFRoxqEsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1607261049001!5m2!1sen!2s"/>
+                          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31429.559203594734!2d105.73072353063965!3d10.042015803758332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0886be6036a11%3A0xd38a4c0e493a689c!2zMTM5IMSQxrDhu51uZyBz4buRIDMwLCBQaMaw4budbmcgQW4gS2jDoW5oLCBOaW5oIEtp4buBdSwgQ-G6p24gVGjGoSwgVmlldG5hbQ!5e0!3m2!1sen!2sus!4v1614700386230!5m2!1sen!2sus"/>
                       </ContactCol>
                     </FormRow>
                   </AnimationContainer>
@@ -128,8 +128,8 @@ class ContactCreative extends React.Component {
                                 Email
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink href="mailto:do.design@gmail.com">
-                                  do.design@gmail.com
+                                <InfoLink href="mailto:dodesign3939@gmail.com">
+                                dodesign3939@gmail.com
                                 </InfoLink>
                               </InfoLinkContainer>
                             </Info>
@@ -166,8 +166,8 @@ class ContactCreative extends React.Component {
                                 <Trans>Địa chỉ</Trans>
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink target="_blank" href="https://goo.gl/maps/wuVLEBBR9gAJuKoB8">
-                                  1 Ninh Kiều, Cần Thơ
+                                <InfoLink target="_blank" href="https://goo.gl/maps/nz7N4RuXXSQWUocS8">
+                                  139 đường số 30, phường An Khánh, Quận Ninh Kiều, Cần thơ, Việt nam
                                 </InfoLink>
                               </InfoLinkContainer>
                             </Info>
@@ -186,7 +186,7 @@ export default props => (
   <StaticQuery
     query={graphql`
     query {
-      emailIcon: file(relativePath: {eq: "icons/email2.png"}) {
+      emailIcon: file(relativePath: {eq: "icons/email.png"}) {
         childImageSharp {
           fluid(maxWidth: 500) {
             src
