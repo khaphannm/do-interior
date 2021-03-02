@@ -66,6 +66,30 @@ function Pricing(props) {
     }
 
     return (
+        <StaticQuery
+      query={graphql`
+      query {
+          pricingItems: allMarkdownRemark(filter:{fileAbsolutePath:{regex:"/pricing/(design)/"}}, sort:{fields:[frontmatter___id]}){
+              edges {
+                content: node {
+                    frontmatter {
+                        id
+                        category
+                        mainPrice
+                        mainDesc
+                        restPrices {
+                            price
+                            desc
+                        }
+                        services
+                        highlight
+                    }
+                }
+              }
+          }
+      }
+  `}
+    render={({pricingItems}) => 
         <Section id="pricing">
             <Container>
                 <AnimatedHeading text={`Bảng Giá Dịch Vụ`} />
@@ -79,7 +103,7 @@ function Pricing(props) {
                     >
                         <Tab tabClassName="tabItem" eventKey="design" title={<Trans>Thiết kế</Trans>}>
                             <Row>
-                                {props.pricingItems.edges.map((item, index) => (
+                                {pricingItems.edges.map((item, index) => (
                                     <Col key={`column-pricing-card-${index}`} md={3} style={{padding: 0}}>
                                         <AnimationContainer animation="fadeIn">
                                             <PricingCard 
@@ -113,6 +137,8 @@ function Pricing(props) {
                 
             </Wrapper>
         </Section>
+    }
+      />
     )
 }
 
@@ -120,31 +146,4 @@ Pricing.propTypes = {
 
 }
 
-export default props => (
-    <StaticQuery
-      query={graphql`
-      query {
-          pricingItems: allMarkdownRemark(filter:{fileAbsolutePath:{regex:"/pricing/(design)/"}}, sort:{fields:[frontmatter___id]}){
-              edges {
-                content: node {
-                    frontmatter {
-                        id
-                        category
-                        mainPrice
-                        mainDesc
-                        restPrices {
-                            price
-                            desc
-                        }
-                        services
-                        highlight
-                    }
-                }
-              }
-          }
-      }
-  `}
-      render={({ pricingItems }) => <Pricing  pricingItems={pricingItems} {...props} />}
-    />
-  )
-
+export default Pricing
