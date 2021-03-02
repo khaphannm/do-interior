@@ -20,9 +20,9 @@ const Index = ({data, ...props}) => {
     if(contextLayout.dynamicSections.length === 0) {
       console.log(contextLayout.dynamicSections.length)
       const saveData = {
-        dynamicSections: data.allContentfulNavigation.edges
+        dynamicSections: data.allContentfulNavigation.edges,
       }
-      contextLayout.setDynamicSections(saveData);
+      contextLayout.setSomeState(saveData);
     }
   }, [])
     // console.log(contextLayout.dynamicSections)
@@ -35,7 +35,6 @@ const Index = ({data, ...props}) => {
          {/* <I18nProvider i18n={i18n}> */}
           {/* <Layout
             // dynamicSections={data.allContentfulNavigation.edges}
-            isHome={true}
           >  */}
             <HeroVideo />
             <AboutTwo />

@@ -14,7 +14,7 @@ import ContextProviderComponent from '../../context/LayoutContext';
 const sectionData = [
   {id: 'home', display: <Trans>home</Trans>}, 
   {id: 'about', display: <Trans>about</Trans>}, 
-  {id: 'services', display: <Trans>services</Trans>}, 
+  // {id: 'services', display: <Trans>services</Trans>}, 
   {id: 'portfolio', display: <Trans>portfolio</Trans>}, 
   {id: 'testimonials', display: <Trans>testimonials</Trans>}, 
   {id: 'pricing', display: <Trans>pricing</Trans>}, 
@@ -36,7 +36,7 @@ class Layout extends React.Component {
           <I18nProvider i18n={i18n}>
             <ContextProviderComponent>
               {/* <Navbar scroll={this.props.isHome ? true : false} sections={sectionData} dynamicSections={this.props.dynamicSections} /> */}
-              <Navbar scroll={this.props.isHome ? true : false} sections={sectionData}/>
+              <Navbar sections={sectionData}/>
               {!this.props.disabledRevealer && <PageRevealer />}
               <div>
                 {children}

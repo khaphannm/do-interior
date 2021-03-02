@@ -7,6 +7,7 @@ import { primaryMain, primaryLight, secondaryLight, secondaryMain } from '../../
 // import { i18n } from '@lingui/core'
 import '@trendmicro/react-dropdown/dist/react-dropdown.css';
 import { Link } from 'gatsby'
+import { useLocation } from '@reach/router';
 import sizeMe from 'react-sizeme';
 import Dropdown, {
     DropdownToggle,
@@ -15,7 +16,7 @@ import Dropdown, {
     MenuItem,
 } from '@trendmicro/react-dropdown';
 import { Accordion, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
-import {LayoutContext} from '../../context/LayoutContext'
+import {LayoutContext} from '../../context/LayoutContext';
 var scrollToElement = require('scroll-to-element')
 
 
@@ -155,18 +156,38 @@ const Navbar = (props) => {
         setCollapse(!collapse);
     }
     
+    const location = useLocation();
+    // Scroll helper
+    const scrollTo = (elementId) => {
+        const el = document.getElementById(elementId)
+        scrollToElement(el, {
+            offset: 0,
+            ease: 'in-out-expo',
+            duration: 2000
+        })
+    }
+    // const navigate_action = useNavigate();
     const navigate = (id) => () => {
-        if (props.scroll) {
-            const el = document.getElementById(id)
-            scrollToElement(el, {
-                offset: 0,
-                ease: 'in-out-expo',
-                duration: 2000
-            })
+        if (location.pathname === "/") {
+            scrollTo(id); 
         } else {
-            window.location.href = `./#${id}`;
+            // Count the slash character
+            const count = location.pathname.split('/').length - 1;
+            // Dựa theo số lượng slash, sẽ biết đường dẫn đang ở mấy cấp, dựa vào đó để trở về lại trang chủ, bằng cách nối (n-1() lần "../"  
+            let href = "";
+            for (let index = 1; index < count; index++) {
+               href += "../"
+            }
+            window.location.href = `${href}#${id}`;
+            // navigate_action(`${href}#${id}`);
         }
     }
+
+    useEffect(() => {
+        if (location && location.pathname === "/" && location.hash !== "") {
+            scrollTo(location.hash.replace('#', ""));
+        }
+    }, [location])
 
         
     const navItems = () => {
@@ -437,7 +458,7 @@ const NavDropdown = ({data, ...props}) => {
                     <StyleDropdownMenu key={category.id}>
                         <StyleMenuItem className="headerItem" header>{category.name}</StyleMenuItem>
                         {category.category.length > 0 && category.category.map(childCategory =>
-                            <StyleLink to={`/blog/${childCategory.slug}`}>
+                            <StyleLink key={childCategory.id} to={`/blog/${childCategory.slug}`}>
                                 <StyleMenuItem href={`/blog/${childCategory.slug}`} id={childCategory.id}>
                                     {childCategory.name}
                                 </StyleMenuItem>

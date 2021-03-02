@@ -3,7 +3,7 @@ import React, {useState} from "react"
 
 const defaultContextValue = {
   dynamicSections: [],
-  setDynamicSections: () => {}
+  setSomeState: () => {}
 }
 
 export const LayoutContext = React.createContext(defaultContextValue)
@@ -15,7 +15,7 @@ const ContextProviderComponent = (props) => {
     return (
         <LayoutContext.Provider value={{
             dynamicSections: state.dynamicSections,
-            setDynamicSections: setState
+            setSomeState: setState
         }}>
             {props.children}
         </LayoutContext.Provider>
