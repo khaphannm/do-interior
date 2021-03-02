@@ -25,7 +25,7 @@ exports.createPages = async ({graphql, actions}) => {
   /**
    * Blog page list according to Category (I.e: blog/category)
    */
-  const blogListTemplate = path.resolve('./src/pages/blog.js');
+  const blogListTemplate = path.resolve('./src/components/blog/blog.js');
   const blogListTemplate_res = await graphql(`
     query {
       allContentfulCategory {
