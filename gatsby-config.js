@@ -102,7 +102,7 @@ module.exports = {
         minify: false,
         transpileTemplateLiterals: false,
         pure: false,
-        ssr: true,
+        ssr: false,
       },
     },
     'gatsby-plugin-react-helmet',
