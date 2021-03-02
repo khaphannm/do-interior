@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 // import PropTypes from 'prop-types'
 import styled from 'styled-components';
 import { Col, Row, Container, Tabs as BootTabs, Tab } from 'react-bootstrap';
-import {useStaticQuery, graphql} from 'gatsby'
+import {StaticQuery, graphql} from 'gatsby'
 import {Trans} from '@lingui/macro';
 import PricingCard from 'sections/pricing/parts/PricingCard.js';
 import AnimatedHeading from 'components/animated-heading';
@@ -37,28 +37,28 @@ const Tabs = styled(BootTabs)`
 
 function Pricing(props) {
     // Fetch data
-    const data = useStaticQuery(graphql`
-        query {
-            items: allMarkdownRemark(filter:{fileAbsolutePath:{regex:"/pricing/(design)/"}}, sort:{fields:[frontmatter___id]}){
-                edges {
-                content: node {
-                    frontmatter {
-                        id
-                        category
-                        mainPrice
-                        mainDesc
-                        restPrices {
-                            price
-                            desc
-                        }
-                        services
-                        highlight
-                    }
-                }
-                }
-            }
-        }
-    `);
+    // const data = useStaticQuery(graphql`
+    //     query {
+    //         items: allMarkdownRemark(filter:{fileAbsolutePath:{regex:"/pricing/(design)/"}}, sort:{fields:[frontmatter___id]}){
+    //             edges {
+    //             content: node {
+    //                 frontmatter {
+    //                     id
+    //                     category
+    //                     mainPrice
+    //                     mainDesc
+    //                     restPrices {
+    //                         price
+    //                         desc
+    //                     }
+    //                     services
+    //                     highlight
+    //                 }
+    //             }
+    //             }
+    //         }
+    //     }
+    // `);
 
     const [key, setKey] = useState('design');
     const handleSetKey = k => {
@@ -79,7 +79,7 @@ function Pricing(props) {
                     >
                         <Tab tabClassName="tabItem" eventKey="design" title={<Trans>Thiết kế</Trans>}>
                             <Row>
-                                {data.items.edges.map((item, index) => (
+                                {props.pricingItems.edges.map((item, index) => (
                                     <Col key={`column-pricing-card-${index}`} md={3} style={{padding: 0}}>
                                         <AnimationContainer animation="fadeIn">
                                             <PricingCard 
@@ -120,5 +120,31 @@ Pricing.propTypes = {
 
 }
 
-export default Pricing
+export default props => (
+    <StaticQuery
+      query={graphql`
+      query {
+          pricingItems: allMarkdownRemark(filter:{fileAbsolutePath:{regex:"/pricing/(design)/"}}, sort:{fields:[frontmatter___id]}){
+              edges {
+                content: node {
+                    frontmatter {
+                        id
+                        category
+                        mainPrice
+                        mainDesc
+                        restPrices {
+                            price
+                            desc
+                        }
+                        services
+                        highlight
+                    }
+                }
+              }
+          }
+      }
+  `}
+      render={({ pricingItems }) => <Pricing  pricingItems={pricingItems} {...props} />}
+    />
+  )
 
