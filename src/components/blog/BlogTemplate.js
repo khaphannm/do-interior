@@ -47,6 +47,14 @@ const Wrapper = styled.div`
     padding-bottom: 48px;
     min-height: 100vh;
     background-color: #fff;
+    .embeddedImg {
+        max-height: 800px;
+        width: 100%;
+        object-fit: cover;
+        @media (max-width:600px) {
+            max-height: 500px;
+        }
+    }
 `
 
 const PostImageContainer = styled.div`
@@ -95,7 +103,7 @@ const BlogTitle = styled.h1`
         font-size: 36px;
     }
     @media (max-width:400px) {
-        font-size: 24px;
+        font-size: 16px;
     }
 `;
 
@@ -112,6 +120,7 @@ const options = {
         [BLOCKS.EMBEDDED_ASSET]: node => {
             // const { title, description, file } = node.data.target.fields;
             return <img
+                    className="embeddedImg"
                     alt="assets"
                     src={node.data.target.fluid.src}
                 />

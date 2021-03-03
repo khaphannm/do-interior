@@ -440,7 +440,7 @@ const AccordionDropdown = ({data, ...props}) => {
                         </ListGroup> */}
                         {data.categoryNestedList && data.categoryNestedList.map(category => {
                             return (
-                                <>
+                                <React.Fragment key={category.id}>
                                     <AccordionTitle>{category.name}</AccordionTitle>
                                     {/* All children of this category */}
                                     {category.category.length > 0 && 
@@ -448,7 +448,7 @@ const AccordionDropdown = ({data, ...props}) => {
                                            <StyleListGroupItem action href={`/blog/${childCategory.slug}`} key={childCategory.id}>{childCategory.name}</StyleListGroupItem>
                                         )
                                     }
-                                </>
+                                </React.Fragment>
                             )
                         })}
                     </Card.Body>

@@ -16,7 +16,6 @@ import { setDynamicCategory } from '../utils/localStorage'
 
 const Index = ({data, ...props}) => {
   const contextLayout = useContext(LayoutContext);
-  console.log(data);
   useEffect(() => {
       if(contextLayout.dynamicSections.length === 0) {
         // console.log(contextLayout.dynamicSections.length)
