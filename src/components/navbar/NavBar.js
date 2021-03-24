@@ -356,10 +356,20 @@ const StyleDropdownMenu = styled(DropdownMenu)`
         color: #fff;
         font-weight: bold;
         font-size: 1.1rem;
-        transform: translateY(6px);
+        transform: translate(6px, 6px);
         padding-left: 0;
         @media (min-width: 500px) and (max-width: 1280px) {
             font-size: 0.7rem;
+        } 
+    }
+    .headerSubItem {
+        color: ${secondaryLight};
+        font-weight: bold;
+        font-size: 1rem;
+        transform: translateY(4px);
+        padding-left: 0;
+        @media (min-width: 500px) and (max-width: 1280px) {
+            font-size: 0.6rem;
         } 
     }
     @media (min-width: 500px) and (max-width: 1280px) {
@@ -409,6 +419,11 @@ const StyleAccordion = styled(Accordion)`
         background-color: transparent;
         width: 100%
     }
+    .headerItem {
+        color: #ffffff;
+        text-align: center;
+        text-decoration: underline;
+    }
 `;
 const AccordionTitle = styled.p`
     color: #fff;
@@ -445,7 +460,17 @@ const AccordionDropdown = ({data, ...props}) => {
                                     {/* All children of this category */}
                                     {category.category.length > 0 && 
                                         category.category.map(childCategory => 
-                                           <StyleListGroupItem action href={`/blog/${childCategory.slug}`} key={childCategory.id}>{childCategory.name}</StyleListGroupItem>
+                                            <React.Fragment key={childCategory.id}>
+                                                <StyleListGroupItem className={childCategory.category ? 'headerItem' : ''} action href={`/blog/${childCategory.slug}`} key={childCategory.id}>{childCategory.name}</StyleListGroupItem>
+                                                {(childCategory.category && childCategory.category.length > 0) && childCategory.category.map(grandChildCategory => 
+                                                    <StyleListGroupItem
+                                                        action href={`/blog/${grandChildCategory.slug}`} 
+                                                        key={grandChildCategory.id}
+                                                    >
+                                                            {grandChildCategory.name}
+                                                    </StyleListGroupItem>
+                                                )}
+                                            </React.Fragment>
                                         )
                                     }
                                 </React.Fragment>
@@ -470,13 +495,23 @@ const NavDropdown = ({data, ...props}) => {
                 {data.categoryNestedList.map((category, index) => {
                     return (
                         <StyleDropdownMenu className={index !== data.categoryNestedList.length - 1 ? 'borderRight' : ""} key={category.id}>
+                            {/* Support max 2 level nested */}
                             <StyleMenuItem className="headerItem" header>{category.name}</StyleMenuItem>
                             {category.category.length > 0 && category.category.map(childCategory =>
-                                <StyleLink key={childCategory.id} to={`/blog/${childCategory.slug}`}>
-                                    <StyleMenuItem href={`/blog/${childCategory.slug}`} id={childCategory.id}>
-                                        {childCategory.name}
-                                    </StyleMenuItem>
-                                </StyleLink>
+                                <React.Fragment key={childCategory.id}>
+                                    <StyleLink to={`/blog/${childCategory.slug}`}>
+                                        <StyleMenuItem className={childCategory.category ? 'headerSubItem' : ''} header={childCategory.category ? true : false} href={`/blog/${childCategory.slug}`} id={childCategory.id}>
+                                            {childCategory.name}
+                                        </StyleMenuItem>
+                                    </StyleLink>
+                                    {(childCategory.category && childCategory.category.length > 0) && childCategory.category.map(grandChildCategory =>
+                                        <StyleLink key={grandChildCategory.id} to={`/blog/${grandChildCategory.slug}`}>
+                                            <StyleMenuItem href={`/blog/${grandChildCategory.slug}`} id={grandChildCategory.id}>
+                                                {grandChildCategory.name}
+                                            </StyleMenuItem> 
+                                        </StyleLink>
+                                    )}
+                                </React.Fragment>
                             )}
                         </StyleDropdownMenu>
                     )
