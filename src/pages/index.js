@@ -11,6 +11,7 @@ import ContactCreative from 'sections/contact/ContactCreative.js'
 import Pricing from 'sections/pricing/Pricing.js'
 import {LayoutContext} from '../context/LayoutContext'
 import { setDynamicCategory } from '../utils/localStorage'
+import MessengerCustomerChat from '../utils/MessengerCustomerChat'
 
 
 
@@ -32,6 +33,12 @@ const Index = ({data, ...props}) => {
     // console.log(contextLayout.dynamicSections)
     return (
       <div>
+         <MessengerCustomerChat
+           pageId={process.env.PAGE_ID}
+           appId={"1488418468053435"}
+           version="10.0"
+           htmlRef={window.location.pathname}
+         />
         <Helmet>
           <title>{data.site.meta.title}</title>
           <meta name="description" content={data.site.meta.description} />

@@ -47,7 +47,6 @@ exports.createPages = async ({graphql, actions}) => {
     // blog.js should query the post of parent and child category
     const parentCategoryId = categoryEdge.node.id;
     const listCategoryIdFilter = categoryEdge.node.category ? [parentCategoryId].concat(categoryEdge.node.category.map(child => child.id)) : [parentCategoryId];
-    console.log("🚀 ~ file: gatsby-node.js ~ line 50 ~ exports.createPages= ~ listCategoryIdFilter", listCategoryIdFilter)
     createPage({
       component: blogListTemplate,
       path: `blog/${categoryEdge.node.slug}`,
