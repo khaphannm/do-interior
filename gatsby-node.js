@@ -34,18 +34,26 @@ exports.createPages = async ({graphql, actions}) => {
             id
             slug
             name
+            category {
+              id
+            }
           }
         }
       }
     }
   `)
-  blogListTemplate_res.data.allContentfulCategory.edges.forEach(async (categoryEdge) => {
+  for (const categoryEdge of blogListTemplate_res.data.allContentfulCategory.edges) {
+
+    // blog.js should query the post of parent and child category
+    const parentCategoryId = categoryEdge.node.id;
+    const listCategoryIdFilter = categoryEdge.node.category ? [parentCategoryId].concat(categoryEdge.node.category.map(child => child.id)) : [parentCategoryId];
+    console.log("🚀 ~ file: gatsby-node.js ~ line 50 ~ exports.createPages= ~ listCategoryIdFilter", listCategoryIdFilter)
     createPage({
       component: blogListTemplate,
       path: `blog/${categoryEdge.node.slug}`,
       // This one will be added as props to Template component
       context: {
-        categoryId: categoryEdge.node.id,
+        categoryIds: listCategoryIdFilter,
         categoryName: categoryEdge.node.name,
         slug: categoryEdge.node.slug
       }
@@ -87,6 +95,5 @@ exports.createPages = async ({graphql, actions}) => {
         }
       })
     })
-  });
-  
+  };
 }

@@ -19,12 +19,12 @@ const Wrapper = styled.div`
 `
 
 export const query = graphql`
-    query($categoryId: String!) {
+    query($categoryIds: [String]!) {
         allContentfulBlogPost (sort:{
             fields: publishedDate
             order: DESC
         }, filter:{
-            categoryIds:{elemMatch:{id:{eq: $categoryId}}}
+            categoryIds:{elemMatch:{id:{in: $categoryIds}}}
         }){
             edges {
                 node {
@@ -62,7 +62,7 @@ const BlogPage = ({data, pageContext, ...props}) => {
                         <Col key={blog.node.id} md={4} lg={4} xl={3} sm={6} xs={12}>
                             <PortfolioItem 
                                 fixedHeight="450px"
-                                image={blog.node.thumbnailImage.file && blog.node.thumbnailImage.file.url} 
+                                image={blog.node.thumbnailImage?.file && blog.node.thumbnailImage?.file.url} 
                                 text={blog.node.title} 
                                 category={blog.node.categoryIds.map(category => category.name).join(', ')}
                                 link={`/blog/${pageContext.slug}/${blog.node.slug}`}
