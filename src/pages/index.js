@@ -41,7 +41,7 @@ const Index = ({data, ...props}) => {
            themeColor={secondaryMain}
            language="vi_VN"
            greetingDialogDisplay="show"
-           greetingDialogDelay={3}
+           greetingDialogDelay={process.env.GATSBY_MESSENGER_PLUGIN_DELAY}
          />
         <Helmet>
           <title>{data.site.meta.title}</title>
