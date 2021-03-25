@@ -56,6 +56,7 @@ export default class MessengerCustomerChat extends Component {
   componentDidMount() {
     this.setFbAsyncInit();
     this.reloadSDKAsynchronously();
+    console.log(window.FB)
   }
 
   componentDidUpdate(prevProps) {
@@ -82,6 +83,7 @@ export default class MessengerCustomerChat extends Component {
 
   componentWillUnmount() {
     if (window.FB !== undefined) {
+      console.log(window.FB)
       window.FB.CustomerChat.hide();
     }
   }
@@ -96,8 +98,14 @@ export default class MessengerCustomerChat extends Component {
         xfbml,
         version: `v${version}`,
       });
-
-      this.setState({ fbLoaded: true });
+      // window.FB.Event.subscribe('customerchat.show', () => pluginIsActive = true);
+      // window.FB.Event.subscribe('customerchat.hide', () => pluginIsActive = false);
+      window.FB.Event.subscribe('customerchat.load', () => {
+        this.setState({ fbLoaded: true })
+        console.log("Load done")
+        console.log(window.FB)
+      })
+      // this.setState({ fbLoaded: true });
     };
   }
 
@@ -226,6 +234,7 @@ export default class MessengerCustomerChat extends Component {
       );
       this.subscribeEvents();
     }
+    console.log(window.FB)
     // Add a random key to rerender. Reference:
     // https://stackoverflow.com/questions/30242530/dangerouslysetinnerhtml-doesnt-update-during-render
     return <div key={Date()} dangerouslySetInnerHTML={this.createMarkup()} />;
