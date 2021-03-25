@@ -39,8 +39,9 @@ const Index = ({data, ...props}) => {
            version={process.env.GATSBY_MESSENGER_PLUGIN_VERSION}
            htmlRef={window.location.pathname}
            themeColor={secondaryMain}
-           language="vi"
+           language="vi_VN"
            greetingDialogDisplay="show"
+           greetingDialogDelay={3}
          />
         <Helmet>
           <title>{data.site.meta.title}</title>
