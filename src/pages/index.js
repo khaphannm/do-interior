@@ -12,6 +12,7 @@ import Pricing from 'sections/pricing/Pricing.js'
 import {LayoutContext} from '../context/LayoutContext'
 import { setDynamicCategory } from '../utils/localStorage'
 import MessengerCustomerChat from '../utils/MessengerCustomerChat'
+import { secondaryMain } from '../constants/color'
 
 
 
@@ -30,14 +31,16 @@ const Index = ({data, ...props}) => {
       }
 
   }, [contextLayout])
-    // console.log(contextLayout.dynamicSections)
     return (
       <div>
          <MessengerCustomerChat
-           pageId={process.env.PAGE_ID}
-           appId={"1488418468053435"}
-           version="10.0"
+           pageId={process.env.GATSBY_PAGE_ID}
+           appId={process.env.GATSBY_APP_ID}
+           version={process.env.GATSBY_MESSENGER_PLUGIN_VERSION}
            htmlRef={window.location.pathname}
+           themeColor={secondaryMain}
+           language="vi"
+           greetingDialogDisplay="show"
          />
         <Helmet>
           <title>{data.site.meta.title}</title>
