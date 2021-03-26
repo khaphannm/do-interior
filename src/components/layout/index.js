@@ -9,6 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'scss/abstract.scss';
 import { defaultLocale, dynamicActivate } from '../../utils/i18n';
 import ContextProviderComponent from '../../context/LayoutContext';
+import MessengerCustomerChat from '../../utils/MessengerCustomerChat'
+import { secondaryMain } from '../../constants/color';
 // import { ContextProviderComponent } from "../../context/LayoutContext"
 
 const sectionData = [
@@ -33,6 +35,19 @@ class Layout extends React.Component {
     
     return (
         <div id="main">
+          <MessengerCustomerChat
+            pageId={process.env.GATSBY_PAGE_ID}
+            appId={process.env.GATSBY_APP_ID}
+            version={process.env.GATSBY_MESSENGER_PLUGIN_VERSION}
+            loggedInGreeting={process.env.GATSBY_MESSENGER_MSG_IN}
+            loggedOutGreeting={process.env.GATSBY_MESSENGER_MSG_OUT}
+            //htmlRef={window.location.pathname}
+            themeColor={secondaryMain}
+            language="vi_VN"
+            greetingDialogDisplay="show"
+            greetingDialogDelay={parseInt(process.env.GATSBY_MESSENGER_PLUGIN_DELAY)}
+            shouldShowDialog={window.location.pathname === "/" ? true : false}
+          />
           <I18nProvider i18n={i18n}>
             <ContextProviderComponent>
               {/* <Navbar scroll={this.props.isHome ? true : false} sections={sectionData} dynamicSections={this.props.dynamicSections} /> */}
