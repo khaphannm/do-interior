@@ -42,7 +42,7 @@ class Layout extends React.Component {
             version={process.env.GATSBY_MESSENGER_PLUGIN_VERSION}
             loggedInGreeting={process.env.GATSBY_MESSENGER_MSG_IN}
             loggedOutGreeting={process.env.GATSBY_MESSENGER_MSG_OUT}
-            htmlRef={window.location.pathname}
+            //htmlRef={window.location.pathname}
             themeColor={secondaryMain}
             language="vi_VN"
             greetingDialogDisplay="show"
