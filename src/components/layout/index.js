@@ -38,7 +38,6 @@ class Layout extends React.Component {
         <div id="main">
           <MessengerCustomerChat
             pageId={process.env.GATSBY_PAGE_ID}
-            appId={process.env.GATSBY_APP_ID}
             version={process.env.GATSBY_MESSENGER_PLUGIN_VERSION}
             loggedInGreeting={process.env.GATSBY_MESSENGER_MSG_IN}
             loggedOutGreeting={process.env.GATSBY_MESSENGER_MSG_OUT}
