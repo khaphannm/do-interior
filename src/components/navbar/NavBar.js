@@ -417,7 +417,9 @@ const StyleAccordion = styled(Accordion)`
     }
     .accordion-card {
         background-color: transparent;
-        width: 100%
+        width: 100%;
+        max-height: 700px;
+        overflow: auto;
     }
     .headerItem {
         color: #ffffff;
