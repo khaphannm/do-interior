@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import RevealContent from 'components/reveal-content'
 import Tilt from 'react-tilt'
 import DesktopContent from './DesktopContent.js'
-import { GatsbyImage ,getImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import {Link} from 'gatsby';
 class PortfolioItem extends React.Component {
 
@@ -27,11 +27,11 @@ class PortfolioItem extends React.Component {
             height: ${props => props.fixedheight ? props.fixedheight : '700px'};
         `
         if (this.props.type === "slider") {
-            return <Image fixedheight={this.props.fixedheight} image={this.props.image?.gatsbyImageData} alt={this.props.text} />
+            return <Image fixedheight={this.props.fixedheight} image={this.props.image?.gatsbyImageData} loading="lazy" alt={this.props.text} />
         } else {
             return (
                 <RevealContent callParentMethod={true} parentMethod={this.showContent}>
-                    <Image fixedheight={this.props.fixedheight} image={this.props.image?.gatsbyImageData} alt={this.props.text} />
+                    <Image fixedheight={this.props.fixedheight} image={this.props.image?.gatsbyImageData} loading="lazy" alt={this.props.text} />
                 </RevealContent>
             )
         }
