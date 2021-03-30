@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Col, Container } from 'react-bootstrap'
-import { StaticQuery, graphql } from 'gatsby'
+// import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import RevealContent from 'components/reveal-content'
 import AnimationContainer from 'components/animation-container'
@@ -220,45 +220,46 @@ class TestimonialsTwo extends React.Component {
 
 }
 
-export default props => (
-    <StaticQuery
-      query={graphql`
-      query {
-        quotation_up: file(relativePath: {eq: "quotation-up.png"}) {
-            childImageSharp {
-              fluid(maxWidth: 500) {
-                src
-              }
-            }
-          }
-          quotation_down: file(relativePath: {eq: "quotation-down.png"}) {
-            childImageSharp {
-              fluid(maxWidth: 500) {
-                src
-              }
-            }
-          }
-          testimonials: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(testimonials)/"}}, sort: {fields: [frontmatter___id], order: ASC}) {
-            edges {
-              content: node {
-                frontmatter {
-                  id
-                  name
-                  profession
-                  text
-                  image {
-                    childImageSharp {
-                      fluid(maxWidth: 200, maxHeight: 200) {
-                        src
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-      }      
-      `}
-      render={({ quotation_up, quotation_down, testimonials }) => <TestimonialsTwo quotation_up={quotation_up} quotation_down={quotation_down} testimonials={testimonials.edges} {...props} />}
-    />
-  )
+export default TestimonialsTwo;
+// export default props => (
+//     <StaticQuery
+//       query={graphql`
+//       query {
+//         quotation_up: file(relativePath: {eq: "quotation-up.png"}) {
+//             childImageSharp {
+//               fluid(maxWidth: 500) {
+//                 src
+//               }
+//             }
+//           }
+//           quotation_down: file(relativePath: {eq: "quotation-down.png"}) {
+//             childImageSharp {
+//               fluid(maxWidth: 500) {
+//                 src
+//               }
+//             }
+//           }
+//           testimonials: allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/(testimonials)/"}}, sort: {fields: [frontmatter___id], order: ASC}) {
+//             edges {
+//               content: node {
+//                 frontmatter {
+//                   id
+//                   name
+//                   profession
+//                   text
+//                   image {
+//                     childImageSharp {
+//                       fluid(maxWidth: 200, maxHeight: 200) {
+//                         src
+//                       }
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//       }      
+//       `}
+//       render={({ quotation_up, quotation_down, testimonials }) => <TestimonialsTwo quotation_up={quotation_up} quotation_down={quotation_down} testimonials={testimonials.edges} {...props} />}
+//     />
+//   )

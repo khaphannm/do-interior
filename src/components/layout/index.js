@@ -19,7 +19,7 @@ const sectionData = [
   {id: 'about', display: <Trans>about</Trans>}, 
   // {id: 'services', display: <Trans>services</Trans>}, 
   {id: 'portfolio', display: <Trans>portfolio</Trans>}, 
-  {id: 'testimonials', display: <Trans>testimonials</Trans>}, 
+  // {id: 'testimonials', display: <Trans>testimonials</Trans>}, 
   {id: 'pricing', display: <Trans>pricing</Trans>}, 
   {id: 'contact', display: <Trans>contact</Trans>}]
 

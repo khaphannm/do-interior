@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import HeroVideo from 'sections/hero/HeroVideo.js'
 import AboutTwo from 'sections/about/AboutTwo.js'
 import PortfolioTwo from 'sections/portfolio/PortfolioTwo.js'
-import TestimonialsTwo from 'sections/testimonials/TestimonialsTwo.js'
+// import TestimonialsTwo from 'sections/testimonials/TestimonialsTwo.js'
 // import TeamTwo from 'sections/team/TeamTwo.js'
 // import ClientsTwo from 'sections/clients/ClientsTwo.js'
 import ContactCreative from 'sections/contact/ContactCreative.js'
@@ -44,7 +44,7 @@ const Index = ({data, ...props}) => {
             {/* <ServicesTwo /> */}
             {/* PortfolioTwo is presented for Special posts */}
             <PortfolioTwo specialPosts={data.specialPosts} />
-            <TestimonialsTwo />
+            {/* <TestimonialsTwo /> */}
             {/* <TeamTwo /> */}
             {/* <ClientsTwo /> */}
             <Pricing />
@@ -96,9 +96,10 @@ export const query = graphql`
           title
           slug
           thumbnailImage {
-            file {
-              url
-            }
+            gatsbyImageData(
+              placeholder: BLURRED
+              formats: [AUTO, WEBP]
+       		  )
           }
           categoryIds {
             id

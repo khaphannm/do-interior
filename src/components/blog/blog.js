@@ -37,9 +37,10 @@ export const query = graphql`
                         name
                     }
                     thumbnailImage {
-                        file {
-                            url
-                        }
+                        gatsbyImageData(
+         		            placeholder: BLURRED
+         		            formats: [AUTO, WEBP]
+       		            )
                     }
                 }
             }
@@ -61,8 +62,8 @@ const BlogPage = ({data, pageContext, ...props}) => {
                     {data.allContentfulBlogPost.edges.map((blog) => 
                         <Col key={blog.node.id} md={4} lg={4} xl={3} sm={6} xs={12}>
                             <PortfolioItem 
-                                fixedHeight="450px"
-                                image={blog.node.thumbnailImage?.file && blog.node.thumbnailImage?.file.url} 
+                                fixedheight="450px"
+                                image={blog.node.thumbnailImage} 
                                 text={blog.node.title} 
                                 category={blog.node.categoryIds.map(category => category.name).join(', ')}
                                 link={`/blog/${pageContext.slug}/${blog.node.slug}`}

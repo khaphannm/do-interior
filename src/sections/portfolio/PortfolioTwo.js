@@ -97,7 +97,7 @@ class PortfolioTwo extends React.Component {
           <PortfolioItem 
             key={post.node.id}
             index={index} 
-            image={post.node.thumbnailImage.file.url} 
+            image={post.node.thumbnailImage} 
             text={post.node.title} 
             category={post.node.categoryIds.map(category => category.name).join(", ")}
             link={linkTo}

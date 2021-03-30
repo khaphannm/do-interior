@@ -1,12 +1,12 @@
 import React from 'react'
-import { Row, Col, Container } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Typewriter from 'typewriter-effect'
 import LoopVideo from './assets/loop.mp4'
-import {secondaryMain, secondaryLight} from '../../constants/color'
-import { Trans } from '@lingui/macro'
-import {i18n} from '@lingui/core';
+import {secondaryMain} from '../../constants/color'
+// import { Trans } from '@lingui/macro'
+// import {i18n} from '@lingui/core';
 
 class HeroVideo extends React.Component {
 
@@ -157,90 +157,90 @@ class HeroVideo extends React.Component {
             }
         `
 
-        const BottomContent = styled.div`
-            position: absolute;
-            width: 100%;
-            bottom: -14%;
-            z-index: 2;
-            @media (min-width:1025px) and (max-width: 1400px) {    
-                bottom: -35%;
-            }
-            @media (max-width:767px) {
-                position: relative;
-                bottom: 0;
-            } 
-            @media (min-width:768px) and (max-width: 1023px) {    
-                bottom: -25%;
-            }
-        `
+        // const BottomContent = styled.div`
+        //     position: absolute;
+        //     width: 100%;
+        //     bottom: -14%;
+        //     z-index: 2;
+        //     @media (min-width:1025px) and (max-width: 1400px) {    
+        //         bottom: -35%;
+        //     }
+        //     @media (max-width:767px) {
+        //         position: relative;
+        //         bottom: 0;
+        //     } 
+        //     @media (min-width:768px) and (max-width: 1023px) {    
+        //         bottom: -25%;
+        //     }
+        // `
 
-        const ServiceCol = styled(Col)`
-            padding: 0;
-            border-right: #444;
-            &.no-border {
-                border-right: none;
-            }
-            @media (max-width:500px) {
-                border-right:none;
-            }
-        `
+        // const ServiceCol = styled(Col)`
+        //     padding: 0;
+        //     border-right: #444;
+        //     &.no-border {
+        //         border-right: none;
+        //     }
+        //     @media (max-width:500px) {
+        //         border-right:none;
+        //     }
+        // `
 
-        const Service = styled.div`
-            min-height: 300px;
-            background-color: #202c26;
-            transition: .2s;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            &:hover {
-                background-color: #40594b;
-            }
-        `
-        const ServiceContent = styled.div`
-            padding: 40px;
-            color: #fff;
-            p {
-                font-size: 14px;
-                font-weight: 300;
-                color: #efefef;
-            }
-        `
-        const ServiceHeading = styled.h4`
-            font-size: 30px;
-            font-weight: 400;
-            font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
-            `
-        const ServiceSeparator = styled.div`
-            height: 5px;
-            width: 50px;
-            background-color: ${secondaryLight};
-            margin-bottom: 10px;
-        `
+        // const Service = styled.div`
+        //     min-height: 300px;
+        //     background-color: #202c26;
+        //     transition: .2s;
+        //     display: flex;
+        //     justify-content: center;
+        //     flex-direction: column;
+        //     &:hover {
+        //         background-color: #40594b;
+        //     }
+        // `
+        // const ServiceContent = styled.div`
+        //     padding: 40px;
+        //     color: #fff;
+        //     p {
+        //         font-size: 14px;
+        //         font-weight: 300;
+        //         color: #efefef;
+        //     }
+        // `
+        // const ServiceHeading = styled.h4`
+        //     font-size: 30px;
+        //     font-weight: 400;
+        //     font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
+        //     `
+        // const ServiceSeparator = styled.div`
+        //     height: 5px;
+        //     width: 50px;
+        //     background-color: ${secondaryLight};
+        //     margin-bottom: 10px;
+        // `
 
-        const ServiceIcon = styled.div`
-            margin-bottom: 20px;
-            img {
-                max-height: 70px;
-                max-width: 50px;
-                &:before {
-                    content:"";
-                    position: absolute;
-                    top:0;
-                    right:0;
-                    left:0;
-                    bottom:0;
-                    z-index:1;
-                    background: linear-gradient(180deg, rgba(46,61,53,1) 0%, rgba(32,43,40,0.7175245098039216) 64%);
-                }
-            }
-        `
+        // const ServiceIcon = styled.div`
+        //     margin-bottom: 20px;
+        //     img {
+        //         max-height: 70px;
+        //         max-width: 50px;
+        //         &:before {
+        //             content:"";
+        //             position: absolute;
+        //             top:0;
+        //             right:0;
+        //             left:0;
+        //             bottom:0;
+        //             z-index:1;
+        //             background: linear-gradient(180deg, rgba(46,61,53,1) 0%, rgba(32,43,40,0.7175245098039216) 64%);
+        //         }
+        //     }
+        // `
 
-        const ServiceText = styled.p`
-            font-size: 14px;
-            font-weight: 300;
-            color: #c5c5c5;
-            font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
-        `
+        // const ServiceText = styled.p`
+        //     font-size: 14px;
+        //     font-weight: 300;
+        //     color: #c5c5c5;
+        //     font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
+        // `
  
         return (
             <Section id="home">
@@ -272,7 +272,7 @@ class HeroVideo extends React.Component {
                         </Content>
                     </Container>
                 </VideoContainer>
-                <BottomContent>
+                {/* <BottomContent>
                         <Container>
                             <Row>
                                 <ServiceCol md={6} style={{borderRight: this.state.width > 500 ? "1px solid #444" : "none"}}>
@@ -317,10 +317,10 @@ class HeroVideo extends React.Component {
                                             </ServiceText>
                                         </ServiceContent>
                                     </Service>
-                                </ServiceCol> */}
+                                </ServiceCol> 
                             </Row>
                         </Container>
-                </BottomContent>
+                </BottomContent> */}
             </Section>
         )
     }

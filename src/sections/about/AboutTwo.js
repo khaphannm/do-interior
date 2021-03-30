@@ -1,13 +1,13 @@
 import React from 'react'
-import { Row, Container, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import RevealContent from 'components/reveal-content'
 import AnimationContainer from 'components/animation-container'
 import Particles from 'react-particles-js';
-import Counter from 'components/counter'
+// import Counter from 'components/counter'
 import { secondaryLight, secondaryMain, primaryMain } from '../../constants/color'
-import { Trans } from '@lingui/macro'
+// import { Trans } from '@lingui/macro'
 import { i18n } from "@lingui/core";
 
 class AboutTwo extends React.Component {
@@ -163,35 +163,35 @@ class AboutTwo extends React.Component {
           font-family: ${i18n.locale === 'vi' ? 'Cuprum' : 'Teko'};
       `
 
-      const CounterRow = styled(Row)`
-          background-color: #000;
-          padding: 50px 0 100px 0;
-      `
+    //   const CounterRow = styled(Row)`
+    //       background-color: #000;
+    //       padding: 50px 0 100px 0;
+    //   `
 
-      const CounterComponent = styled.div`
-          margin: 10px 0;
-          text-align: center;
-          @media (max-width:767px) {
-              margin: 50px 0;
-              text-align:center;
-          }
-          .value {
-              font-size: 120px;
-              font-family: Teko;
-              color: #fff;
-              line-height: 90px;
-          }
-          .text {
-              font-size: 20px;
-              color: #fff;
-          }
-          .symbol {
-              color: ${secondaryMain};
-              position: absolute;
-              font-size: 39px;
-              top: -28px;
-          }
-    `
+    //   const CounterComponent = styled.div`
+    //       margin: 10px 0;
+    //       text-align: center;
+    //       @media (max-width:767px) {
+    //           margin: 50px 0;
+    //           text-align:center;
+    //       }
+    //       .value {
+    //           font-size: 120px;
+    //           font-family: Teko;
+    //           color: #fff;
+    //           line-height: 90px;
+    //       }
+    //       .text {
+    //           font-size: 20px;
+    //           color: #fff;
+    //       }
+    //       .symbol {
+    //           color: ${secondaryMain};
+    //           position: absolute;
+    //           font-size: 39px;
+    //           top: -28px;
+    //       }
+    // `
         const {aboutMarkdown} = this.props;
         return(
             <Section id="about">
@@ -326,7 +326,7 @@ class AboutTwo extends React.Component {
                         </ImageCol>
                     </Row>
                 </Main>
-                <CounterRow>
+                {/* <CounterRow>
                     <Container>
                         <Row>
                             <Col md={6}>
@@ -342,7 +342,7 @@ class AboutTwo extends React.Component {
                                       <Counter value={10} duration={5} delay={1000} symbol="+" text={<Trans>Clients Worked With</Trans>} />
                                     </CounterComponent>
                                 </AnimationContainer>
-                            </Col>
+                            </Col> 
                             {/* <Col md={3}>
                                 <AnimationContainer animation="fadeIn" delay={1000}>
                                     <CounterComponent>
@@ -356,10 +356,10 @@ class AboutTwo extends React.Component {
                                         <Counter value={10} duration={5} delay={1000} symbol="+" text="Honourable Awards" />
                                     </CounterComponent>
                                 </AnimationContainer>
-                            </Col> */}
+                            </Col> 
                         </Row>
                     </Container>
-                </CounterRow>
+                </CounterRow*/}
             </Section>
         )
     }

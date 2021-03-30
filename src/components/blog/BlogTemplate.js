@@ -1,10 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { graphql } from "gatsby";
-import Layout from "components/layout";
+// import Layout from "components/layout";
 // import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import styled, {css} from 'styled-components';
-import { BLOCKS, MARKS } from "@contentful/rich-text-types"
+import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { Container } from 'react-bootstrap';
 

@@ -34,20 +34,20 @@ msgid "Bởi Khách hàng"
 msgstr ""
 
 #: src/sections/about/AboutTwo.js:342
-msgid "Clients Worked With"
-msgstr "Khách hàng thân thiết"
+#~ msgid "Clients Worked With"
+#~ msgstr "Khách hàng thân thiết"
 
 #: src/sections/about/AboutTwo.js:308
 #~ msgid "Company From"
 #~ msgstr "Công ty đến từ"
 
 #: src/sections/hero/HeroVideo.js:284
-msgid "Design"
-msgstr "Thiết kế"
+#~ msgid "Design"
+#~ msgstr "Thiết kế"
 
 #: src/sections/hero/HeroVideo.js:298
-msgid "Interior"
-msgstr "Nội thất"
+#~ msgid "Interior"
+#~ msgstr "Nội thất"
 
 #: src/components/footer/index.js:70
 #~ msgid "Ngôn ngữ"
@@ -65,7 +65,7 @@ msgstr "Nội thất"
 #~ msgid "Reveiews"
 #~ msgstr "Đánh giá"
 
-#: src/sections/pricing/Pricing.js:80
+#: src/sections/pricing/Pricing.js:104
 msgid "Thiết kế"
 msgstr ""
 
@@ -77,41 +77,41 @@ msgstr ""
 #~ msgid "Việt nam"
 #~ msgstr ""
 
-#: src/sections/pricing/Pricing.js:100
+#: src/sections/pricing/Pricing.js:124
 msgid "Xây dựng"
 msgstr ""
 
 #: src/sections/about/AboutTwo.js:335
-msgid "Years of Experience"
-msgstr "Năm kinh nghiệm"
+#~ msgid "Years of Experience"
+#~ msgstr "Năm kinh nghiệm"
 
-#: src/pages/index.js:21
+#: src/components/layout/index.js:19
 msgid "about"
 msgstr "giới thiệu"
 
-#: src/pages/index.js:26
+#: src/components/layout/index.js:24
 msgid "contact"
 msgstr "liên hệ"
 
-#: src/pages/index.js:20
+#: src/components/layout/index.js:18
 msgid "home"
 msgstr "trang chủ"
 
-#: src/pages/index.js:23
+#: src/components/layout/index.js:21
 msgid "portfolio"
-msgstr "nổi bật"
+msgstr "dự án"
 
-#: src/pages/index.js:25
+#: src/components/layout/index.js:23
 msgid "pricing"
 msgstr "bảng giá"
 
 #: src/pages/index.js:22
-msgid "services"
-msgstr "dịch vụ"
+#~ msgid "services"
+#~ msgstr "dịch vụ"
 
 #: src/pages/index.js:24
-msgid "testimonials"
-msgstr "đánh giá"
+#~ msgid "testimonials"
+#~ msgstr "đánh giá"
 
 #: src/sections/contact/ContactCreative.js:147
 msgid "Điện thoại"

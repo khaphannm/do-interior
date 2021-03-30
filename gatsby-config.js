@@ -50,13 +50,13 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/portfolio/`,
-        name: 'portfolio',
-      },
-    },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     path: `${__dirname}/content/portfolio/`,
+    //     name: 'portfolio',
+    //   },
+    // },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -71,20 +71,20 @@ module.exports = {
         name: 'sectionContent',
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/testimonials/`,
-        name: 'testimonials',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/team/`,
-        name: 'team',
-      },
-    },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     path: `${__dirname}/content/testimonials/`,
+    //     name: 'testimonials',
+    //   },
+    // },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     path: `${__dirname}/content/team/`,
+    //     name: 'team',
+    //   },
+    // },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -119,6 +119,7 @@ module.exports = {
         ssr: false,
       },
     },
+    'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     'gatsby-plugin-sharp',

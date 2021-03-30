@@ -166,6 +166,7 @@ export default class MessengerCustomerChat extends Component {
   }
 
   loadSDKAsynchronously() {
+    console.log('Load facebook js')
     const { language } = this.props;
     /* eslint-disable */
     (function(d, s, id) {
