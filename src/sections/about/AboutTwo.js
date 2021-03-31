@@ -121,6 +121,8 @@ class AboutTwo extends React.Component {
 
         const Image = styled.img`
             max-height: 500px;
+            height: 500px;
+            width: 90%;
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 28px 60px rgba(255, 238, 128, 0.39);

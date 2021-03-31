@@ -29,11 +29,11 @@ class HeroVideo extends React.Component {
     
     componentDidMount() {
         this.setState({height: window.innerHeight, width: window.innerWidth})
-        window.addEventListener('resize', this.updateDimensions)
+        window.addEventListener('resize', this.updateDimensions, {passive: true})
     }
     
     componentWillUnmount() {
-        window.removeEventListener('resize', this.updateDimensions)
+        window.removeEventListener('resize', this.updateDimensions, {passive: true})
     }
 
     render() {

@@ -128,7 +128,7 @@ const Navbar = (props) => {
 
         //componentWillUnmount 
         return () => {
-            window.removeEventListener('scroll', handleScroll)
+            window.removeEventListener('scroll', handleScroll, {passive: true})
         }
     }, [])
     // componentDidMount() {

@@ -1,16 +1,24 @@
 import React, {useEffect, useContext} from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import HeroVideo from 'sections/hero/HeroVideo.js'
-import AboutTwo from 'sections/about/AboutTwo.js'
-import PortfolioTwo from 'sections/portfolio/PortfolioTwo.js'
+import loadable from '@loadable/component';
+// import HeroVideo from 'sections/hero/HeroVideo.js'
+// import AboutTwo from 'sections/about/AboutTwo.js'
+// import PortfolioTwo from 'sections/portfolio/PortfolioTwo.js'
 // import TestimonialsTwo from 'sections/testimonials/TestimonialsTwo.js'
 // import TeamTwo from 'sections/team/TeamTwo.js'
 // import ClientsTwo from 'sections/clients/ClientsTwo.js'
-import ContactCreative from 'sections/contact/ContactCreative.js'
-import Pricing from 'sections/pricing/Pricing.js'
+// import ContactCreative from 'sections/contact/ContactCreative.js'
+// import Pricing from 'sections/pricing/Pricing.js'
 import {LayoutContext} from '../context/LayoutContext'
 import { setDynamicCategory } from '../utils/localStorage'
+
+// Code splitting
+const HeroVideo = loadable(() => import('sections/hero/HeroVideo.js'))
+const AboutTwo = loadable(() => import('sections/about/AboutTwo.js'))
+const PortfolioTwo = loadable(() => import('sections/portfolio/PortfolioTwo.js'))
+const ContactCreative = loadable(() => import('sections/contact/ContactCreative.js'))
+const Pricing = loadable(() => import('sections/pricing/Pricing.js'))
 
 
 

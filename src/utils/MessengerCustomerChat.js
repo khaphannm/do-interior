@@ -106,7 +106,7 @@ export default class MessengerCustomerChat extends Component {
     autoLogAppEvents: true,
     xfbml: true,
     version: '2.11',
-    language: 'en_US',
+    language: 'vi_VN',
     onCustomerChatDialogShow: undefined,
     onCustomerChatDialogHide: undefined,
   };
