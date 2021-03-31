@@ -9,6 +9,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'scss/abstract.scss';
 import { defaultLocale, dynamicActivate } from '../../utils/i18n';
 import ContextProviderComponent from '../../context/LayoutContext';
+import { LiveChatLoaderProvider, Messenger } from 'react-live-chat-loader'
+import { secondaryMain } from '../../constants/color';
 // import MessengerCustomerChat from '../../utils/MessengerCustomerChat'
 // import { ContextProviderComponent } from "../../context/LayoutContext"
 
@@ -44,6 +46,15 @@ class Layout extends React.Component {
               </div>
               <Footer />
             </ContextProviderComponent>
+          <LiveChatLoaderProvider provider="messenger" providerKey={process.env.GATSBY_PAGE_ID}>
+            <Messenger
+              color={secondaryMain}
+              loggedInGreeting={process.env.GATSBY_MESSENGER_MSG_IN}
+              loggedOutGreeting={process.env.GATSBY_MESSENGER_MSG_OUT}
+              greetingDialogDisplay="show"
+              greetingDialogDelay={parseInt(process.env.GATSBY_MESSENGER_PLUGIN_DELAY)}
+            />
+          </LiveChatLoaderProvider>
           </I18nProvider>
         </div>
     )
