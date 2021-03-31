@@ -37,16 +37,16 @@ class Layout extends React.Component {
     return (
         <div id="main">
           <I18nProvider i18n={i18n}>
+          <LiveChatLoaderProvider provider="messenger" providerKey={process.env.GATSBY_PAGE_ID}>
             <ContextProviderComponent>
               {/* <Navbar scroll={this.props.isHome ? true : false} sections={sectionData} dynamicSections={this.props.dynamicSections} /> */}
               <Navbar sections={sectionData}/>
-              {!this.props.disabledRevealer && <PageRevealer />}
+              {/* {!this.props.disabledRevealer && <PageRevealer />} */}
               <div>
                 {children}
               </div>
               <Footer />
             </ContextProviderComponent>
-          <LiveChatLoaderProvider provider="messenger" providerKey={process.env.GATSBY_PAGE_ID}>
             <Messenger
               color={secondaryMain}
               loggedInGreeting={process.env.GATSBY_MESSENGER_MSG_IN}
