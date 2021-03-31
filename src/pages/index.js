@@ -2,6 +2,7 @@ import React, {useEffect, useContext} from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import loadable from '@loadable/component';
+import { window } from "browser-monads";
 // import HeroVideo from 'sections/hero/HeroVideo.js'
 // import AboutTwo from 'sections/about/AboutTwo.js'
 // import PortfolioTwo from 'sections/portfolio/PortfolioTwo.js'
@@ -12,6 +13,7 @@ import loadable from '@loadable/component';
 // import Pricing from 'sections/pricing/Pricing.js'
 import {LayoutContext} from '../context/LayoutContext'
 import { setDynamicCategory } from '../utils/localStorage'
+import { secondaryMain } from '../constants/color';
 
 // Code splitting
 const HeroVideo = loadable(() => import('sections/hero/HeroVideo.js'))
@@ -19,6 +21,7 @@ const AboutTwo = loadable(() => import('sections/about/AboutTwo.js'))
 const PortfolioTwo = loadable(() => import('sections/portfolio/PortfolioTwo.js'))
 const ContactCreative = loadable(() => import('sections/contact/ContactCreative.js'))
 const Pricing = loadable(() => import('sections/pricing/Pricing.js'))
+const MessengerCustomerChat = loadable(() => import('../../utils/MessengerCustomerChat'));
 
 
 
@@ -47,6 +50,17 @@ const Index = ({data, ...props}) => {
           {/* <Layout
             // dynamicSections={data.allContentfulNavigation.edges}
           >  */}
+          <MessengerCustomerChat
+            pageId={process.env.GATSBY_PAGE_ID}
+            version={process.env.GATSBY_MESSENGER_PLUGIN_VERSION}
+            loggedInGreeting={process.env.GATSBY_MESSENGER_MSG_IN}
+            loggedOutGreeting={process.env.GATSBY_MESSENGER_MSG_OUT}
+            htmlRef={window.location.pathname}
+            themeColor={secondaryMain}
+            greetingDialogDisplay="show"
+            greetingDialogDelay={parseInt(process.env.GATSBY_MESSENGER_PLUGIN_DELAY)}
+            shouldShowDialog={window.location.pathname === "/" ? true : false}
+          />
             <HeroVideo />
             <AboutTwo />
             {/* <ServicesTwo /> */}
