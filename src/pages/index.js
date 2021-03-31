@@ -21,7 +21,7 @@ const AboutTwo = loadable(() => import('sections/about/AboutTwo.js'))
 const PortfolioTwo = loadable(() => import('sections/portfolio/PortfolioTwo.js'))
 const ContactCreative = loadable(() => import('sections/contact/ContactCreative.js'))
 const Pricing = loadable(() => import('sections/pricing/Pricing.js'))
-const MessengerCustomerChat = loadable(() => import('../../utils/MessengerCustomerChat'));
+const MessengerCustomerChat = loadable(() => import('../utils/MessengerCustomerChat'));
 
 
 

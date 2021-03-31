@@ -3,7 +3,6 @@ import PageRevealer from 'components/page-revealer'
 import { I18nProvider } from '@lingui/react';
 import {Trans} from '@lingui/macro';
 import { i18n } from '@lingui/core';
-;
 import Navbar from '../navbar/NavBar'
 import Footer from 'components/footer'
 import 'bootstrap/dist/css/bootstrap.min.css'
