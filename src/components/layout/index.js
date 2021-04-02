@@ -1,5 +1,5 @@
 import React from 'react'
-import PageRevealer from 'components/page-revealer'
+// import PageRevealer from 'components/page-revealer'
 import { I18nProvider } from '@lingui/react';
 import {Trans} from '@lingui/macro';
 import { i18n } from '@lingui/core';
