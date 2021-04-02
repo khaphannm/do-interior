@@ -42,7 +42,7 @@ const Section = styled.section`
     position: relative;
 `
 const Wrapper = styled.div`
-    padding: 0 16px;
+    padding: 0 8px;
     padding-top: 56px;
     padding-bottom: 48px;
     min-height: 100vh;

@@ -61,7 +61,7 @@ const Index = ({data, ...props}) => {
             greetingDialogDelay={parseInt(process.env.GATSBY_MESSENGER_PLUGIN_DELAY)}
             shouldShowDialog={window.location.pathname === "/" ? true : false}
           /> */}
-            <HeroVideo />
+            <HeroVideo imageCarousel={data.imageCarousel} />
             <AboutTwo />
             {/* <ServicesTwo /> */}
             {/* PortfolioTwo is presented for Special posts */}
@@ -129,6 +129,18 @@ export const query = graphql`
             name
           }
         }
+      }
+    },
+    imageCarousel: allContentfulCarouselImg {
+      nodes {
+          images {
+            id
+            gatsbyImageData(
+                width: 800
+                placeholder: BLURRED
+                formats: [AUTO, WEBP]
+            )
+          }
       }
     }
 }

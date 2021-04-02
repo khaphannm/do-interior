@@ -18,6 +18,9 @@ class PortfolioTwo extends React.Component {
         const Section = styled.section`
           background-color: #0b0f0d;
           padding: 100px 0;
+          @media (max-width: 767px) {
+            padding: 50px 0;
+          }
         `
         const PortfolioContainer = styled.div`
             .slick-slide {

@@ -35,45 +35,43 @@ class AboutTwo extends React.Component {
             align-items: center;
         `
 
-        const ImageCol = styled(Col)`
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            @media (max-width: 767px) {
-              .image-col {
-                  text-align: center;
-              }
-          }
-        `
+        // const ImageCol = styled(Col)`
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: center;
+        //     @media (max-width: 767px) {
+        //       .image-col {
+        //           text-align: center;
+        //       }
+        //   }
+        // `
         
-        const ImageWrapper = styled.div`
-            @media (min-width: 768px) and (max-width: 1024px) {
-                height: 300px;
-                width: 300px;
-                display: flex;
-                align-items: center;
-            }
+        // const ImageWrapper = styled.div`
+        //     @media (min-width: 768px) and (max-width: 1024px) {
+        //         height: 300px;
+        //         width: 300px;
+        //         display: flex;
+        //         align-items: center;
+        //     }
 
-            @media (min-width: 1025px) and (max-width: 1500px) {
-                height: 500px;
-                width: 500px;
-                display: flex;
-                align-items: center;
-            }
-            @media (max-width: 500px) {
-              * {
-                text-align: center;
-              }
-            }
-        `
+        //     @media (min-width: 1025px) and (max-width: 1500px) {
+        //         height: 500px;
+        //         width: 500px;
+        //         display: flex;
+        //         align-items: center;
+        //     }
+        //     @media (max-width: 500px) {
+        //       * {
+        //         text-align: center;
+        //       }
+        //     }
+        // `
         const Main = styled.div`
-            padding: 270px 0 150px 0;
+            padding: 162px 0 150px 0;
             @media (max-width: 767px) {
-                padding: 100px 0;
+                padding: 50px 0;
             }
-            @media (min-width: 768px) and (max-width: 1500px) {
-                padding: 300px 0 0px 0;
-            }
+      
             @media (min-width: 1501px) and (max-width: 1600px) {
                 padding: 200px 0;
             }
@@ -110,36 +108,36 @@ class AboutTwo extends React.Component {
             text-transform: uppercase;
             letter-spacing: 2px;
             @media (min-width:768px) and (max-width:1600px) {
-                font-size: 40px;
+                font-size: 35px;
                 line-height: 40px;
             }
             @media (max-width:767px) {
-                font-size: 40px;
-                line-height: 40px;
+              font-size: 30px;
+              line-height: 30px;
             }
         `
 
-        const Image = styled.img`
-            max-height: 500px;
-            height: 500px;
-            width: 90%;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 28px 60px rgba(255, 238, 128, 0.39);
-            @media (max-width: 767px) {
-                margin: 20px 0;
-                width: 90%;
-                max-height: 200px;
-            }
-            @media (min-width: 768px) and (max-width: 1024px) {
-                max-height: 300px;
-                max-width: 300px;
-            }
-          @media (min-width: 1025px) and (max-width: 1600px) {
-              max-height: 500px;
-              max-width: 500px;
-          }
-        `
+        // const Image = styled.img`
+        //     max-height: 500px;
+        //     height: 500px;
+        //     width: 90%;
+        //     object-fit: cover;
+        //     border-radius: 10px;
+        //     box-shadow: 0 28px 60px rgba(255, 238, 128, 0.39);
+        //     @media (max-width: 767px) {
+        //         margin: 20px 0;
+        //         width: 90%;
+        //         max-height: 200px;
+        //     }
+        //     @media (min-width: 768px) and (max-width: 1024px) {
+        //         max-height: 300px;
+        //         max-width: 300px;
+        //     }
+        //   @media (min-width: 1025px) and (max-width: 1600px) {
+        //       max-height: 500px;
+        //       max-width: 500px;
+        //   }
+        // `
 
         const AboutContent = styled.div`
             padding: 0 20%;
@@ -304,12 +302,13 @@ class AboutTwo extends React.Component {
                 }}/>
                 <Main>
                     <Row>
-                        <AboutCol md={6}>
+                        <AboutCol xs={12} sm={12} md={12}>
                             <Col md={12}>
-                                <AnimationContainer animation="fadeIn" delay={1500}>
+                                <AnimationContainer animation="fadeIn" delay={500}>
                                     <AboutContent>
                                         <Heading>
-                                          {aboutMarkdown.frontmatter[`about_${i18n.locale}`]} <Color>DO</Color> <br />{aboutMarkdown.frontmatter[`companyFrom_${i18n.locale}`]} <Color>{aboutMarkdown.frontmatter[`companyLocation_${i18n.locale}`]}</Color>
+                                          {/* {aboutMarkdown.frontmatter[`about_${i18n.locale}`]} <Color>DO</Color> <br />{aboutMarkdown.frontmatter[`companyFrom_${i18n.locale}`]} <Color>{aboutMarkdown.frontmatter[`companyLocation_${i18n.locale}`]}</Color> */}
+                                          Kiến trúc, <Color>Nội thất</Color> & <Color>Xây dựng</Color>
                                         </Heading>
                                         <Separator />
                                         <Text>
@@ -319,13 +318,13 @@ class AboutTwo extends React.Component {
                                 </AnimationContainer>
                             </Col>
                         </AboutCol>
-                        <ImageCol md={6}>
+                        {/* <ImageCol md={6}>
                           <ImageWrapper>
                             <RevealContent>
                               <Image src={this.props.image.childImageSharp.fluid.src} alt="about" />
                             </RevealContent>
                             </ImageWrapper>
-                        </ImageCol>
+                        </ImageCol> */}
                     </Row>
                 </Main>
                 {/* <CounterRow>
@@ -372,13 +371,13 @@ export default props => (
   <StaticQuery
     query={graphql`
     query {
-      image: file(relativePath: {eq: "building.jpeg"}) {
-        childImageSharp {
-          fluid(maxHeight: 2000) {
-            src
-          }
-        }
-      }
+      # image: file(relativePath: {eq: "building.jpeg"}) {
+      #   childImageSharp {
+      #     fluid(maxHeight: 2000) {
+      #       src
+      #     }
+      #   }
+      # }
       aboutMarkdown: markdownRemark(fileAbsolutePath:{regex:"/about/"})
       {
         frontmatter {

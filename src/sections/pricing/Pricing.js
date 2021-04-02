@@ -13,6 +13,9 @@ import { secondaryMain } from '../../constants/color';
 const Section = styled.section`
     background-color: #161d18;
     padding: 100px 0;
+    @media (max-width: 767px) {
+        padding: 50px 0;
+    }
 `;
 
 const Wrapper = styled.div`

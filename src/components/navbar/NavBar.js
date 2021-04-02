@@ -78,12 +78,36 @@ const LogoWrapper = styled.div`
     }
 `
 
-const Logo = styled.img`
-    height: 40px;
-    @media (max-width: 1023px) {
-        height: 30px;
+const TextLogo = styled.h2`
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    background: -webkit-linear-gradient(180deg, rgba(168,149,89,1) 0%, rgba(255,247,195,1) 64%);
+    background: -o-linear-gradient(180deg, rgba(168,149,89,1) 0%, rgba(255,247,195,1) 64%);
+    background: -moz-linear-gradient(180deg, rgba(168,149,89,1) 0%, rgba(255,247,195,1) 64%);
+    background: linear-gradient(180deg, rgba(168,149,89,1) 0%, rgba(255,247,195,1) 64%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    @media (max-width:767px) {
+        font-size: 1.0rem;
+    }
+    @media (min-width:768px) and (max-width:1500px) {
+        font-size: 1.3rem;
+    }
+    @media (max-width:400px) {
+        font-size: 1.6rem;
+        line-height: 35px;
     }
 `
+
+// const Logo = styled.img`
+//     height: 40px;
+//     @media (max-width: 1023px) {
+//         height: 30px;
+//     }
+// `
 
 const NavInner = styled.div`
     justify-content: flex-end;
@@ -126,7 +150,7 @@ const Navbar = (props) => {
     useEffect(() => {
         window.addEventListener('scroll', handleScroll, { passive: true });
 
-        //componentWillUnmount 
+        //componentWillUnmount 1
         return () => {
             window.removeEventListener('scroll', handleScroll, {passive: true})
         }
@@ -233,9 +257,7 @@ const Navbar = (props) => {
         <NavbarWrapper className={`header${sticky === true ? ' sticky' : ''}`}>
             <NavbarContainer>
                 <LogoWrapper className="logo">
-                    <Link to="/">
-                        <Logo src="/img/logo.png" alt="logo" />
-                    </Link>
+                    <TextLogo>DO DESIGN</TextLogo>
                 </LogoWrapper>
                 <Toggler
                     onClick={() => collapseNav()}
