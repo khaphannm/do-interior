@@ -1,4 +1,4 @@
-import React, {useEffect, useContext} from 'react'
+import React, {useEffect, useContext, useState} from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import loadable from '@loadable/component';
@@ -27,6 +27,9 @@ const Pricing = loadable(() => import('sections/pricing/Pricing.js'))
 
 const Index = ({data, ...props}) => {
   const contextLayout = useContext(LayoutContext);
+  const [loadContact, setLoadContact] = useState(false)
+  // Timeout
+  let timeout;
   useEffect(() => {
       if(contextLayout.dynamicSections.length === 0) {
         // console.log(contextLayout.dynamicSections.length)
@@ -40,6 +43,16 @@ const Index = ({data, ...props}) => {
       }
 
   }, [contextLayout])
+  useEffect(() => {
+    timeout = setTimeout(()=>{
+      setLoadContact(true)
+    }, 4000);
+    return () => {
+      if(timeout)
+        clearTimeout(timeout);
+    }
+  }, [])
+
     return (
       <div>
         <Helmet>
@@ -70,7 +83,7 @@ const Index = ({data, ...props}) => {
             {/* <TeamTwo /> */}
             {/* <ClientsTwo /> */}
             <Pricing />
-            <ContactCreative />
+            {loadContact && <ContactCreative />}
           {/* </I18nProvider> */}
           {/* </Layout> */}
       </div>
