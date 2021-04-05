@@ -54,9 +54,9 @@ class Footer extends React.Component{
         return (
             <FooterMain>
                 <SocialIcons>
-                    <FontAwesomeIcon icon={faFacebook} className="social_icon" onClick={() => window.open('https://www.facebook.com/thietkenoithatsuanha')}/>
+                    <FontAwesomeIcon icon={faFacebook} className="social_icon" onClick={() => window.open(`https://www.facebook.com/${process.env.GATSBY_FACEBOOK_PAGE}`)}/>
                     {/* <FontAwesomeIcon icon={faTwitter} className="social_icon" onClick={() => window.open('https://www.twitter.com')} /> */}
-                    <FontAwesomeIcon icon={faYoutube} className="social_icon" onClick={() => window.open('https://www.youtube.com/thietkenoithatsuanha')} />
+                    <FontAwesomeIcon icon={faYoutube} className="social_icon" onClick={() => window.open(`https://www.youtube.com/${process.env.GATSBY_YOUTUBE_PAGE}`)} />
                     {/* <FontAwesomeIcon icon={faLinkedin} className="social_icon" onClick={() => window.open('https://www.linkedin.com')} /> */}
                 </SocialIcons>
                 {/* <LanguageZone>
