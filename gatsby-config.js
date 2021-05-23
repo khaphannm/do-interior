@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 module.exports = {
   siteMetadata: {
     title: 'Do Company - Design and Interior',
@@ -9,7 +12,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: "GTM-5ZCNWRS", 
+        id: process.env.GTM_CODE, 
   
         // Include GTM in development.
         //
