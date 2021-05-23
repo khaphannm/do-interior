@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
-        id: process.env.GTM_CODE,
+        id: "GTM-5ZCNWRS", 
   
         // Include GTM in development.
         //
