@@ -7,6 +7,7 @@ import styled, {css} from 'styled-components';
 import { BLOCKS } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { Container } from 'react-bootstrap';
+import Helmet from 'react-helmet';
 
 /* For reference https://www.gatsbyjs.com/docs/how-to/querying-data/page-query/#provide-data-to-the-homepage--component */
 // Need to add references to get image information, this is missing in the doc, but reveal by a friend, detail here:
@@ -34,7 +35,13 @@ export const query = graphql`
                     url 
                 }
             }
-        }
+        },
+        site {
+            meta: siteMetadata {
+                title
+                description
+            }
+        },
     }
 `; 
 
@@ -149,19 +156,25 @@ const options = {
 
 const BlogTemplate = ({data, ...props}) => {
     return (
-        <Section>
-            <PostImageContainer img={data.contentfulBlogPost.thumbnailImage.file.url}>
-                <div className="textContainer">
-                    <BlogTitle>{data.contentfulBlogPost.title}</BlogTitle>
-                    <PublishDate>{data.contentfulBlogPost.publishedDate}</PublishDate>
-                </div>
-            </PostImageContainer>
-            <Wrapper>
-                <Container>
-                    {renderRichText(data.contentfulBlogPost.body, options)} 
-                </Container>
-            </Wrapper>
-        </Section>
+        <React.Fragment>
+            <Helmet>
+                <title>{data.site.meta.title}</title>
+                <meta name="description" content={data.site.meta.description} />
+            </Helmet>
+            <Section>
+                <PostImageContainer img={data.contentfulBlogPost.thumbnailImage.file.url}>
+                    <div className="textContainer">
+                        <BlogTitle>{data.contentfulBlogPost.title}</BlogTitle>
+                        <PublishDate>{data.contentfulBlogPost.publishedDate}</PublishDate>
+                    </div>
+                </PostImageContainer>
+                <Wrapper>
+                    <Container>
+                        {renderRichText(data.contentfulBlogPost.body, options)} 
+                    </Container>
+                </Wrapper>
+            </Section>
+        </React.Fragment>
     )
 }
 

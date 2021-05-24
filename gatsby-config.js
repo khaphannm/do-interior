@@ -3,9 +3,9 @@ require("dotenv").config({
 });
 module.exports = {
   siteMetadata: {
-    title: 'Do Company - Design and Interior',
+    title: 'Dodesign - Kiến trúc, nội thất và xây dựng',
     description:
-      'We help people do design and interior stuff, using latest technologies',
+      'Dodesign là sự lựa chọn hàng đầu trong lĩnh vực thiết kế thi công kiến trúc, nội thất và xây dựng.',
   },
   pathPrefix: '/',
   plugins: [

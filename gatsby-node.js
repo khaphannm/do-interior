@@ -22,7 +22,7 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage }) => {
 
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
-
+  
   /**
    * Blog page list according to Category (I.e: blog/category)
    */
@@ -45,7 +45,7 @@ exports.createPages = async ({graphql, actions}) => {
   `)
   for (const categoryEdge of blogListTemplate_res.data.allContentfulCategory.edges) {
 
-    // blog.js should query the post of parent and child category
+    // blog.js could query the post from parent or child.
     const parentCategoryId = categoryEdge.node.id;
     const listCategoryIdFilter = categoryEdge.node.category ? [parentCategoryId].concat(categoryEdge.node.category.map(child => child.id)) : [parentCategoryId];
     createPage({
@@ -55,7 +55,7 @@ exports.createPages = async ({graphql, actions}) => {
       context: {
         categoryIds: listCategoryIdFilter,
         categoryName: categoryEdge.node.name,
-        slug: categoryEdge.node.slug
+        slug: categoryEdge.node.slug,
       }
     }) 
 
@@ -71,10 +71,7 @@ exports.createPages = async ({graphql, actions}) => {
           edges {
             node {
               id
-              title
-              metaTitle
               slug
-              publishedDate(formatString: "DD MMM YYYY")
               categoryIds {
                 id
                 name
@@ -91,7 +88,7 @@ exports.createPages = async ({graphql, actions}) => {
         path: `blog/${categoryEdge.node.slug}/${edge.node.slug}`,
         // This one will be added as props to Template component
         context: {
-          slug: edge.node.slug
+          slug: edge.node.slug,
         }
       })
     })

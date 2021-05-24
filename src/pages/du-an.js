@@ -20,12 +20,10 @@ const Wrapper = styled.div`
 `
 
 export const query = graphql`
-    query($categoryIds: [String]!) {
+    query {
         allContentfulBlogPost (sort:{
             fields: publishedDate
             order: DESC
-        }, filter:{
-            categoryIds:{elemMatch:{id:{in: $categoryIds}}}
         }){
             edges {
                 node {
@@ -36,6 +34,7 @@ export const query = graphql`
                     categoryIds {
                         id
                         name
+                        slug
                     }
                     thumbnailImage {
                         gatsbyImageData(
@@ -55,9 +54,9 @@ export const query = graphql`
     }
 `;
 
-const BlogPage = ({data, pageContext, ...props}) => {
+const DuAnPage = ({data, pageContext, ...props}) => {
     // const contextData = useContext(LayoutContext);
-    // console.log(contextData)
+    console.log(data)
     return (
         <React.Fragment>
             <Helmet>
@@ -66,7 +65,7 @@ const BlogPage = ({data, pageContext, ...props}) => {
             </Helmet>
             <Section>
                 <Container>
-                    <AnimatedHeading fontSize={"48px"} space={"3px"} text={`${pageContext.categoryName}`} />
+                    <AnimatedHeading fontSize={"48px"} space={"3px"} text={`Dự Án`} />
                 </Container>
                 {/* Post gallery */}
                 <Wrapper>
@@ -78,7 +77,7 @@ const BlogPage = ({data, pageContext, ...props}) => {
                                 image={blog.node.thumbnailImage} 
                                 text={blog.node.title} 
                                 category={blog.node.categoryIds.map(category => category.name).join(', ')}
-                                link={`/blog/${pageContext.slug}/${blog.node.slug}`}
+                                link={`/blog/${blog.node.categoryIds.length > 0 ? blog.node.categoryIds[0].slug : ""}/${blog.node.slug}`}
                                 type="slider"
                             /> 
                         </Col>
@@ -91,9 +90,9 @@ const BlogPage = ({data, pageContext, ...props}) => {
     )
 }
 
-BlogPage.propTypes = {
+DuAnPage.propTypes = {
 
 }
 
-export default BlogPage
+export default DuAnPage
 

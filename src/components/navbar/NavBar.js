@@ -513,7 +513,7 @@ const NavDropdown = ({data, ...props}) => {
         {...props}
         autoOpen
     >
-        <DropdownToggle style={{marginBottom: 0}} componentClass={"p"} title={data.navigationTitle} />
+        <DropdownToggle style={{marginBottom: 0}} href="/du-an" componentClass={"a"} title={data.navigationTitle} />
         {data.categoryNestedList && 
             <StyleDropdownMenuWrapper>
                 {data.categoryNestedList.map((category, index) => {

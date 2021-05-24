@@ -46,7 +46,7 @@ const Index = ({data, ...props}) => {
   useEffect(() => {
     timeout = setTimeout(()=>{
       setLoadContact(true)
-    }, 4000);
+    }, 3000);
     return () => {
       if(timeout)
         clearTimeout(timeout);
