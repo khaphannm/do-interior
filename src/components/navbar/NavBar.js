@@ -436,6 +436,8 @@ const StyleAccordion = styled(Accordion)`
     .itemName {
         margin: 0;
         text-align: center;
+        text-decoration: none;
+        color: #ffffff;
     }
     .accordion-card {
         background-color: transparent;
@@ -464,7 +466,7 @@ const AccordionDropdown = ({data, ...props}) => {
         <StyleAccordion {...props}>
             <Card className="accordion-card">
                 {/* <Card.Header className="cardHeader"> */}
-                    <Accordion.Toggle className="itemName" as={"p"} eventKey="0">
+                    <Accordion.Toggle className="itemName" as={"a"} href={data.navigationTitle === 'Dự án' ? "/blog/all-projects" : ""} eventKey="0">
                         {data.navigationTitle} ▼ 
                     </Accordion.Toggle>                        
                 {/* </Card.Header> */}
@@ -513,7 +515,7 @@ const NavDropdown = ({data, ...props}) => {
         {...props}
         autoOpen
     >
-        <DropdownToggle style={{marginBottom: 0}} href="/du-an" componentClass={"a"} title={data.navigationTitle} />
+        <DropdownToggle style={{marginBottom: 0, textDecoration: 'none', color: '#ffffff'}} href={data.navigationTitle === 'Dự án' ? "/blog/all-projects" : ""} componentClass={"a"} title={data.navigationTitle} />
         {data.categoryNestedList && 
             <StyleDropdownMenuWrapper>
                 {data.categoryNestedList.map((category, index) => {

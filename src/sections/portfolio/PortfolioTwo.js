@@ -76,7 +76,7 @@ class PortfolioTwo extends React.Component {
             <Section id="portfolio">
                   <Col md={12} style={{padding: 0}}>
                     <Container>
-                      <AnimatedHeading text={`Dự Án`} />
+                      <AnimatedHeading text={`Tiêu biểu`} />
                     </Container>
                     <PortfolioContainer>
                       <AnimationContainer animation="fadeIn">

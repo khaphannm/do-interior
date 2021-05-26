@@ -20,10 +20,12 @@ const Wrapper = styled.div`
 `
 
 export const query = graphql`
-    query {
+    query($categoryIds: [String]!) {
         allContentfulBlogPost (sort:{
             fields: publishedDate
             order: DESC
+        }, filter:{
+            categoryIds:{elemMatch:{id:{in: $categoryIds}}}
         }){
             edges {
                 node {

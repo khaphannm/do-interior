@@ -13,8 +13,8 @@ import Helmet from 'react-helmet';
 // Need to add references to get image information, this is missing in the doc, but reveal by a friend, detail here:
 // https://github.com/contentful/rich-text/issues/61#issuecomment-740691185
 export const query = graphql`
-    query($slug: String!) {
-        contentfulBlogPost(slug: {eq:$slug}) {
+    query($id: String!) {
+        contentfulBlogPost(id: {eq:$id}) {
             id
             title
             publishedDate(formatString: "DD/MM/YYYY HH:mm:ss")

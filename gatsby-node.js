@@ -23,6 +23,49 @@ exports.onCreateWebpackConfig = ({ actions, getConfig, stage }) => {
 exports.createPages = async ({graphql, actions}) => {
   const {createPage} = actions
   
+  /*Create page with all projects trong Dự án Navigation*/
+  const allDuAnTemplate = path.resolve('./src/components/blog/all-blogs.js'); 
+  // Query Du an Navigation, should return array of 1 item
+  const allCategoryUnderNavigation = await graphql(`
+    query {
+      allContentfulNavigation(filter:{navigationTitle:{eq:"Dự án"}}) {
+        edges {
+          node {
+            id
+            navigationTitle
+            categoryNestedList{
+              id
+              name
+              slug
+              category {
+                id
+                name
+                slug
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  // console.log("🚀 ~ file: gatsby-node.js ~ line 51 ~ exports.createPages= ~ allCategoryUnderNavigation", allCategoryUnderNavigation)
+  
+  // Get all nested categoryids (include child category level as well) of that navigate
+  const allCategoryUnderNavigationIds = allCategoryUnderNavigation.data.allContentfulNavigation.edges[0].node.categoryNestedList.reduce((prev, current, index) => {
+    console.log(current);
+    const newArray = [...prev, ...current.category.map(childCategory => childCategory.id)];
+    return newArray;
+  }, []); 
+  // console.log("🚀 ~ file: gatsby-node.js ~ line 53 ~ exports.createPages= ~ allCategoryUnderNavigationIds", allCategoryUnderNavigationIds)
+  // Create /blog/all-projects
+  createPage({
+    component: allDuAnTemplate,
+    path: `blog/all-projects`,
+    // This one will be added as props to Template component
+    context: {
+      categoryIds: allCategoryUnderNavigationIds,
+    }
+  }) 
   /**
    * Blog page list according to Category (I.e: blog/category)
    */
@@ -88,7 +131,7 @@ exports.createPages = async ({graphql, actions}) => {
         path: `blog/${categoryEdge.node.slug}/${edge.node.slug}`,
         // This one will be added as props to Template component
         context: {
-          slug: edge.node.slug,
+          id: edge.node.id
         }
       })
     })

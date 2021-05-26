@@ -65,7 +65,7 @@ msgstr ""
 #~ msgid "Reveiews"
 #~ msgstr ""
 
-#: src/sections/pricing/Pricing.js:104
+#: src/sections/pricing/Pricing.js:107
 msgid "Thiết kế"
 msgstr "Design"
 
@@ -77,7 +77,7 @@ msgstr "Design"
 #~ msgid "Việt nam"
 #~ msgstr "Vietnamese"
 
-#: src/sections/pricing/Pricing.js:124
+#: src/sections/pricing/Pricing.js:127
 msgid "Xây dựng"
 msgstr "Construction"
 
@@ -113,7 +113,7 @@ msgstr ""
 #~ msgid "testimonials"
 #~ msgstr ""
 
-#: src/sections/contact/ContactCreative.js:147
+#: src/sections/contact/ContactCreative.js:162
 msgid "Điện thoại"
 msgstr ""
 
@@ -121,6 +121,6 @@ msgstr ""
 msgid "Đánh giá"
 msgstr ""
 
-#: src/sections/contact/ContactCreative.js:166
+#: src/sections/contact/ContactCreative.js:181
 msgid "Địa chỉ"
 msgstr ""
