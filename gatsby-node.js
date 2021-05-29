@@ -52,11 +52,10 @@ exports.createPages = async ({graphql, actions}) => {
   
   // Get all nested categoryids (include child category level as well) of that navigate
   const allCategoryUnderNavigationIds = allCategoryUnderNavigation.data.allContentfulNavigation.edges[0].node.categoryNestedList.reduce((prev, current, index) => {
-    console.log(current);
     const newArray = [...prev, ...current.category.map(childCategory => childCategory.id)];
     return newArray;
   }, []); 
-  // console.log("🚀 ~ file: gatsby-node.js ~ line 53 ~ exports.createPages= ~ allCategoryUnderNavigationIds", allCategoryUnderNavigationIds)
+  console.log("🚀 ~ file: gatsby-node.js ~ line 53 ~ exports.createPages= ~ allCategoryUnderNavigationIds", allCategoryUnderNavigationIds)
   // Create /blog/all-projects
   createPage({
     component: allDuAnTemplate,

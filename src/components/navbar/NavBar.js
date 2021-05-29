@@ -186,7 +186,7 @@ const Navbar = (props) => {
     const scrollTo = (elementId) => {
         const el = document.getElementById(elementId)
         scrollToElement(el, {
-            offset: 0,
+            offset: 200,
             ease: 'in-out-expo',
             duration: 2000
         })
@@ -210,7 +210,8 @@ const Navbar = (props) => {
 
     useEffect(() => {
         if (location && location.pathname === "/" && location.hash !== "") {
-            scrollTo(location.hash.replace('#', ""));
+            const id = location.hash.replace('#', "");
+            scrollTo(id);
         }
     }, [location])
 

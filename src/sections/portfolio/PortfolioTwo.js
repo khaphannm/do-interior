@@ -10,33 +10,40 @@ import 'slick-carousel/slick/slick-theme.css'
 import AnimatedHeading from 'components/animated-heading'
 import AnimationContainer from 'components/animation-container'
 import { secondaryMain } from '../../constants/color'
-
+import { Link } from "gatsby"
+const Section = styled.section`
+  background-color: #0b0f0d;
+  padding: 100px 0;
+  @media (max-width: 767px) {
+    padding: 50px 0;
+  }
+`
+const PortfolioContainer = styled.div`
+  .slick-slide {
+    display: block;
+    margin: 0px 0 70px 0px;
+  }
+  .slick-dots {
+    bottom: 0;
+    li button:before,.slick-dots li.slick-active button:before {
+      color: ${secondaryMain};
+    }
+  }
+}
+`
+const StyleLink = styled(Link)`
+  position: absolute;
+  right:2rem;
+  z-index:10;
+  color: #ffffff;
+  &:hover {
+      text-decoration: none;
+      color: ${secondaryMain};
+  }
+`;
 class PortfolioTwo extends React.Component {
     
     render() {
-
-        const Section = styled.section`
-          background-color: #0b0f0d;
-          padding: 100px 0;
-          @media (max-width: 767px) {
-            padding: 50px 0;
-          }
-        `
-        const PortfolioContainer = styled.div`
-            .slick-slide {
-              display: block;
-              margin: 0px 0 70px 0px;
-            }
-            .slick-dots {
-              bottom: 0;
-              li button:before,.slick-dots li.slick-active button:before {
-                color: ${secondaryMain};
-              }
-            }
-          }
-        `
-
-
         const settings = {
             dots: true,
             swipe: true,
@@ -77,11 +84,28 @@ class PortfolioTwo extends React.Component {
                   <Col md={12} style={{padding: 0}}>
                     <Container>
                       <AnimatedHeading text={`Tiêu biểu`} />
+                      <StyleLink to="/blog/all-projects">Xem tất cả</StyleLink>
                     </Container>
                     <PortfolioContainer>
                       <AnimationContainer animation="fadeIn">
                         <Slider {...settings}>
-                          {this.portfolio()}
+                            {
+                              this.props.specialPosts.edges.map((post, index) => {
+                                const linkTo = `/blog/${post.node.categoryIds.length > 0 ? post.node.categoryIds[0].slug : ""}/${post.node.slug}`;
+                        
+                                return (
+                                  <PortfolioItem 
+                                    key={post.node.id}
+                                    index={index} 
+                                    image={post.node.thumbnailImage} 
+                                    text={post.node.title} 
+                                    category={post.node.categoryIds.map(category => category.name).join(", ")}
+                                    link={linkTo}
+                                    type="slider"
+                                  />
+                                )
+                              })
+                            }
                         </Slider>
                       </AnimationContainer>
                     </PortfolioContainer>
@@ -90,25 +114,11 @@ class PortfolioTwo extends React.Component {
         )
     }
 
-  portfolio() {
-      const { specialPosts } = this.props
+  // portfolio() {
+  //     const { specialPosts } = this.props
 
-      return specialPosts.edges.map((post, index) => {
-        const linkTo = `/blog/${post.node.categoryIds.length > 0 ? post.node.categoryIds[0].slug : ""}/${post.node.slug}`;
-
-        return (
-          <PortfolioItem 
-            key={post.node.id}
-            index={index} 
-            image={post.node.thumbnailImage} 
-            text={post.node.title} 
-            category={post.node.categoryIds.map(category => category.name).join(", ")}
-            link={linkTo}
-            type="slider"
-          />
-        )
-      })
-    }
+  //     return 
+  //   }
 }
 
 export default PortfolioTwo;
