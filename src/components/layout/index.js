@@ -26,6 +26,7 @@ const sectionData = [
 class Layout extends React.Component {
 
   componentDidMount() {
+    console.log('activate language')
     dynamicActivate(defaultLocale);
   }
 
@@ -36,8 +37,8 @@ class Layout extends React.Component {
     
     return (
         <div id="main">
+          {/* <LiveChatLoaderProvider provider="messenger" providerKey={process.env.GATSBY_PAGE_ID}> */}
           <I18nProvider i18n={i18n}>
-          <LiveChatLoaderProvider provider="messenger" providerKey={process.env.GATSBY_PAGE_ID}>
             <ContextProviderComponent>
               {/* <Navbar scroll={this.props.isHome ? true : false} sections={sectionData} dynamicSections={this.props.dynamicSections} /> */}
               <Navbar sections={sectionData}/>
@@ -47,15 +48,15 @@ class Layout extends React.Component {
               </div>
               <Footer />
             </ContextProviderComponent>
-            <Messenger
-              color={secondaryMain}
+            </I18nProvider>
+            {/* <Messenger
               loggedInGreeting={process.env.GATSBY_MESSENGER_MSG_IN}
+              color={secondaryMain}
               loggedOutGreeting={process.env.GATSBY_MESSENGER_MSG_OUT}
               greetingDialogDisplay="show"
               greetingDialogDelay={parseInt(process.env.GATSBY_MESSENGER_PLUGIN_DELAY)}
-            />
-          </LiveChatLoaderProvider>
-          </I18nProvider>
+            /> */}
+          {/* </LiveChatLoaderProvider> */}
         </div>
     )
   }

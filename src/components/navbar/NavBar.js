@@ -18,6 +18,7 @@ import Dropdown, {
 import { Accordion, Card, ListGroupItem } from 'react-bootstrap';
 import {LayoutContext} from '../../context/LayoutContext';
 import { getDynamicCategory } from '../../utils/localStorage'
+import { LiveChatLoaderProvider, Messenger } from 'react-live-chat-loader'
 var scrollToElement = require('scroll-to-element')
 
 
@@ -218,6 +219,7 @@ const Navbar = (props) => {
         
     const navItems = () => {
         // Static items first
+        console.log(props)
         const listItemRendered = props.sections.map((item, index) => 
             <NavItem key={item.id} onClick={navigate(item.id)}>
                 {item.display}
@@ -256,22 +258,31 @@ const Navbar = (props) => {
     
     return (
         <NavbarWrapper className={`header${sticky === true ? ' sticky' : ''}`}>
-            <NavbarContainer>
-                <LogoWrapper className="logo">
-                    <TextLogo>DO DESIGN</TextLogo>
-                </LogoWrapper>
-                <Toggler
-                    onClick={() => collapseNav()}
-                    className="navbar-toggler navbar-toggler-right"
-                >
-                    <FontAwesomeIcon icon={faBars} className="bars" />
-                </Toggler>
-                <Nav className={`navbar navbar-expand-sm ${collapse === true ? 'expand' : 'hidden_mobile'}`}>
-                    <NavInner className={`navbar-collapse collapse ${collapse === true ? 'show' : ''}`}>
-                        <div className="navbar-nav">{navItems()}</div>
-                    </NavInner>
-                </Nav>
-            </NavbarContainer>
+            <LiveChatLoaderProvider provider="messenger" providerKey={process.env.GATSBY_PAGE_ID}>
+                <Messenger
+                loggedInGreeting={process.env.GATSBY_MESSENGER_MSG_IN}
+                color={secondaryMain}
+                loggedOutGreeting={process.env.GATSBY_MESSENGER_MSG_OUT}
+                greetingDialogDisplay="show"
+                greetingDialogDelay={parseInt(process.env.GATSBY_MESSENGER_PLUGIN_DELAY)}
+                />
+                <NavbarContainer>
+                    <LogoWrapper className="logo">
+                        <TextLogo>DO DESIGN</TextLogo>
+                    </LogoWrapper>
+                    <Toggler
+                        onClick={() => collapseNav()}
+                        className="navbar-toggler navbar-toggler-right"
+                    >
+                        <FontAwesomeIcon icon={faBars} className="bars" />
+                    </Toggler>
+                    <Nav className={`navbar navbar-expand-sm ${collapse === true ? 'expand' : 'hidden_mobile'}`}>
+                        <NavInner className={`navbar-collapse collapse ${collapse === true ? 'show' : ''}`}>
+                            <div className="navbar-nav">{navItems()}</div>
+                        </NavInner>
+                    </Nav>
+                </NavbarContainer>
+            </LiveChatLoaderProvider>
         </NavbarWrapper>
     )
 
