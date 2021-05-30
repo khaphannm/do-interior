@@ -55,7 +55,7 @@ exports.createPages = async ({graphql, actions}) => {
     const newArray = [...prev, ...current.category.map(childCategory => childCategory.id)];
     return newArray;
   }, []); 
-  console.log("🚀 ~ file: gatsby-node.js ~ line 53 ~ exports.createPages= ~ allCategoryUnderNavigationIds", allCategoryUnderNavigationIds)
+  // console.log("🚀 ~ file: gatsby-node.js ~ line 53 ~ exports.createPages= ~ allCategoryUnderNavigationIds", allCategoryUnderNavigationIds)
   // Create /blog/all-projects
   createPage({
     component: allDuAnTemplate,

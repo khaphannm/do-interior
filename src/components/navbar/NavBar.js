@@ -219,7 +219,6 @@ const Navbar = (props) => {
         
     const navItems = () => {
         // Static items first
-        console.log(props)
         const listItemRendered = props.sections.map((item, index) => 
             <NavItem key={item.id} onClick={navigate(item.id)}>
                 {item.display}
@@ -448,8 +447,6 @@ const StyleAccordion = styled(Accordion)`
     .itemName {
         margin: 0;
         text-align: center;
-        text-decoration: none;
-        color: #ffffff;
     }
     .accordion-card {
         background-color: transparent;
@@ -478,7 +475,7 @@ const AccordionDropdown = ({data, ...props}) => {
         <StyleAccordion {...props}>
             <Card className="accordion-card">
                 {/* <Card.Header className="cardHeader"> */}
-                    <Accordion.Toggle className="itemName" as={"a"} href={data.navigationTitle === 'Dự án' ? "/blog/all-projects" : ""} eventKey="0">
+                    <Accordion.Toggle className="itemName" as={"p"} eventKey="0">
                         {data.navigationTitle} ▼ 
                     </Accordion.Toggle>                        
                 {/* </Card.Header> */}
