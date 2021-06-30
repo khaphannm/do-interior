@@ -162,7 +162,7 @@ const BlogTemplate = ({data, ...props}) => {
                 <meta name="description" content={data.site.meta.description} />
             </Helmet>
             <Section>
-                <PostImageContainer img={data.contentfulBlogPost.thumbnailImage.file.url}>
+                <PostImageContainer img={data.contentfulBlogPost.thumbnailImage?.file?.url}>
                     <div className="textContainer">
                         <BlogTitle>{data.contentfulBlogPost.title}</BlogTitle>
                         <PublishDate>{data.contentfulBlogPost.publishedDate}</PublishDate>
