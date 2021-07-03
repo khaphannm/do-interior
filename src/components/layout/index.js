@@ -9,13 +9,12 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import 'scss/abstract.scss';
 import { defaultLocale, dynamicActivate } from '../../utils/i18n';
 import ContextProviderComponent from '../../context/LayoutContext';
-import { LiveChatLoaderProvider, Messenger } from 'react-live-chat-loader'
-import { secondaryMain } from '../../constants/color';
 // import MessengerCustomerChat from '../../utils/MessengerCustomerChat'
 // import { ContextProviderComponent } from "../../context/LayoutContext"
 
 const sectionData = [
   {id: 'home', display: <Trans>home</Trans>}, 
+  // About will be a post with /about slug since 20210703, so will open in new tab
   {id: 'about', display: <Trans>about</Trans>}, 
   // {id: 'services', display: <Trans>services</Trans>}, 
   {id: 'portfolio', display: <Trans>portfolio</Trans>}, 

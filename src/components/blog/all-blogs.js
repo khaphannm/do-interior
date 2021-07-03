@@ -7,7 +7,7 @@ import Helmet from 'react-helmet';
 // import Layout from 'components/layout';
 import AnimatedHeading from 'components/animated-heading';
 import PortfolioItem from 'sections/portfolio/parts/PortfolioItem.js';
-import { primaryLight, primaryMain, secondaryLight, secondaryMain } from '../../constants/color';
+import { primaryLight, primaryMain, secondaryMain } from '../../constants/color';
 // import {LayoutContext} from '../../context/LayoutContext'
 import { navigate } from "gatsby";
 

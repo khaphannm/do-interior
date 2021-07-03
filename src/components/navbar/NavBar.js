@@ -6,7 +6,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { primaryMain, primaryLight, secondaryLight, secondaryMain } from '../../constants/color'
 // import { i18n } from '@lingui/core'
 import '@trendmicro/react-dropdown/dist/react-dropdown.css';
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
 import { useLocation } from '@reach/router';
 import sizeMe from 'react-sizeme';
 import Dropdown, {
@@ -193,13 +193,13 @@ const Navbar = (props) => {
         })
     }
     // const navigate_action = useNavigate();
-    const navigate = (id) => () => {
+    const navigateByScroll = (id) => () => {
         if (location.pathname === "/") {
             scrollTo(id); 
         } else {
             // Count the slash character
-            const count = location.pathname.split('/').length - 1;
-            // Dựa theo số lượng slash, sẽ biết đường dẫn đang ở mấy cấp, dựa vào đó để trở về lại trang chủ, bằng cách nối (n-1() lần "../"  
+            const count = location.pathname.split('/').length
+            // Dựa theo số lượng slash, sẽ biết đường dẫn đang ở mấy cấp, dựa vào đó để trở về lại trang chủ, bằng cách nối count lần "../"  
             let href = "";
             for (let index = 1; index < count; index++) {
                href += "../"
@@ -220,7 +220,7 @@ const Navbar = (props) => {
     const navItems = () => {
         // Static items first
         const listItemRendered = props.sections.map((item, index) => 
-            <NavItem key={item.id} onClick={navigate(item.id)}>
+            <NavItem key={item.id} onClick={item.id === 'about' ? () => navigate("/about") : navigateByScroll(item.id)}>
                 {item.display}
             </NavItem>
         );
