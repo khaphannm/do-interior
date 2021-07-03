@@ -152,7 +152,7 @@ exports.createPages = async ({ graphql, actions }) => {
 	} 
   `)
 	// Extract About post id
-	const aboutPostID = AboutPostData.data.allContentfulBlogPost.edges[0]?.node?.id;
+	const aboutPostID = AboutPostData.data.allContentfulBlogPost.edges[0].node.id;
 
 	createPage({
 		component: specificBlogTemplate,
