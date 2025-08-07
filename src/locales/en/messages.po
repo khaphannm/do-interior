@@ -85,23 +85,23 @@ msgstr "Construction"
 #~ msgid "Years of Experience"
 #~ msgstr ""
 
-#: src/components/layout/index.js:19
+#: src/components/layout/index.js:18
 msgid "about"
 msgstr ""
 
-#: src/components/layout/index.js:24
+#: src/components/layout/index.js:23
 msgid "contact"
 msgstr ""
 
-#: src/components/layout/index.js:18
+#: src/components/layout/index.js:16
 msgid "home"
 msgstr ""
 
-#: src/components/layout/index.js:21
+#: src/components/layout/index.js:20
 msgid "portfolio"
 msgstr ""
 
-#: src/components/layout/index.js:23
+#: src/components/layout/index.js:22
 msgid "pricing"
 msgstr ""
 

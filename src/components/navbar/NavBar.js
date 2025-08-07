@@ -267,7 +267,7 @@ const Navbar = (props) => {
                 />
                 <NavbarContainer>
                     <LogoWrapper className="logo">
-                        <TextLogo>DO DESIGN</TextLogo>
+                        <TextLogo>AN GIA PHAT</TextLogo>
                     </LogoWrapper>
                     <Toggler
                         onClick={() => collapseNav()}

@@ -121,7 +121,7 @@ class ContactCreative extends React.Component {
                           }}
                           >
                             <Marker onClick={this.onMarkerClick}
-                              name={'Do design'} />
+                              name={'AN GIA PHAT'} />
                             {/* <InfoWindow onClose={this.onInfoWindowClose}>
                                 <div>
                                   <h1>{this.state.selectedPlace.name}</h1>
@@ -162,8 +162,8 @@ class ContactCreative extends React.Component {
                                 <Trans>Điện thoại</Trans>
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink href="tel:+(84)945-076-768">
-                                  (84) 945076768
+                                <InfoLink href="tel:+(84)865-294-939">
+                                  0865 29 49 39 - 0786 19 29 39
                                 </InfoLink>
                               </InfoLinkContainer>
                             </Info>
@@ -181,8 +181,8 @@ class ContactCreative extends React.Component {
                                 <Trans>Địa chỉ</Trans>
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink target="_blank" href="https://goo.gl/maps/nz7N4RuXXSQWUocS8">
-                                  139 đường số 30, phường An Khánh, Quận Ninh Kiều, Cần thơ, Việt nam
+                                <InfoLink target="_blank" href="https://maps.app.goo.gl/1WSeBKQJCfBXVF459">
+                                  PC61, PC62 Võ Văn Kiệt, phường Phú Thuỷ, Tỉnh Lâm Đồng
                                 </InfoLink>
                               </InfoLinkContainer>
                             </Info>

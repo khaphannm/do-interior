@@ -1,6 +1,6 @@
 {
   "name": "do-interior",
-  "description": "Do interior ",
+  "description": "AN GIA PHAT ",
   "version": "1.0.0",
   "author": "Minh Kha",
   "private": true,
@@ -93,7 +93,7 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
-    "develop": "env-cmd gatsby develop",
+    "develop": "env-cmd -f .env.development gatsby develop",
     "publish-please": "publish-please",
     "prepublishOnly": "publish-please guard",
     "extract": "lingui extract",

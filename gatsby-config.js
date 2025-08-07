@@ -3,9 +3,9 @@ require("dotenv").config({
 });
 module.exports = {
   siteMetadata: {
-    title: 'Dodesign - Kiến trúc, nội thất và xây dựng',
+    title: 'AN GIA PHAT - Kiến trúc, nội thất và xây dựng',
     description:
-      'Dodesign là sự lựa chọn hàng đầu trong lĩnh vực thiết kế thi công kiến trúc, nội thất và xây dựng.',
+      'AN GIA PHAT là sự lựa chọn hàng đầu trong lĩnh vực thiết kế thi công kiến trúc, nội thất và xây dựng.',
   },
   pathPrefix: '/',
   plugins: [
