@@ -116,8 +116,8 @@ class ContactCreative extends React.Component {
                           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31429.559203594734!2d105.73072353063965!3d10.042015803758332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0886be6036a11%3A0xd38a4c0e493a689c!2zMTM5IMSQxrDhu51uZyBz4buRIDMwLCBQaMaw4budbmcgQW4gS2jDoW5oLCBOaW5oIEtp4buBdSwgQ-G6p24gVGjGoSwgVmlldG5hbQ!5e0!3m2!1sen!2sus!4v1614700386230!5m2!1sen!2sus"/> */}
                           <GoogleMap google={this.props.google} zoom={14} 
                            initialCenter={{
-                            lat: 10.038797436522938,
-                            lng: 105.75326236849821
+                            lat: 10.940791906028752,
+                            lng: 108.12159872797498
                           }}
                           >
                             <Marker onClick={this.onMarkerClick}
@@ -181,7 +181,7 @@ class ContactCreative extends React.Component {
                                 <Trans>Địa chỉ</Trans>
                               </InfoTitle>
                               <InfoLinkContainer>
-                                <InfoLink target="_blank" href="https://maps.app.goo.gl/1WSeBKQJCfBXVF459">
+                                <InfoLink target="_blank" href="https://maps.app.goo.gl/zr2C5VqCKKPzgST58">
                                   PC61, PC62 Võ Văn Kiệt, phường Phú Thuỷ, Tỉnh Lâm Đồng
                                 </InfoLink>
                               </InfoLinkContainer>
