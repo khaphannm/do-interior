@@ -1,0 +1,6 @@
+# Example netlify.toml
+[build]
+  # This should be your build command, NOT the install command.
+  # Netlify handles installation automatically before this runs.
+  command = "npm ci && npm run build"
+  publish = "build"
