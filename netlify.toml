@@ -1,6 +1,6 @@
-# Example netlify.toml
-[build]
-  # This should be your build command, NOT the install command.
-  # Netlify handles installation automatically before this runs.
-  command = "npm ci && npm run build"
-  publish = "build"
+# In your netlify.toml file
+
+[build.lifecycle]
+  # This command will run during the dependency installation step.
+  # It overrides Netlify's automatic command.
+  on-install = "npm ci"
